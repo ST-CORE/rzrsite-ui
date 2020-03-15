@@ -3,6 +3,7 @@ Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
+package-lock.json
 
 # Dump file
 *.stackdump
@@ -32,8 +33,7 @@ $RECYCLE.BIN/
 *.code-workspace
 
 # Dependency directories
-node_modules\*
-node_modules\
+node_modules
 
 # TypeScript cache
 *.tsbuildinfo
