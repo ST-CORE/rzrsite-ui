@@ -1,10 +1,23 @@
-import * as React from "react"
+import * as React from 'react'
 import { Component } from 'react'
-import { render } from 'react-dom'
 import './index.scss'
+import ReactDOM from 'react-dom';
 
 
-function Button(props) {
+
+interface HelloProps {
+  compiler: string;
+  framework: string;
+}
+
+class HelloWorld extends Component<HelloProps, {}> {
+  
+  render() {
+    return (<h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>)
+}
+}
+
+function Button(props: any) {
     const handleClick = () => props.onClickFunction(props.increment);
       return (
         <button onClick={handleClick}>
@@ -13,35 +26,31 @@ function Button(props) {
     );
   }
   
-  function Display(props) {
-      return (
-        <div className="result">{props.message}</div>
+  const Display = (props: any) : JSX.Element => {
+        return ( 
+          <div className="result">{props.message}</div>
+        )
   }
   
   function App() {
       const [counter, setCounter] = React.useState(0);
+      const incrementCounter = (incrementValue: number) => setCounter(counter+incrementValue);
+
+    return (
+      <div>
+        <HelloWorld compiler="TypeScript" framework="React" />
         <Button onClickFunction={incrementCounter} increment={1} />
         <Button onClickFunction={incrementCounter} increment={5} />
         <Button onClickFunction={incrementCounter} increment={10} />
         <Button onClickFunction={incrementCounter} increment={100} />
-        <p><Display message={counter}/></p>
+        <Display message={counter} />
       </div>  
     );
   }
 
 
-  interface HelloProps {
-    compiler: string;
-    framework: string;
-  }
-
-class HelloWorld extends Component<HelloProps> {
-  render() {
-    return (<h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>)
-  }
-}
 
 
 
 
-render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
