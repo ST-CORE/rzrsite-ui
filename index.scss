@@ -1,0 +1,17 @@
+$mainColor: blueviolet;
+
+.root {
+    font-family: monospace;
+    color: $mainColor;
+}
+
+.result {
+    border: 2px solid $mainColor;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px;
+    font-size: larger;
+    min-width: 40px;
+    text-align: center;
+}
+
