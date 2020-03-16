@@ -1,6 +1,7 @@
 {
     "env": {
-        "es6": true
+        "es6": true,
+        "browser": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -23,5 +24,13 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "linebreak-style": "off",
+        "no-multiple-empty-lines": "warn",
+        "no-trailing-spaces": ["warn", { 
+            "ignoreComments": true,
+            "skipBlankLines": true 
+            }],
+        "react/jsx-filename-extension": "off",
+        "react/jsx-one-expression-per-line": "warn"
     }
 }
