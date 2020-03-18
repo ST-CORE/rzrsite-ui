@@ -6,7 +6,7 @@ function Header() {
   return (
     <div>
       <SmallHeader />
-      <NavHeader />
+      <NavHeader darkTheme={false} />
     </div>
   );
 }

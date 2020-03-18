@@ -1,9 +1,17 @@
 import * as React from 'react';
 import Logo from '../shared/logo';
 
-function NavHeader() {
+interface HeaderProps {
+  darkTheme: boolean
+}
+
+function NavHeader({ darkTheme }: HeaderProps) {
+  let className: string = 'my-nav-header container-fluid text-uppercase';
+  if (darkTheme) {
+    className += ' bg-dark';
+  }
   return (
-    <div className="my-nav-header container-fluid text-uppercase">
+    <div className={className}>
       <nav className="nav">
         <Logo />
         <a className="nav-link" href=" ">Продукция</a>
