@@ -3,15 +3,13 @@ import Logo from '../shared/logo';
 
 function NavHeader() {
   return (
-    <div>
-      <Logo />
-      <nav>
-        <ul>
-          <li>Продукция</li>
-          <li>Доставка</li>
-          <li>О компании</li>
-          <li>Контакты</li>
-        </ul>
+    <div className="my-nav-header container-fluid text-uppercase">
+      <nav className="nav">
+        <Logo />
+        <a className="nav-link" href=" ">Продукция</a>
+        <a className="nav-link" href=" ">Доставка</a>
+        <a className="nav-link" href=" ">О компании</a>
+        <a className="nav-link" href=" ">Контакты</a>
       </nav>
     </div>
   );

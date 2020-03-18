@@ -1,3 +1,23 @@
+/*DEVELOPE*/
+
+.my-nav-header * {
+  border: 1px solid;
+}
+
+
+/* $theme-colors: (
+  "primary": #A9A6A6,
+); */
+
+$sizes: (
+  16: 16%
+);
+
+$body-bg: #A9A6A6;
+$body-color: #ffffff;
+$link-color: #ffffff;
+
+
 // Required
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";

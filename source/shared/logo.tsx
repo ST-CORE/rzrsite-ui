@@ -1,8 +1,9 @@
 import * as React from 'react';
+import image from '../../images/false-logo.png';
 
 function Logo() {
   return (
-    <img src="" alt="логотип Резер" />
+    <img src={image} alt="логотип Резер" className="w-16" />
   );
 }
 
