@@ -31,6 +31,8 @@
             "skipBlankLines": true 
             }],
         "react/jsx-filename-extension": "off",
-        "react/jsx-one-expression-per-line": "warn"
+        "react/jsx-one-expression-per-line": "warn",
+        "import/no-unresolved": "off",
+        "import/extensions": "off"
     }
 }
