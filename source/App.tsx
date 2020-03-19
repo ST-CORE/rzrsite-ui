@@ -1,16 +1,14 @@
 import * as React from 'react';
 import Header from './header/header';
 
-function App() {
-  return (
+const App = () => (
+  <div>
+    <Header />
     <div>
-      <Header />
-      <div>
-        Hello World from App!
-        Here is main content
-      </div>
+      Hello World from App!
+      Here is main content
     </div>
-  );
-}
+  </div>
+);
 
 export default App;

@@ -1,14 +1,12 @@
 import * as React from 'react';
-import SmallHeader from './call-me-header';
+import PhoneHeader from './phone-header';
 import NavHeader from './nav-header';
 
-function Header() {
-  return (
-    <div>
-      <SmallHeader />
-      <NavHeader darkTheme={false} />
-    </div>
-  );
-}
+const Header = () => (
+  <div>
+    <PhoneHeader />
+    <NavHeader darkTheme={false} />
+  </div>
+);
 
 export default Header;

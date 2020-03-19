@@ -5,7 +5,7 @@ interface HeaderProps {
   darkTheme: boolean
 }
 
-function NavHeader({ darkTheme }: HeaderProps) {
+const NavHeader = ({ darkTheme }: HeaderProps) => {
   let className: string = 'my-nav-header container-fluid text-uppercase';
   if (darkTheme) {
     className += ' bg-dark';
@@ -21,6 +21,6 @@ function NavHeader({ darkTheme }: HeaderProps) {
       </nav>
     </div>
   );
-}
+};
 
 export default NavHeader;
