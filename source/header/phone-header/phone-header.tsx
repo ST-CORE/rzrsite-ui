@@ -15,7 +15,7 @@ const PhoneHeader = ({ lightTheme }: PhoneHeaderProps) => {
   return (
     <div className={className}>
       <span>Есть вопросы? Звоните</span>
-      <PhoneNumber place="header" />
+      <PhoneNumber />
       <CallMeButton />
     </div>
   );
