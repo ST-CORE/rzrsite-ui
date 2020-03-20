@@ -1,0 +1,15 @@
+@import "./reset.css";
+
+$blue: #30A2DE;
+
+body {
+  color: #FFFFFF;
+  background-color: #949597;
+  font-family: "Roboto", sans-serif;
+
+  #root {
+    max-width: 1430px;
+    margin: auto;
+    background-color: #202020;
+  }
+}

@@ -1,0 +1,43 @@
+.nav-header {
+  background-color: #151515;
+  min-height: 123px;
+  display: flex;
+  align-items: center;
+  padding: 0 60px 0;
+
+  .logo {
+    flex-shrink: 0;
+    margin-right: 38px; //изменить, когда добавится другой логотип
+  }
+
+  nav {
+    min-height: 25px;
+    text-transform: uppercase;
+
+    a {
+      padding: 0 21px 0;
+      white-space: nowrap;
+    }
+
+    a:visited { 
+      color: white;
+    }
+
+    a:hover {
+      //text-decoration: underline;
+      text-decoration-color: #30A2DE;
+    }
+
+    a:active {
+      color: #30A2DE;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+  }
+}
+
+.nav-header[class~="light-theme"] {
+  background-color: #949597;
+}
