@@ -3,7 +3,7 @@ import Header from './header/header';
 
 const App = () => (
   <div>
-    <Header />
+    <Header lightTheme={false} />
     <div>
       Hello World from App!
       Here is main content

@@ -1,0 +1,35 @@
+.phone-header {
+  background: #000000;
+  text-align: right;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+//при включении светлой темы цвет текста (кроме текста кнопки) становится прозрачнее
+.phone-header[class~="light-theme"] {
+    span, .header_phone-number { 
+    mix-blend-mode: normal;
+    color: rgba(255, 255, 255, 0.79);
+  }
+}
+
+.blue-square-button {
+  border: none;
+  border-top: 1px solid #30A2DE;
+  padding: 5px 36px 10px;
+  background: linear-gradient(180deg, #30A2DE 0%, #1472A3 97.54%);
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.header_phone-number {
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 25px 7px 20px;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+}
