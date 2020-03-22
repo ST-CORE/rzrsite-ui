@@ -16,10 +16,10 @@ const NavHeader = ({ lightTheme }: NavHeaderProps) => {
     <div className={className}>
       <Logo />
       <nav>
-        <a href=" ">Продукция</a>
-        <a href=" ">Доставка</a>
-        <a href=" ">О компании</a>
-        <a href=" ">Контакты</a>
+        <a href=" "><span className="underline-active">Продукция</span></a>
+        <a href=" "><span className="underline-active">Доставка</span></a>
+        <a href=" "><span className="underline-active">О компании</span></a>
+        <a href=" "><span className="underline-active">Контакты</span></a>
       </nav>
       <div className="fixer" />
     </div>
