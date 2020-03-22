@@ -15,10 +15,12 @@
 }
 
 //при включении светлой темы цвет текста (кроме текста кнопки) становится прозрачнее
-.phone-header[class~="light-theme"] {
+.phone-header {
+  &.light-theme {
     span, .phone-number { 
     mix-blend-mode: normal;
     color: rgba(255, 255, 255, 0.79);
+    }
   }
 }
 
