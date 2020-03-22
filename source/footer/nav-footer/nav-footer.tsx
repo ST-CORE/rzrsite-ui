@@ -1,12 +1,15 @@
 import * as React from 'react';
 import './nav-footer.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
+import Button from '../../shared/button/button';
 
 export default () => (
   <div className="nav-footer">
     <div className="container">
       <div className="contact-block">
         <PhoneNumber />
+        <Button buttonText="Заказать звонок!" clickHandler="" />
+
       </div>
       <div className="menu">
         <span>Продукция:</span>
