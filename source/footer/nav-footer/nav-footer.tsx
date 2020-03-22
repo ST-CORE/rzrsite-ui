@@ -8,7 +8,7 @@ export default () => (
     <div className="container">
       <div className="contact-block">
         <PhoneNumber />
-        <Button buttonText="Заказать звонок!" clickHandler="" />
+        <Button label="Заказать звонок!" clickHandler="" />
 
       </div>
       <div className="menu">

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import './footer-desclaim.scss';
+import './footer-disclaimer.scss';
 
 export default () => (
-  <div className="footer-desclaim">
+  <div className="footer-disclaimer">
     <div className="container">
       Rezer 2020 Все права защищены.
     </div>
