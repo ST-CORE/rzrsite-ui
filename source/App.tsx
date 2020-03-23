@@ -4,7 +4,6 @@ import {
 } from 'react-router-dom';
 import Header from './header/header';
 import Footer from './footer/footer';
-
 import Delivery from './delivery';
 import Products from './products';
 
