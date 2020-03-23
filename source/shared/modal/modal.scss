@@ -1,19 +1,29 @@
 .modal {
-  position: absolute;
-  left: 35%;
-  top: 10%;
-  z-index: 1;
   min-width: 400px;
   min-height: 500px;
-  border: 2px solid black;
-  background-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 2px;
   
-  > .close {
+  .modal-header {
+    height: 50px;
+    padding: 5px;
+    
+    .close {
     display: float;
     float: right;
+    background-color: transparent;
+    font-size: 30px;
+    color: #eeeeee;
+    border: none;
+    }
   }
   
   .modal-content {
     margin: auto;
+    
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
   }
 }
