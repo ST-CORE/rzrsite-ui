@@ -5,7 +5,6 @@ import * as V from '../../variables';
 
 export default () => (
   <div className="call-me-form" tabIndex={-1} role="dialog">
-
     <form action="" method="" name="callMeForm">
       <fieldset>
         <legend>
@@ -18,7 +17,6 @@ export default () => (
           <label htmlFor="tel">Телефон:</label>
           <input type="tel" id="tel" name="tel" required placeholder="+7-999-000-00-00" />
           <Button label="Позвоните мне!" buttonClassName={V.longCallmeButton} clickHandler="" />
-          
         </div>
       </fieldset>
     </form>
