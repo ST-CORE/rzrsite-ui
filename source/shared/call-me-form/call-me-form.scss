@@ -1,12 +1,8 @@
 .call-me-form {
-  width: 250px;
+  width: 300px;
+  text-align: left;
   
-  .fieldset {
-    display: block;
-    border: white;
-  } 
-  
-  h2 {
+  legend {
     font-weight: bold;
     font-size: 24px;
     line-height: 45px;

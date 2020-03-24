@@ -1,9 +1,11 @@
 import * as React from 'react';
 
-const CallMeBtn = () => (
-  <button type="button" className="blue-square-button">
+interface CallMeBtnProps {
+  clickHandler: any;
+}
+
+export default ({ clickHandler }: CallMeBtnProps) => (
+  <button type="button" className="blue-square-button" onClick={clickHandler}>
     Позвоните мне!
   </button>
 );
-
-export default CallMeBtn;
