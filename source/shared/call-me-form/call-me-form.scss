@@ -1,0 +1,45 @@
+.call-me-form {
+  width: 250px;
+  
+  .fieldset {
+    display: block;
+    border: white;
+  } 
+  
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 45px;
+  }
+
+  span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  label {
+    display: none;
+  }
+  
+  input {
+    display: block;
+    width: 260px;
+    height: 34px;
+    padding: 8px 12px;
+    margin-top: 14px;
+    
+    background-color: rgba(66, 66, 66, 0.7);
+    border: 1px solid #acabab;
+    box-sizing: border-box;
+    border-radius: 17px; 
+    
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .long-button {
+    margin-top: 16px;
+  }
+}
