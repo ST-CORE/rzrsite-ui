@@ -2,10 +2,10 @@ import * as React from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
-import Header from './header/header';
-import Footer from './footer/footer';
-import Delivery from './delivery';
-import Products from './products';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import Delivery from './components/delivery/delivery';
+import Products from './components/products/products';
 
 export default () => (
   <Router>
