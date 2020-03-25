@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { CSSTransition } from 'react-transition-group';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import CallMeButton from './call-me-btn/call-me-btn';
 import './phone-header.scss';
@@ -11,8 +10,8 @@ interface PhoneHeaderProps {
 }
 
 export default ({ lightTheme }: PhoneHeaderProps) => {
-  const [modal, toggleModal] = React.useState(false);
-  const switchModal = () => toggleModal(!modal);
+  const [modalState, toggleModal] = React.useState(false);
+  const switchModal = () => toggleModal(!modalState);
   
   let className: string = 'phone-header';
   if (lightTheme) {
@@ -24,11 +23,9 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
       <PhoneNumber />
       <CallMeButton clickHandler={switchModal} />
       
-      <CSSTransition in={modal} timeout={{ enter: 400, exit: 150 }} classNames="popUp" unmountOnExit>
-        <Modal closeModal={switchModal}>
-          <CallMeForm />
-        </Modal>
-      </CSSTransition>
+      <Modal modalState={modalState} closeModal={switchModal}>
+        <CallMeForm />
+      </Modal>
       
     </div>
   );

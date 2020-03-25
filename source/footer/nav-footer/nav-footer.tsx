@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
 import './nav-footer.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import Button from '../../shared/button/button';
@@ -8,8 +7,8 @@ import Modal from '../../shared/modal/modal';
 import CallMeForm from '../../shared/call-me-form/call-me-form';
 
 export default () => {
-  const [modal, toggleModal] = React.useState(false);
-  const switchModal = () => toggleModal(!modal);
+  const [modalState, toggleModal] = React.useState(false);
+  const switchModal = () => toggleModal(!modalState);
   
   return (
     <div className="nav-footer">
@@ -18,11 +17,9 @@ export default () => {
           <PhoneNumber />
           <Button label="Заказать звонок!" clickHandler={switchModal} />
           
-          <CSSTransition in={modal} timeout={{ enter: 400, exit: 150 }} classNames="popUp" unmountOnExit>
-            <Modal closeModal={switchModal}>
-              <CallMeForm />
-            </Modal>
-          </CSSTransition>
+          <Modal modalState={modalState} closeModal={switchModal}>
+            <CallMeForm />
+          </Modal>
           
         </div>
         <div className="menu">
