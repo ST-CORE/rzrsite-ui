@@ -40,7 +40,7 @@
       }
     }
 
-    a:hover, a:focus {
+    a:hover, a:focus, a.selected {
       .underline {
         border: none;
       }

@@ -1,13 +1,13 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
-
 
 interface NavHeaderProps {
   lightTheme: boolean
 }
 
-const NavHeader = ({ lightTheme }: NavHeaderProps) => {
+export default ({ lightTheme }: NavHeaderProps) => {
   let className: string = 'nav-header';
   if (lightTheme) {
     className += ' light-theme';
@@ -16,14 +16,12 @@ const NavHeader = ({ lightTheme }: NavHeaderProps) => {
     <div className={className}>
       <Logo />
       <nav>
-        <a href=" "><span className="underline-active">Продукция</span></a>
-        <a href=" "><span className="underline-active">Доставка</span></a>
-        <a href=" "><span className="underline-active">О компании</span></a>
-        <a href=" "><span className="underline-active">Контакты</span></a>
+        <NavLink to="/products" activeClassName="selected">Продукция</NavLink>
+        <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>
+        <NavLink to="/about" activeClassName="selected">О компании</NavLink>
+        <NavLink to="/contacts" activeClassName="selected">Контакты</NavLink>
       </nav>
       <div className="fixer" />
     </div>
   );
 };
-
-export default NavHeader;
