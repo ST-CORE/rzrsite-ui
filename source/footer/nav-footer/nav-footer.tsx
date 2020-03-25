@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import './nav-footer.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import Button from '../../shared/button/button';
@@ -13,14 +14,13 @@ export default () => (
       </div>
       <div className="menu">
         <span>Продукция:</span>
-        <a href=" "><span className="underline">Котлы</span></a>
-        <a href=" "><span className="underline">Дробилки</span></a>
-        <a href=" "><span className="underline">Гидроразделители</span></a>
+        <NavLink to="/products/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
+        <NavLink to="/products/crusher" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
       </div>
       <div className="menu">
         <span>О компании:</span>
-        <a href=" "><span className="underline">Доставка</span></a>
-        <a href=" "><span className="underline">Контакты</span></a>
+        <NavLink to="/delivery" activeClassName="selected"><span className="underline">Доставка</span></NavLink>
+        <NavLink to="/contacts" activeClassName="selected"><span className="underline">Контакты</span></NavLink>
       </div>
     </div>
   </div>
