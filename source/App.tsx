@@ -8,7 +8,6 @@ import Footer from './footer/footer';
 import Delivery from './delivery';
 import Products from './products';
 
-
 export default () => (
   <Router>
     <Header lightTheme={false} />
