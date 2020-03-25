@@ -19,3 +19,32 @@ body {
     }
   }
 }
+
+//CSS Transition classNames: popUp
+//ИМЕННО В ТАКОМ ПОРЯДКЕ!
+
+.popUp-enter {
+  opacity: 0;
+}
+
+.popUp-enter-active { 
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.popUp-exit {
+  opacity: 1;
+}
+
+.popUp-exit-active {
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.popUp-enter-done, .popUp-enter, .popUp-exit, .popUp-enter-active, .popUp-exit-active {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  z-index: 1;
+  transform: translateX(-50%);
+}

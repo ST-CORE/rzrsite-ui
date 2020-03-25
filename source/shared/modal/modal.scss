@@ -1,0 +1,29 @@
+.modal {
+  min-width: 300px;
+  min-height: 350px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 2px;
+  
+  .modal-header {
+    height: 20px;
+    padding: 5px;
+    
+    .close {
+    display: float;
+    float: right;
+    background-color: transparent;
+    font-size: 30px;
+    color: #eeeeee;
+    border: none;
+    }
+  }
+  
+  .modal-content {
+    margin: auto;
+    padding: 31px;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
