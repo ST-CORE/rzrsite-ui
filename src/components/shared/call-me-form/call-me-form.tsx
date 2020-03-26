@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './call-me-form.scss';
 import Button from '../button/button';
-import * as V from '../../variables';
+import * as buttonTypes from '../../../consts/button-types';
 
 export default () => (
   <div className="call-me-form" tabIndex={-1} role="dialog">
@@ -16,7 +16,7 @@ export default () => (
           <input type="text" id="name" name="name" placeholder="Имя" />
           <label htmlFor="tel">Телефон:</label>
           <input type="tel" id="tel" name="tel" required placeholder="+7-999-000-00-00" />
-          <Button label="Позвоните мне!" buttonClassName={V.longCallmeButton} clickHandler="" />
+          <Button label="Позвоните мне!" className={buttonTypes.longCallmeButton} clickHandler="" />
         </div>
       </fieldset>
     </form>
