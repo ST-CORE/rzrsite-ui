@@ -6,12 +6,16 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Delivery from './components/delivery/delivery';
 import Products from './components/products/products';
+import Showcase from './components/showcase/showcase';
 
 export default () => (
   <Router>
-    <Header lightTheme={false} />
+    <Header lightTheme />
     
     <Switch>
+      <Route path="/">
+        <Showcase />
+      </Route>
       <Route exact path="/products">
         <Products />
       </Route>
