@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import * as React from 'react';
 import Boiler from './views/boiler';
 import Crusher from './views/crusher';
@@ -10,19 +9,25 @@ import './showcase.scss';
 export default () => {
   const [machine, setMachine] = React.useState('crusher');
   const [transitioning, setTransitioning] = React.useState(false);
-  // eslint-disable-next-line no-console
+  const switchShowcase = (showcaseName: string) => {
+    setMachine(showcaseName);
+    setTransitioning(true);
+  };
+  const classActiveLink = `${buttonClassName.showcaseLink} showcase-link-active`;
+  const boilerButtonClass: string = machine === 'boiler' ? classActiveLink : buttonClassName.showcaseLink;
+  const crusherButtonClass: string = machine === 'crusher' ? classActiveLink : buttonClassName.showcaseLink;
   
   return (
     <div className="showcase">
-      <ShowcaseItem displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => { setTransitioning(false); }}>
+      <ShowcaseItem displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
         <Boiler />
       </ShowcaseItem>
-      <ShowcaseItem displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => { setTransitioning(false); }}>
+      <ShowcaseItem displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => setTransitioning(false)}>
         <Crusher />
       </ShowcaseItem>
       <div className="showcase-menu">
-        <Button label="Котлы отопления" clickHandler={() => { setMachine('boiler'); setTransitioning(true); }} className={buttonClassName.showcaseLink} />
-        <Button label="Дробилки угля" clickHandler={() => { setMachine('crusher'); setTransitioning(true); }} className={buttonClassName.showcaseLink} />
+        <Button label="Котлы отопления" clickHandler={() => switchShowcase('boiler')} className={boilerButtonClass} />
+        <Button label="Дробилки угля" clickHandler={() => switchShowcase('crusher')} className={crusherButtonClass} />
       </div>
     </div>
   );

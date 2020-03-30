@@ -1,0 +1,24 @@
+.showcase-item {
+  background-image: url('../../../images/showcase/resize-Fit40.jpg');
+  background-repeat: no-repeat;
+  background-position: -300px 0;
+  
+  .showcase-item-description {
+    .advantages ul {
+      li:first-of-type::before {
+        background-image: url("../../../images/showcase/Group8.svg");
+        background-size: contain;
+      }
+      
+      li:nth-of-type(2)::before {
+        background-image: url("../../../images/showcase/Group10.svg");
+        background-size: cover;      
+      }
+      
+      li:last-of-type::before {
+        background-image: url("../../../images/showcase/Group11.svg");
+        background-size: cover;
+      }
+    }
+  }
+}

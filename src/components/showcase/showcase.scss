@@ -3,64 +3,37 @@
   height: 625px;
   width: 100%;
   background-color: #949597;
-}
 
-.showcase-menu {  
-  height: 40px;
-  box-sizing: border-box;
-  background-color: #a0a1a2;
-  border-bottom: 1px dashed #FFFFFF;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  
-  .showcase-link {
-    margin: 5px 150px 0;
-  } 
-  
-  .showcase-link::after {
-    display: block;
+  .showcase-menu {  
+    height: 40px;
     box-sizing: border-box;
-    position: relative;
-    top: 7px;
-    left: 45%;
-    content: "";
-    height: 9px;
-    width: 9px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background-color: #202020;
+    background-color: #a0a1a2;
+    border-bottom: 1px dashed #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    .showcase-link {
+      margin: 5px 150px 0;
+    } 
+    
+    .showcase-link::after {
+      display: block;
+      box-sizing: border-box;
+      position: relative;
+      top: 7px;
+      left: 45%;
+      content: "";
+      height: 9px;
+      width: 9px;
+      border: 1px solid white;
+      border-radius: 50%;
+      background-color: #202020;
+    }
+    
+    .showcase-link-active::after {
+      background: #30A2DE;
+      border: 1px solid #30A2DE;
+    }
   }
-  
-  //эффект после нажатия, не доработан!
-  .showcase-link-active::after {
-    background: #30A2DE;
-    border: 1px solid #30A2DE;
-  }
 }
-
-
-/*CSSTransition*/
-
-.slider-enter {
-  opacity: 0;
-}
-
-.slider-enter-active { 
-  opacity: 1;
-  transition: opacity 10000ms;
-}
-
-.slider-exit {
-  opacity: 1;
-/*  position: absolute;
-  z-index: -1; */
-}
-
-.slider-exit-active {
-  opacity: 0;
-/*  position: absolute;
-  z-index: -1; */
-  transition: opacity 10000ms;
-}
-

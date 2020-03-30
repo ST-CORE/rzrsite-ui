@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './boiler.scss';
 
 export default () => (
   <div className="showcase-item">
@@ -7,21 +8,26 @@ export default () => (
       <div className="advantages">
         <ul>
           <li>
-            Высокая эффективность
-          </li>
-          <li>
-            Лёгкость обслуживания
+            Высокая эффективность.
+            <br />
+            (КПД 85-90%)
           </li>
           <li>
             Полная автономность
+            <br />
+            котла
+          </li>
+          <li>
+            Легкость
+            <br />
+            обслуживания
           </li>
         </ul>
       </div>
       <div className="to-catalog">
         <ul>
-          <li><a href=" ">Линейка Fit 20 - 70</a></li>
-          <li><a href=" ">Линейка Fit 20 - 70</a></li>
-          <li><a href=" ">Линейка Fit 20 - 70</a></li>
+          <li><a href=" ">Линейка Fit</a></li>
+          <li><a href=" ">Линейка Maxi</a></li>
         </ul>
         <a href=" " className="to-catalog-button">Перейти в каталог</a>
       </div>
