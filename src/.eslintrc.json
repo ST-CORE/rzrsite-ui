@@ -21,7 +21,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react-hooks"
     ],
     "rules": {
         "linebreak-style": "off",
@@ -33,6 +34,8 @@
         "react/jsx-filename-extension": "off",
         "react/jsx-one-expression-per-line": "warn",
         "import/no-unresolved": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

@@ -1,0 +1,35 @@
+import * as React from 'react';
+import './crusher.scss';
+
+export default () => (
+  <div className="showcase-item">
+    <div className="showcase-item-description">
+      <h2>Дробилки угля автоматические Rezer</h2>
+      <div className="advantages">
+        <ul>
+          <li>
+            Надёжность.
+            <br />
+            Регулируемая система &quot;Антиклин&quot;
+          </li>
+          <li>
+            Лёгкая эксплуатация.
+            <br />
+            Необходим один оператор
+          </li>
+          <li>
+            Мобильность.
+            <br />
+            Возможность установки в любом месте
+          </li>
+        </ul>
+      </div>
+      <div className="to-catalog">
+        <ul>
+          <li><a href=" ">Линейка DC-2</a></li>
+        </ul>
+        <a href=" " className="to-catalog-button">Перейти в каталог</a>
+      </div>
+    </div>
+  </div>
+);

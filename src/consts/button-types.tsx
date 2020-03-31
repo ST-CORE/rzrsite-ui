@@ -1,5 +1,5 @@
-// классы для стилей кнопок: buttonClassName
+// classNames for button styles: buttonClassName
 
-export const toBasketButton: string = 'blue-button'; // кнопка с синим фономб круглой рамкой
-export const longCallmeButton: string = 'long-button'; // длинная кнопка из формы контактов с синим фоном и круглой рамкой
-export const squareUppcaseButton: string = 'square-button'; // большая прямоугольная кнопка (скругление 5px) с прозрачным фоном, текст uppercase
+export const toBasketButton: string = 'blue-button'; // button with blue bgcolor and rounded border 
+export const longCallmeButton: string = 'long-button'; // loong botton within contact form, blue bgcolor and rounded border
+export const showcaseLink: string = 'showcase-link'; // buttons that looks like links on Homepage, for switching Showcase 
