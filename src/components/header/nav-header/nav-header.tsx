@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
 
@@ -14,7 +14,9 @@ export default ({ lightTheme }: NavHeaderProps) => {
   }
   return (
     <div className={className}>
-      <Logo />
+      <Link to="/" className="logo">
+        <Logo />
+      </Link>
       <nav>
         <NavLink to="/products" activeClassName="selected">Продукция</NavLink>
         <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>

@@ -2,8 +2,8 @@ import * as React from 'react';
 import Boiler from './views/boiler';
 import Crusher from './views/crusher';
 import ShowcaseItem from './showcase-item/showcase-item';
-import Button from '../shared/button/button';
-import * as buttonClassName from '../../consts/button-types';
+import Button from '../../shared/button/button';
+import * as buttonClassName from '../../../consts/button-types';
 import './showcase.scss';
 
 export default () => {

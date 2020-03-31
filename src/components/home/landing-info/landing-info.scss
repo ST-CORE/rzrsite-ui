@@ -21,29 +21,30 @@
     top: 5px;
   }
   
-  ul {
-    margin-top: 41px;
-    margin-left: 35px;
-    li {
-      font-weight: normal;
-      font-size: 20px;
-      line-height: 50px;
+  .why-us {
+    ul {
+      margin-top: 41px;
+      margin-left: 38px;
+      li {
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 50px;
+      }
+    }
+    
+    ul::after {
+      content: "";
+      display: block;
+      width: 160px;
+      border-bottom: 1px dashed #FFFFFF;
+      transform: rotate(90deg);
+      position: relative;
+      top: -100px;
+      right: 33%;
     }
   }
-  
-  ul::after {
-    content: "";
-    display: block;
-    width: 160px;
-    border-bottom: 1px dashed #FFFFFF;
-    transform: rotate(90deg);
-    position: relative;
-    top: -100px;
-    right: 33%;
-  }
-  
   .video-block {
-    margin-left: 110px;
+    margin-left: 109px;
     .video {
       margin-top: 54px;
       width: 461px;
