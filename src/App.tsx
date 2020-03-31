@@ -7,6 +7,7 @@ import Footer from './components/footer/footer';
 import Delivery from './components/delivery/delivery';
 import Products from './components/products/products';
 import Showcase from './components/showcase/showcase';
+import LandingInfo from './components/landing-info/landing-info';
 
 export default () => (
   <Router>
@@ -15,6 +16,7 @@ export default () => (
     <Switch>
       <Route path="/">
         <Showcase />
+        <LandingInfo />
       </Route>
       <Route exact path="/products">
         <Products />
