@@ -24,8 +24,8 @@ export default () => {
         </div>
         <div className="menu">
           <span>Продукция:</span>
-          <NavLink to="/products/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
-          <NavLink to="/products/crusher" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
+          <NavLink to="/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
+          <NavLink to="/crushers" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
         </div>
         <div className="menu">
           <span>О компании:</span>
