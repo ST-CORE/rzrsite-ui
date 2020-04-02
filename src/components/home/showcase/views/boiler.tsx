@@ -4,7 +4,7 @@ import './boiler.scss';
 export default () => (
   <div className="showcase-item">
     <div className="showcase-item-description">
-      <h2>Твердотопливные котлы Rezer</h2>
+      <h1 className="big-title">Твердотопливные котлы Rezer</h1>
       <div className="advantages">
         <ul>
           <li>

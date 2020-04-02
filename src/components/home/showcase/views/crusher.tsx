@@ -4,7 +4,7 @@ import './crusher.scss';
 export default () => (
   <div className="showcase-item">
     <div className="showcase-item-description">
-      <h2>Дробилки угля автоматические Rezer</h2>
+      <h1 className="big-title">Дробилки угля автоматические Rezer</h1>
       <div className="advantages">
         <ul>
           <li>

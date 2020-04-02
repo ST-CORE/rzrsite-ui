@@ -1,8 +1,8 @@
 .call-me-form {
-  width: 300px;
+  min-width: 380px;
   text-align: left;
   
-  legend {
+  legend h2 {
     font-weight: bold;
     font-size: 24px;
     line-height: 45px;
@@ -14,25 +14,29 @@
     line-height: 19px;
   }
   
-  label {
-    display: none;
-  }
-  
-  input {
-    display: block;
-    width: 260px;
-    height: 34px;
-    padding: 8px 12px;
-    margin-top: 14px;
+  div {
+    margin-top: -6px;
     
-    background-color: rgba(66, 66, 66, 0.7);
-    border: 1px solid #acabab;
-    box-sizing: border-box;
-    border-radius: 17px; 
+    label {
+      display: none;
+    }
     
-    color: #FFFFFF;
-    font-size: 14px;
-    line-height: 16px;
+    input {
+      display: block;
+      width: 260px;
+      height: 34px;
+      padding: 8px 12px;
+      margin-top: 14px;
+      
+      background-color: rgba(66, 66, 66, 0.7);
+      border: 1px solid #acabab;
+      box-sizing: border-box;
+      border-radius: 17px; 
+      
+      color: #FFFFFF;
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
   
   .long-button {
