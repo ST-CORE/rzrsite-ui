@@ -1,48 +1,5 @@
 .contacts {
   height: 900px;
   background-color: lemonchiffon;
-  
-  .contact-info {
-    box-sizing: border-box;
-    height: 420px;
-    width: 430px;
-    padding: 5px 10px 45px 31px;
-    background: #202020;
-    mix-blend-mode: normal;
-    opacity: 0.77;
-    display: relative;
-    left: 205px;
-    
-    h1 {
-      margin: 35px 0;
-    }
-    
-    ul {
-      li {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 40px;
-        
-        span {
-          font-weight: normal;
-        }
-        
-        span.phone-number {
-        margin-left: 13px; 
-        }
-        
-        &:nth-of-type(2) span {
-        margin-left: 35px; 
-        }
-        
-        &:nth-of-type(3) span {
-        margin-left: 33px; 
-        }
-      }
-    }
-    
-    div.call-me-form {
-      margin-top: 4px;
-    }
-  }
+
 }
