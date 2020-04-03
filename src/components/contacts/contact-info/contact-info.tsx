@@ -5,21 +5,33 @@ import CallMeForm from '../../shared/call-me-form/call-me-form';
 
 export default () => (
   <div className="contact-info">
+    <div className="some-space" />
     <h1>Контакты</h1>
-    <ul>
-      <li>
+    <dl>
+      <dt>
         Телефон:
+      </dt>
+      <dd>
         <PhoneNumber />
-      </li>
-      <li>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
         E-mail:
-        <span>info@test.ru</span>
-      </li>
-      <li>
+      </dt>
+      <dd className="email">Rezer@mail.ru</dd>
+    </dl>
+    <dl>
+      <dt>
         Адрес:
-        <span>АДРЕС АДРЕС</span>
-      </li>
-    </ul>
+      </dt>
+      <dd className="address">
+        Красноярск, п. Березовка,
+        <br />
+        ул. Щорса 8/14
+      </dd>
+    </dl>
+      
     <CallMeForm />
   </div>
 );

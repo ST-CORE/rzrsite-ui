@@ -17,7 +17,7 @@ export default () => {
     <MapGL
       {...viewport}
       width="1430px"
-      height="900px"
+      height="875px"
       mapStyle="mapbox://styles/sasha-graves/ck8j5p40t2sfo1iqdvy9fsktf"
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
