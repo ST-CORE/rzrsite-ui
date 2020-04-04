@@ -1,0 +1,5 @@
+version: "3"
+services:
+  rzrsite-ui:
+    image: "cashtusk/rzrsite-ui:latest"
+    restart: always
