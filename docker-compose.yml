@@ -3,6 +3,7 @@ services:
   rzrsite-ui:
     image: "cashtusk/rzrsite-ui:latest"
     restart: always
+    hostname: rzrsite-ui
 networks:
   default:
     external:
