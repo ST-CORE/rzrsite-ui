@@ -3,3 +3,7 @@ services:
   rzrsite-ui:
     image: "cashtusk/rzrsite-ui:latest"
     restart: always
+networks:
+  default:
+    external:
+      name: compose_default
