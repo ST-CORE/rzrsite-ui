@@ -11,12 +11,13 @@ body {
   line-height: 24px;
 
   #root {
+    .container-big {
     max-width: 1430px;
     min-width: 966px;
     margin: auto;
-    background-color: #202020;
+    }
 
-    .container {
+    .container-small {
       width: 966px;
       margin: 0 auto;
     }

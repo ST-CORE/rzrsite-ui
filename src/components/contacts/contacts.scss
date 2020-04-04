@@ -1,11 +1,11 @@
 .contacts {
   height: 875px;
-  background-color: lemonchiffon;
   position: relative;
 
   .contact-info {
     position: absolute;
-    left: 205px;
+    left: calc((100% - 966px)/2);
     top: 0%;
   }
 }
+

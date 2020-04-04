@@ -12,7 +12,7 @@ export default () => {
   
   return (
     <div className="nav-footer">
-      <div className="container">
+      <div className="container-small">
         <div className="contact-block">
           <PhoneNumber />
           <Button label="Заказать звонок!" clickHandler={switchModal} />

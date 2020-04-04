@@ -19,14 +19,16 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
   }
   return (
     <div className={className}>
-      <span>Есть вопросы? Звоните</span>
-      <PhoneNumber />
-      <CallMeButton clickHandler={switchModal} />
-      
-      <Modal modalState={modalState} closeModal={switchModal}>
-        <CallMeForm />
-      </Modal>
-      
+      <div className="container-big">
+        <span>Есть вопросы? Звоните</span>
+        <PhoneNumber />
+        <CallMeButton clickHandler={switchModal} />
+        
+        <Modal modalState={modalState} closeModal={switchModal}>
+          <CallMeForm />
+        </Modal>
+        
+      </div>
     </div>
   );
 };
