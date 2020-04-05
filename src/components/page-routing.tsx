@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Delivery from './delivery/delivery';
 import Home from './home/home';
+import Contacts from './contacts/contacts';
 
 export default () => (
   <Switch>
@@ -15,6 +16,9 @@ export default () => (
     </Route>
     <Route exact path="/crushers">
       <div style={{ backgroundColor: '#2200ee', height: '300px' }}>CRASHERS</div>
+    </Route>
+    <Route exact path="/contacts">
+      <Contacts />
     </Route>
     <Route exact path="/">
       <Home />

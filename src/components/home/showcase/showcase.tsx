@@ -19,15 +19,19 @@ export default () => {
   
   return (
     <div className="showcase">
-      <ShowcaseItem displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
-        <Boiler />
-      </ShowcaseItem>
-      <ShowcaseItem displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => setTransitioning(false)}>
-        <Crusher />
-      </ShowcaseItem>
+      <div className="container-big">
+        <ShowcaseItem displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
+          <Boiler />
+        </ShowcaseItem>
+        <ShowcaseItem displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => setTransitioning(false)}>
+          <Crusher />
+        </ShowcaseItem>
+      </div>
       <div className="showcase-menu">
-        <Button label="Котлы отопления" clickHandler={() => switchShowcase('boiler')} className={boilerButtonClass} />
-        <Button label="Дробилки угля" clickHandler={() => switchShowcase('crusher')} className={crusherButtonClass} />
+        <div className="container-big">
+          <Button label="Котлы отопления" clickHandler={() => switchShowcase('boiler')} className={boilerButtonClass} />
+          <Button label="Дробилки угля" clickHandler={() => switchShowcase('crusher')} className={crusherButtonClass} />
+        </div>
       </div>
     </div>
   );

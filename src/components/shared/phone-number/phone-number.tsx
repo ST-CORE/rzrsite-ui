@@ -1,8 +1,6 @@
 import * as React from 'react';
 
 
-const PhoneNumber = () => (
-  <span className="phone-number">8 800 000 00 00</span>
+export default () => (
+  <span className="phone-number">+7 905 088 66 88</span>
 );
-
-export default PhoneNumber;

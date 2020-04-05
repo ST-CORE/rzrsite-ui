@@ -14,16 +14,18 @@ export default ({ lightTheme }: NavHeaderProps) => {
   }
   return (
     <div className={className}>
-      <Link to="/" className="logo">
-        <Logo />
-      </Link>
-      <nav>
-        <NavLink to="/products" activeClassName="selected">Продукция</NavLink>
-        <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>
-        <NavLink to="/about" activeClassName="selected">О компании</NavLink>
-        <NavLink to="/contacts" activeClassName="selected">Контакты</NavLink>
-      </nav>
-      <div className="fixer" />
+      <div className="container-big">
+        <Link to="/" className="logo">
+          <Logo />
+        </Link>
+        <nav>
+          <NavLink to="/products" activeClassName="selected">Продукция</NavLink>
+          <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>
+          <NavLink to="/about" activeClassName="selected">О компании</NavLink>
+          <NavLink to="/contacts" activeClassName="selected">Контакты</NavLink>
+        </nav>
+        <div className="fixer" />
+      </div>
     </div>
   );
 };

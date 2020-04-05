@@ -8,12 +8,12 @@ export default () => (
     <form action="" method="" name="callMeForm">
       <fieldset>
         <legend>
-          Вам позвонить?
+          <h2>
+            Вам позвонить?
+          </h2>
         </legend>
-        <span>Оставьте своё имя и номер, и мы сами вам позвоним.</span>
-        <div className="center">
-          <label htmlFor="name"> Имя: </label>
-          <input type="text" id="name" name="name" placeholder="Имя" />
+        <span>Оставьте свой номер и мы сами вам позвоним</span>
+        <div>
           <label htmlFor="tel">Телефон:</label>
           <input type="tel" id="tel" name="tel" required placeholder="+7-999-000-00-00" />
           <Button label="Позвоните мне!" className={buttonTypes.longCallmeButton} clickHandler="" />
