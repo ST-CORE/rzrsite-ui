@@ -13,13 +13,17 @@ body {
   #root {
     .container-big {
     max-width: 1430px;
-    min-width: 966px;
+    min-width: 980px;
     margin: auto;
     }
 
     .container-small {
-      width: 966px;
+      width: 980px;
       margin: 0 auto;
+    }
+    
+    main.main-content {
+      min-height: 400px;
     }
   }
   

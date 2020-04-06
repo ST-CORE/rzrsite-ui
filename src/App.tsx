@@ -7,7 +7,9 @@ import PageRouting from './components/page-routing';
 export default () => (
   <Router>
     <Header lightTheme />
-    <PageRouting />
+    <main className="main-content">
+      <PageRouting />
+    </main>
     <Footer />
   </Router>
 );

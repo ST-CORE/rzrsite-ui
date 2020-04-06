@@ -2,6 +2,7 @@ import * as React from 'react';
 import './contact-info.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import CallMeForm from '../../shared/call-me-form/call-me-form';
+import Email from '../../shared/email/email';
 
 export default () => (
   <div className="contact-info">
@@ -19,7 +20,9 @@ export default () => (
       <dt>
         E-mail:
       </dt>
-      <dd className="email">Rezer@mail.ru</dd>
+      <dd className="email">
+        <Email />
+      </dd>
     </dl>
     <dl>
       <dt>
