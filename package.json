@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel ./src/index.html -p 4343",
     "restart": "parcel ./src/index.html -p 4343 --no-cache",
-    "prod": "parcel build /.src/index.html -p 4343 "
+    "prod": "parcel build ./src/index.html --no-source-maps"
   },
   "repository": {
     "type": "git",
