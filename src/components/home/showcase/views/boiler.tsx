@@ -2,7 +2,7 @@ import * as React from 'react';
 import './boiler.scss';
 
 export default () => (
-  <div className="showcase-item">
+  <div className="showcase-item boiler">
     <div className="showcase-item-description">
       <h1 className="big-title">Твердотопливные котлы Rezer</h1>
       <div className="advantages">

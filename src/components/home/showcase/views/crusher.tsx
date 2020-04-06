@@ -2,7 +2,7 @@ import * as React from 'react';
 import './crusher.scss';
 
 export default () => (
-  <div className="showcase-item">
+  <div className="showcase-item crusher">
     <div className="showcase-item-description">
       <h1 className="big-title">Дробилки угля автоматические Rezer</h1>
       <div className="advantages">

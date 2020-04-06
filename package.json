@@ -5,7 +5,8 @@
   "main": "./src/app.js",
   "scripts": {
     "start": "parcel ./src/index.html -p 4343",
-    "restart": "parcel ./src/index.html -p 4343 --no-cache"
+    "restart": "parcel ./src/index.html -p 4343 --no-cache",
+    "prod": "parcel build /.src/index.html -p 4343 "
   },
   "repository": {
     "type": "git",
