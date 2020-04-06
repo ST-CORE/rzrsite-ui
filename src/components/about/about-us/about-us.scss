@@ -1,0 +1,37 @@
+article.about-us {
+  padding: 30px 3px 30px;
+  color: #DFDFDF;
+  
+  h1 {
+    margin: 21px 0;
+  }
+  
+  section {
+    border-bottom: 1px dashed #DFDFDF;
+    padding: 20px 0;
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      margin: 25px 0 15px;
+    }
+    
+    ul {
+      list-style-type: circle;
+      color: #30A2DE;
+      padding-left: 20px;
+    }
+    
+    ol {
+      list-style-type: decimal;
+      padding-left: 20px;
+
+    }
+  }
+  
+  section:last-of-type {
+    border: none;
+  }
+}

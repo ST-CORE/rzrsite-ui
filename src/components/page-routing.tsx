@@ -5,6 +5,7 @@ import {
 import Delivery from './delivery/delivery';
 import Home from './home/home';
 import Contacts from './contacts/contacts';
+import About from './about/about';
 
 export default () => (
   <Switch>
@@ -19,6 +20,9 @@ export default () => (
     </Route>
     <Route exact path="/contacts">
       <Contacts />
+    </Route>
+    <Route exact path="/about">
+      <About />
     </Route>
     <Route exact path="/">
       <Home />
