@@ -2,10 +2,10 @@ import * as React from 'react';
 import {
   Switch, Route,
 } from 'react-router-dom';
-import Delivery from './delivery/delivery';
-import Home from './home/home';
-import Contacts from './contacts/contacts';
-import About from './about/about';
+import Delivery from '../delivery/delivery';
+import Home from '../home/home';
+import Contacts from '../contacts/contacts';
+import About from '../about/about';
 
 export default () => (
   <Switch>
@@ -16,7 +16,7 @@ export default () => (
       <div style={{ backgroundColor: '#2200ee', height: '300px' }}>BOILERS</div>
     </Route>
     <Route exact path="/crushers">
-      <div style={{ backgroundColor: '#2200ee', height: '300px' }}>CRASHERS</div>
+      <div style={{ backgroundColor: '#2200ee', height: '300px' }}>CRUSHERS</div>
     </Route>
     <Route exact path="/contacts">
       <Contacts />
