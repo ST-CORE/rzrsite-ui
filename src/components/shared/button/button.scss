@@ -73,6 +73,22 @@
   &:hover {
     text-shadow: #aaaaaa 0 -1px 1px, #000000 0 0 14px;
   }
+}
+  
+.showcase-link {
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+  background: transparent;
+  box-sizing: border-box;
+  border-radius: 17px;
+  padding: 0;  
+  border: none;
+  transition: text-shadow 400ms;
   
   &:focus {
     outline: none;
@@ -115,19 +131,41 @@
     border-radius: 0;
   }
   
-  &.product-descript-button {
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    color: #DFDFDF;
-    border: none;
-    padding: 8px 15px 13px;
-    
-    &.active {
-      border-bottom: 5px solid #30A2DE;
-      margin-bottom: -1px;
-      border-radius: 0;
-    }
+  &:focus {
+    outline: none;
+    text-shadow: #aaaaaa 0 -1px 1px, #202020 0 0 12px;
+  }
+  
+  &::after {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  content: "";
+  height: 9px;
+  width: 9px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: #202020;
+  }
+}
+
+.showcase-link-active::after {
+  background: #30A2DE;
+  border: 1px solid #30A2DE;
+}
+
+.product-descript-button {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #DFDFDF;
+  border: none;
+  padding: 8px 15px 13px;
+  
+  &.active {
+    border-bottom: 5px solid #30A2DE;
+    margin-bottom: -1px;
+    border-radius: 0;
   }
 }
