@@ -1,0 +1,23 @@
+.product-pictures {
+  height: 274px;
+  width: 354px;
+  display: grid;
+  grid-gap: 17px;
+  grid-template-areas: "s1 m m m" "s2 m m m" "s3 m m m";
+  
+  .small-picture:first-of-type {
+    grid-area: s1;
+  }
+  
+  .small-picture:nth-of-type(2) {
+    grid-area: s2;
+  }
+  
+  .small-picture:last-of-type {
+    grid-area: s3;
+  }
+  
+  .medium-picture {
+    grid-area: m;
+  }
+}

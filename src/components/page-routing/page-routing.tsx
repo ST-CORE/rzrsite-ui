@@ -6,17 +6,15 @@ import Delivery from '../delivery/delivery';
 import Home from '../home/home';
 import Contacts from '../contacts/contacts';
 import About from '../about/about';
+import Products from '../products/products';
 
 export default () => (
   <Switch>
     <Route exact path="/delivery">
       <Delivery />
     </Route>
-    <Route exact path="/boilers">
-      <div style={{ backgroundColor: '#2200ee', height: '300px' }}>BOILERS</div>
-    </Route>
-    <Route exact path="/crushers">
-      <div style={{ backgroundColor: '#2200ee', height: '300px' }}>CRUSHERS</div>
+    <Route exact path="/products">
+      <Products />
     </Route>
     <Route exact path="/contacts">
       <Contacts />
