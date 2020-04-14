@@ -1,21 +1,19 @@
 .choose-model {
-  background-color: #202020;
   padding-top: 50px;
   
-  .container-small {
-    display: grid;
-    grid-template-columns: 375px 320px 235px;
-    grid-template-rows: 60px 200px;
-    grid-gap: 25px;
-    
-    .product-pictures {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-    }
-    
-    h2.product-title {
-      grid-column: 2 / 4;
-      grid-row: 1 / 2;
-    }
+  display: grid;
+  grid-template-columns: 375px 320px 235px;
+  grid-template-rows: 60px 200px;
+  grid-gap: 25px;
+  
+  .product-pictures {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
   }
+  
+  h2.product-title {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+  }
+  
 }

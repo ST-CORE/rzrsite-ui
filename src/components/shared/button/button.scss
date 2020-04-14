@@ -31,4 +31,20 @@
     border: none;
     padding: 0;
   }
+  
+  &.product-descript-button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #DFDFDF;
+    border: none;
+    padding: 8px 15px 13px;
+    
+    &.active {
+      border-bottom: 5px solid #30A2DE;
+      margin-bottom: -1px;
+      border-radius: 0;
+    }
+  }
 }

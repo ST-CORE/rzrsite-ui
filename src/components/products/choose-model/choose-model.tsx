@@ -14,15 +14,13 @@ export default () => {
   const model: string = 'Fit 20';
   return (
     <div className="choose-model">
-      <div className="container-small">
-        <ProductPictures />
-        <h2 className="product-title">
-          Название может быть длинным и включать модель
-          {` ${model}`}
-        </h2>
-        <FeatureTable />
-        <PriceTag {...priceTagProps} />
-      </div>
+      <ProductPictures />
+      <h2 className="product-title">
+        Название может быть длинным и включать модель
+        {` ${model}`}
+      </h2>
+      <FeatureTable />
+      <PriceTag {...priceTagProps} />
     </div>
   );
 };
