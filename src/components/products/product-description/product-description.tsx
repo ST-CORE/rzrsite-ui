@@ -45,8 +45,14 @@ export default () => {
   
   const classButton = buttonClassName.productDescriptButton;
   const classActiveButton = `${classButton} active`;
-  const buttons = myList.map((listItem, i) => 
-    <Button key={i.toString()} className={itemIndex === i ? classActiveButton : classButton} label={listItem.text} clickHandler={() => selectItem(i)} />);
+  const buttons = myList.map((listItem, i) => (
+    <Button
+      key={i.toString()}
+      className={itemIndex === i ? classActiveButton : classButton}
+      label={listItem.text}
+      clickHandler={() => selectItem(i)}
+    />
+  ));
   
   return (
     <div className="product-description">
