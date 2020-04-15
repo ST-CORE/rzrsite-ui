@@ -1,47 +1,65 @@
+/* eslint-disable no-plusplus */
 import React from 'react';
 import './product-description.scss';
 import Button from '../../shared/button/button';
 import * as buttonClassName from '../../../consts/button-types';
 
 export default () => {
-  const description = {
-    text: 'ghjjghj',
-    imageSource: '',
-    imageAlt: '',
-    figureCaption: '',
+  const myList = [
+    {
+      title: 'description',
+      text: 'Описание',
+      imageSource: '',
+      imageAlt: '',
+      figureCaption: '',
+      selected: true,
+    },
+    {
+      title: 'allFeatures',
+      text: 'Полные характеристики',
+      imageSource: '',
+      imageAlt: '',
+      figureCaption: '',
+      selected: false,
+    },
+    {
+      title: 'documentation',
+      text: 'Документация',
+      imageSource: '',
+      imageAlt: '',
+      figureCaption: '',
+      selected: false,
+    },
+  ];
+  
+  const [itemIndex, setItemIndex] = React.useState(0);
+  
+  const selectItem = (index: number) => {
+    myList.forEach((i) => {
+      // eslint-disable-next-line no-param-reassign
+      i.selected = false;
+    });
+    myList[index].selected = true;
+    setItemIndex(index);
   };
   
-  const allFeatures = {
-    text: 'trrr',
-    imageSource: '',
-    imageAlt: '',
-    figureCaption: '',
-  };
-  
-  const documentation = {
-    text: 'sss',
-    imageSource: '',
-    imageAlt: '',
-    figureCaption: '',
-  };
-  
-  const [bookmark, openBookmark] = React.useState(description);
+  const classButton = buttonClassName.productDescriptButton;
+  const classActiveButton = `${classButton} active`;
+  const buttons = myList.map((listItem, i) => 
+    <Button key={i.toString()} className={itemIndex === i ? classActiveButton : classButton} label={listItem.text} clickHandler={() => selectItem(i)} />);
   
   return (
     <div className="product-description">
       <header>
-        <Button className={`${buttonClassName.productDescriptButton} active`} label="Описание" clickHandler={() => openBookmark(description)} />
-        <Button className={buttonClassName.productDescriptButton} label="Полные характеристики" clickHandler={() => openBookmark(allFeatures)} />
-        <Button className={buttonClassName.productDescriptButton} label="Документация" clickHandler={() => openBookmark(documentation)} />
+        {buttons}
       </header>
       <section>
-        {bookmark.text}
-        
+        {myList[itemIndex].text}
         <aside>
           <figure>
-            <img src={bookmark.imageSource} alt={bookmark.imageAlt} />
+            <img src={myList[itemIndex].imageSource} alt={myList[itemIndex].imageAlt} />
             <figcaption>
-              {bookmark.figureCaption}
+              {myList[itemIndex].figureCaption}
             </figcaption>
           </figure>
         </aside>
