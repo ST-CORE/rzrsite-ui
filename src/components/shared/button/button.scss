@@ -147,21 +147,24 @@
   border-radius: 50%;
   background-color: #202020;
   }
-}
-
-.showcase-link-active::after {
+  &.active::after {
   background: #30A2DE;
   border: 1px solid #30A2DE;
+  }
 }
 
+
+
 .product-descript-button {
+  background: transparent;
+  box-sizing: border-box;  
   text-transform: uppercase;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   color: #DFDFDF;
   border: none;
-  padding: 8px 15px 13px;
+  padding: 8px 15px 10px;
   
   &.active {
     border-bottom: 5px solid #30A2DE;
