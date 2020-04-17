@@ -4,6 +4,8 @@ import * as buttonClassName from '../../../../consts/button-types';
 
 import Button from '../../../shared/button/button';
 import Dropdown from '../../../shared/dropdown/dropdown';
+import Modal from '../../../shared/modal/modal';
+import OrderForm from '../../../shared/order-form/order-form';
 
 interface PriceTagProps {
   inStock: boolean;
@@ -11,7 +13,7 @@ interface PriceTagProps {
 }
 
 export default ({ inStock, price }: PriceTagProps) => {
-  const openForm = () => {};
+  const switchForm = () => {};
   const stock: string = (inStock) ? 'в наличии' : 'нет в наличии';
   const stockClassName: string = (inStock) ? 'stock in-stock' : 'stock not-in-stock';
   return (
@@ -23,7 +25,10 @@ export default ({ inStock, price }: PriceTagProps) => {
       <span className={stockClassName}>
         {stock}
       </span>
-      <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={openForm} />
+      <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={switchForm} />
+      <Modal modalState closeModal={switchForm}>
+        <OrderForm />
+      </Modal>
     </div>
   );
 };
