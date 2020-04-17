@@ -7,8 +7,14 @@ interface ButtonProps {
   clickHandler: any
 }
 
-export default ({ label, className, clickHandler }: ButtonProps) => (
-  <button type="button" className={`default-button ${className}`} onClick={clickHandler}>
-    {label}
-  </button>
-);
+export default ({ label, className, clickHandler }: ButtonProps) => {
+  let buttonClassName: string = 'default-button';
+  if (className) {
+    buttonClassName = className;
+  }
+  return (
+    <button type="button" className={buttonClassName} onClick={clickHandler}>
+      {label}
+    </button>
+  );
+};

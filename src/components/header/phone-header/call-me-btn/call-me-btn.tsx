@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './call-me-btn.scss';
 
 interface CallMeBtnProps {
   clickHandler: any;
