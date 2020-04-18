@@ -1,0 +1,49 @@
+.order-form {
+  min-width: 380px;
+  text-align: left;
+  
+  legend {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 45px;
+  }
+
+  span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  div {
+    margin-top: -6px;
+    
+    label {
+      display: none;
+    }
+    
+    input {
+      display: block;
+      width: 260px;
+      height: 34px;
+      padding: 8px 12px;
+      margin-top: 14px;
+      
+      background: #333333;
+      border: 1px solid #555555;
+      box-sizing: border-box;
+      border-radius: 17px; 
+      color: #dddddd;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+  
+  .long-button {
+    margin-top: 16px;
+  }
+  
+  p span {
+    display: inline-block;
+    padding: 5px;
+  }
+}

@@ -13,7 +13,7 @@ interface PriceTagProps {
 }
 
 export default ({ inStock, price }: PriceTagProps) => {
-  const switchForm = () => {};
+  const [form, switchForm] = React.useState(false);
   const stock: string = (inStock) ? 'в наличии' : 'нет в наличии';
   const stockClassName: string = (inStock) ? 'stock in-stock' : 'stock not-in-stock';
   return (
@@ -25,8 +25,8 @@ export default ({ inStock, price }: PriceTagProps) => {
       <span className={stockClassName}>
         {stock}
       </span>
-      <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={switchForm} />
-      <Modal modalState closeModal={switchForm}>
+      <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={() => switchForm(true)} />
+      <Modal modalState={form} closeModal={() => switchForm(false)} overlay>
         <OrderForm />
       </Modal>
     </div>
