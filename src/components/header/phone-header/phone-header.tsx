@@ -24,7 +24,7 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
         <PhoneNumber />
         <CallMeButton clickHandler={switchModal} />
         
-        <Modal modalState={modalState} closeModal={switchModal}>
+        <Modal overlay={false} modalState={modalState} closeModal={switchModal}>
           <CallMeForm />
         </Modal>
         

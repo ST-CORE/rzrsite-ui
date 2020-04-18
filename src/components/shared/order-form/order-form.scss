@@ -1,9 +1,8 @@
-.call-me-form {
-  width: 380px;
+.order-form {
+  min-width: 380px;
   text-align: left;
-  line-height: 24px;
   
-  legend h2 {
+  legend {
     font-weight: bold;
     font-size: 24px;
     line-height: 45px;
@@ -41,5 +40,10 @@
   
   .long-button {
     margin-top: 16px;
+  }
+  
+  p span {
+    display: inline-block;
+    padding: 5px;
   }
 }

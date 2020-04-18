@@ -17,7 +17,7 @@ export default () => {
           <PhoneNumber />
           <Button label="Заказать звонок!" clickHandler={switchModal} />
           
-          <Modal modalState={modalState} closeModal={switchModal}>
+          <Modal overlay={false} modalState={modalState} closeModal={switchModal}>
             <CallMeForm />
           </Modal>
           

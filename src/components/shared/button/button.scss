@@ -73,6 +73,22 @@
   &:hover {
     text-shadow: #aaaaaa 0 -1px 1px, #000000 0 0 14px;
   }
+}
+  
+.showcase-link {
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+  background: transparent;
+  box-sizing: border-box;
+  border-radius: 17px;
+  padding: 0;  
+  border: none;
+  transition: text-shadow 400ms;
   
   &:focus {
     outline: none;
@@ -95,8 +111,6 @@
   border: 1px solid #30A2DE;
   }
 }
-
-
 
 .product-descript-button {
   background: transparent;
