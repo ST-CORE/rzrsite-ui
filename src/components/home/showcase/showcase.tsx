@@ -13,9 +13,10 @@ export default () => {
     setMachine(showcaseName);
     setTransitioning(true);
   };
-  const classActiveLink = `${buttonClassName.showcaseLink} active`;
-  const boilerButtonClass: string = machine === 'boiler' ? classActiveLink : buttonClassName.showcaseLink;
-  const crusherButtonClass: string = machine === 'crusher' ? classActiveLink : buttonClassName.showcaseLink;
+  const classLink = buttonClassName.showcaseLink;
+  const classActiveLink = `${classLink} active`;
+  const boilerButtonClass: string = machine === 'boiler' ? classActiveLink : classLink;
+  const crusherButtonClass: string = machine === 'crusher' ? classActiveLink : classLink;
   
   return (
     <div className="showcase">

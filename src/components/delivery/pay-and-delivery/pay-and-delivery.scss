@@ -1,0 +1,33 @@
+section.pay-and-delivery {
+  color: #DFDFDF;
+  
+  h1 {
+    margin-bottom: 10px; 
+  }
+  
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 40px;
+  }
+
+  p {
+    padding: 5px 3px;
+  }
+  
+  ul.blue-bullets-list {
+    padding: 5px 3px;
+    line-height: 30px;
+    
+    li:before {
+      display: inline-block;
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #30A2DE;
+      vertical-align: middle; 
+      margin-right: 15px;
+    }
+  }
+}
+
