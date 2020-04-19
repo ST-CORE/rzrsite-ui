@@ -1,0 +1,70 @@
+.delivery-page {
+  section {
+    margin-top: 50px;
+    color: #DFDFDF;
+    
+    h1 {
+      margin-bottom: 10px; 
+    }
+    
+    h2 {
+      margin-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    p {
+      padding: 5px 3px;
+    }
+    
+    ul.blue-bullets-list {
+      padding: 5px 3px;
+      line-height: 30px;
+      
+      li:before {
+        display: inline-block;
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #30A2DE;
+        vertical-align: middle; 
+        margin-right: 15px;
+      }
+    }
+    
+    ol.bold-counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      li {
+        margin-bottom: 10px;
+      }
+      
+      li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  section.how-to-make-order {
+    margin-bottom: 100px;
+     
+    div.guide {
+      margin-top: 10px;
+      padding: 25px 28px 10px;
+      background-color: #343434;
+      border: 1px solid #606060;
+      border-radius: 5px;
+    }
+    
+    div.any-questions {
+      .any-question--info {
+        h2 {
+          display: none;
+        }
+      }
+    }
+  }
+}
