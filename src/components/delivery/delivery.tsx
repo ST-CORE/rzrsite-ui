@@ -9,6 +9,8 @@ import AnyQuestions from '../shared/any-questions/any-questions';
 export default () => {
   const [state, setState] = React.useState('guide');
   const [transitioning, setTransitioning] = React.useState(false);
+  const className = buttonClassName.transparentButton;
+  const activeClassName = `${className} active`;
   return (
     <div className="delivery-page container-small">
       <section className="pay-and-delivery">
@@ -49,9 +51,9 @@ export default () => {
       </section>
       
       <section className="how-to-make-order">
-        <Button className={buttonClassName.transparentButton} clickHandler={() => { setState('guide'); setTransitioning(true); }} label="Как сделать заказ?" />
-        <Button className={buttonClassName.transparentButton} clickHandler={() => { setState('questions'); setTransitioning(true); }} label="Остались вопросы?" />
-        <CSSTransition in={((state === 'guide') && (transitioning === false))} timeout={800} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
+        <Button className={(state === 'guide') ? activeClassName : className} clickHandler={() => { setState('guide'); setTransitioning(true); }} label="Как сделать заказ?" />
+        <Button className={(state === 'questions') ? activeClassName : className} clickHandler={() => { setState('questions'); setTransitioning(true); }} label="Остались вопросы?" />
+        <CSSTransition in={((state === 'guide') && (transitioning === false))} timeout={200} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
           <div className="guide">
             <ol className="bold-counters-list">
               <li>
@@ -72,7 +74,7 @@ export default () => {
             </ol>
           </div>
         </CSSTransition>
-        <CSSTransition in={((state === 'questions') && (transitioning === false))} timeout={800} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
+        <CSSTransition in={((state === 'questions') && (transitioning === false))} timeout={200} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
           <AnyQuestions />
         </CSSTransition>
       </section>
