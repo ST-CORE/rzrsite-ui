@@ -1,8 +1,8 @@
 import React from 'react';
 import './any-questions.scss';
-import PhoneNumber from '../../shared/phone-number/phone-number';
-import Email from '../../shared/email/email';
-import CallMeForm from '../../shared/call-me-form/call-me-form';
+import PhoneNumber from '../phone-number/phone-number';
+import Email from '../email/email';
+import CallMeForm from '../call-me-form/call-me-form';
 
 export default () => (
   <div className="any-questions">

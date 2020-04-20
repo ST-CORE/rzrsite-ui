@@ -43,7 +43,7 @@ export default () => {
     setItemIndex(index);
   };
   
-  const classButton = buttonClassName.productDescriptButton;
+  const classButton = buttonClassName.productDescriptionButton;
   const classActiveButton = `${classButton} active`;
   const buttons = myList.map((listItem, i) => (
     <Button
