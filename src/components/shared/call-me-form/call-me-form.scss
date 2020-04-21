@@ -1,23 +1,22 @@
 .call-me-form {
   width: 380px;
   text-align: left;
-  line-height: 24px;
+  color: #DFDFDF;
   
-  legend h2 {
+  h2 {
     font-weight: bold;
     font-size: 24px;
-    line-height: 45px;
+    margin: 0 0 20px 5px;
   }
 
   span {
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: 5px;
   }
   
-  div {
-    margin-top: -6px;
-    
+  div {    
     label {
       display: none;
     }
@@ -27,8 +26,7 @@
       width: 260px;
       height: 34px;
       padding: 8px 12px;
-      margin-top: 14px;
-      
+      margin-top: 10px;
       background: #333333;
       border: 1px solid #555555;
       box-sizing: border-box;
@@ -39,7 +37,14 @@
     }
   }
   
+  span.error {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color: #EA3C21;
+  }
+  
   .long-button {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 }

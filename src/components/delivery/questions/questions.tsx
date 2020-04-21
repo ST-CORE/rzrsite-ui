@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './questions.scss';
-import Button from '../../shared/button/button';
+import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
 import AnyQuestions from '../../shared/any-questions/any-questions';
 

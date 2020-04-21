@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import './nav-footer.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
-import Button from '../../shared/button/button';
+import Button from '../../shared/buttons/button';
 import Modal from '../../shared/modal/modal';
 import CallMeForm from '../../shared/call-me-form/call-me-form';
 

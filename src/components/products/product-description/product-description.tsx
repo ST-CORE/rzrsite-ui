@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
 import './product-description.scss';
-import Button from '../../shared/button/button';
+import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
 
 export default () => {

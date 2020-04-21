@@ -1,24 +1,30 @@
 .order-form {
-  min-width: 380px;
+  min-width: 330px;
   text-align: left;
+  color: #DFDFDF;
+  padding: 15px 0 30px 20px;
   
-  legend {
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 45px;
+  p.model {
+    margin-bottom: 38px;
+    span {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      padding-right: 0.5em;
+    }
   }
-
-  span {
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
+  
+  p.comment {
+    line-height: 20px;
   }
   
   div {
-    margin-top: -6px;
+    margin-top: 18px;
     
     label {
-      display: none;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
     }
     
     input {
@@ -27,7 +33,6 @@
       height: 34px;
       padding: 8px 12px;
       margin-top: 14px;
-      
       background: #333333;
       border: 1px solid #555555;
       box-sizing: border-box;
@@ -36,14 +41,17 @@
       font-size: 14px;
       line-height: 16px;
     }
-  }
-  
-  .long-button {
-    margin-top: 16px;
-  }
-  
-  p span {
-    display: inline-block;
-    padding: 5px;
+    
+    .long-button {
+      display: block;
+      margin-top: 16px;
+    }
+    
+    span.error {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: bold;
+      color: #EA3C21;
+    }
   }
 }
