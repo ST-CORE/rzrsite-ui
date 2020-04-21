@@ -1,13 +1,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 import './call-me-form.scss';
+import address from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
 export default () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: object) => console.log(data);
+  const onSubmit = (inputData: object) => {
+    console.log(inputData);
+    
+    const data = {
+      Template: 'CallMe',
+      Variables: {
+        Phone: inputData.tel,
+      },
+    };
+    console.log(data);
+
+    axios.post(`${address}/api/Email`, data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error.message));
+  };
   
   return (
     <div className="call-me-form" tabIndex={-1} role="dialog">

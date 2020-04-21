@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 import './order-form.scss';
+import address from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
@@ -11,7 +13,24 @@ export default () => {
     model: 'Fit 20-784',
   };
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: object) => console.log(data);
+  
+  const onSubmit = (inputData: object) => {
+    console.log(inputData);
+    
+    const data = {
+      Template: 'AskForDetails',
+      Variables: {
+        Phone: inputData.tel,
+        Category: myObj.category,
+        Model: myObj.model,
+      },
+    };
+    console.log(data);
+
+    axios.post(`${address}/api/Email`, data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error.message));
+  };
   
   return (
     <div className="order-form" tabIndex={-1} role="dialog">
