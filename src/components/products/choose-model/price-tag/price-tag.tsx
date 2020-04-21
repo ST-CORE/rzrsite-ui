@@ -2,7 +2,7 @@ import React from 'react';
 import './price-tag.scss';
 import * as buttonClassName from '../../../../consts/button-types';
 
-import Button from '../../../shared/button/button';
+import Button from '../../../shared/buttons/button';
 import Dropdown from '../../../shared/dropdown/dropdown';
 import Modal from '../../../shared/modal/modal';
 import OrderForm from '../../../shared/order-form/order-form';

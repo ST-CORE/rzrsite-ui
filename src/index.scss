@@ -64,7 +64,7 @@ body {
 }
 
 .popUp-enter-done, .popUp-enter, .popUp-exit, .popUp-enter-active, .popUp-exit-active {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 10%;
   z-index: 1;

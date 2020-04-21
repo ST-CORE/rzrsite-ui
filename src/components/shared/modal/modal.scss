@@ -2,7 +2,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(32, 32, 32, 0.49);
-  position: absolute;
   top: 0;
   display: flex;
   justify-content: center;
@@ -12,6 +11,7 @@
 .modal {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.9);
+  border: 2px solid #3F3D3D;
   border-radius: 2px;
   
   .modal-header {
