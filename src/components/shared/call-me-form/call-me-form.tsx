@@ -34,7 +34,7 @@ export default () => {
         <span>Оставьте свой номер и мы сами вам позвоним</span>
         <div>
           <label htmlFor="tel">Телефон:</label>
-          <input type="tel" id="tel" name="tel" ref={register({ required: true })} placeholder="+7-999-000-00-00" />
+          <input type="tel" id="tel" name="tel" ref={register({ required: true })} placeholder="+7 (999) 000 00 00" />
           {errors.tel && <span className="error">Введите номер телефона</span>}
           <ButtonSubmit label="Позвоните мне!" className={buttonTypes.longCallmeButton} />
         </div>
