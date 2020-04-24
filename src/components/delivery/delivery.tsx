@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import * as React from 'react';
 import './delivery.scss';
 import PayAndDelivery from './pay-and-delivery/pay-and-delivery';

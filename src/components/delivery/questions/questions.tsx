@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import * as React from 'react';
-import { CSSTransition } from 'react-transition-group';
 import './questions.scss';
 import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
@@ -8,21 +7,18 @@ import AnyQuestions from '../../shared/any-questions/any-questions';
 
 export default () => {
   const [tab, setTab] = React.useState('guide');
-  const [transitioning, setTransitioning] = React.useState(false);
-  const classButton = buttonClassName.transparentButton;
+  const classButton = buttonClassName.tabSwitchButton;
   const activeClassName = `${classButton} active`;
-  const switchTab = (i: string) => {
-    setTab(i);
-    setTransitioning(true);
-  };
-  const guideTab: boolean = ((tab === 'guide') && (transitioning === false));
-  const questionsTab: boolean = ((tab === 'questions') && (transitioning === false));
+  const switchTab = (i: string) => setTab(i);
 
   return (
     <section className="questions">
-      <Button className={(tab === 'guide') ? activeClassName : classButton} clickHandler={() => switchTab('guide')} label="Как сделать заказ?" />
-      <Button className={(tab === 'questions') ? activeClassName : classButton} clickHandler={() => switchTab('questions')} label="Остались вопросы?" />
-      <CSSTransition in={guideTab} timeout={200} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
+      <header>
+        <Button className={(tab === 'guide') ? activeClassName : classButton} clickHandler={() => switchTab('guide')} label="Как сделать заказ?" />
+        <Button className={(tab === 'questions') ? activeClassName : classButton} clickHandler={() => switchTab('questions')} label="Остались вопросы?" />
+      </header>
+
+      {(tab === 'guide') && (
         <div className="guide">
           <ol className="bold-counters-list">
             <li>
@@ -42,10 +38,10 @@ export default () => {
             </li>
           </ol>
         </div>
-      </CSSTransition>
-      <CSSTransition in={questionsTab} timeout={200} classNames="carousel" onExited={() => setTransitioning(false)} unmountOnExit>
-        <AnyQuestions />
-      </CSSTransition>
+      )}
+
+      {(tab === 'questions') && <AnyQuestions />}
+        
     </section>
   );
 };
