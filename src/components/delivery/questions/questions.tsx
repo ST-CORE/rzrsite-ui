@@ -9,13 +9,12 @@ export default () => {
   const [tab, setTab] = React.useState('guide');
   const classButton = buttonClassName.tabSwitchButton;
   const activeClassName = `${classButton} active`;
-  const switchTab = (i: string) => setTab(i);
 
   return (
     <section className="questions">
       <header>
-        <Button className={(tab === 'guide') ? activeClassName : classButton} clickHandler={() => switchTab('guide')} label="Как сделать заказ?" />
-        <Button className={(tab === 'questions') ? activeClassName : classButton} clickHandler={() => switchTab('questions')} label="Остались вопросы?" />
+        <Button className={(tab === 'guide') ? activeClassName : classButton} clickHandler={() => setTab('guide')} label="Как сделать заказ?" />
+        <Button className={(tab === 'questions') ? activeClassName : classButton} clickHandler={() => setTab('questions')} label="Остались вопросы?" />
       </header>
 
       {(tab === 'guide') && (
