@@ -3,7 +3,7 @@ import './price-tag.scss';
 import * as buttonClassName from '../../../../consts/button-types';
 
 import Button from '../../../shared/buttons/button';
-import Dropdown from '../../../shared/dropdown/dropdown';
+import Dropdown from '../../../shared/dropdown/select';
 import Modal from '../../../shared/modal/modal';
 import OrderForm from '../../../shared/order-form/order-form';
 
