@@ -1,64 +1,33 @@
 section.questions { 
-   
-  /*CSSTransition*/
-  .carousel {
-    &-enter{
-      transform-origin: top center;
-      opacity: 0;
-      transform: scale(1, 0);
-    }
-    
-    &-enter-active { 
-      opacity: 1;
-      transform: scale(1, 1);
-      transition: transform 200ms ease-in, opacity 50ms ease-in;
-    }
-    
-    &-exit {
-      transform-origin: top center;
-      transform: scale(1, 1);
-      opacity: 1;
-    }
-    
-    &-exit-active {
-      opacity: 0;
-      transform: scale(1, 0);
-      transition: transform 100ms ease-in, opacity 50ms ease-in;
-    }
-  }
+    color: #DFDFDF;
 
-  color: #DFDFDF;
-  
-  button {
-    margin-right: 10px;
-    font-size: 16px;
-    
-    &.active {
-      border-color: #30A2DE;
-    }
+  header {
+    border-bottom: 1px solid white;
+    width: 97%;
   }
   
-  ol.bold-counters-list {
-    padding: 5px 3px;
-    counter-reset: num;
-    
-    li {
-      margin-bottom: 10px;
-    }
-    
-    li:before {
-      content: counter(num) ". ";
-      counter-increment: num;
-      font-weight: bold;
-    }
-  }
-
   div.guide, div.any-questions {
-    margin-top: 10px;
-    padding: 25px 28px 10px;
-    background-color: #282828;
-    border: 1px solid #606060;
-    border-radius: 5px; 
+    height: 205px;
+    box-sizing: border-box;
+  }
+    
+  .guide {
+    padding-top: 15px;
+    
+    ol.bold-counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      li {
+        margin-bottom: 10px;
+      }
+      
+      li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: bold;
+      }
+    }
   }
   
   div.any-questions {
@@ -75,5 +44,4 @@ section.questions {
       }
     }
   }
-
 }
