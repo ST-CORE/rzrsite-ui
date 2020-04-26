@@ -13,6 +13,18 @@ export default () => {
   return (
     <div className="nav-footer">
       <div className="container-small">
+        <div className="menu">
+          <p>
+            <span>Продукция:</span>
+            <NavLink to="/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
+            <NavLink to="/crushers" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
+          </p>
+          <p>
+            <span>О компании:</span>
+            <NavLink to="/delivery" activeClassName="selected"><span className="underline">Доставка</span></NavLink>
+            <NavLink to="/contacts" activeClassName="selected"><span className="underline">Контакты</span></NavLink>
+          </p>
+        </div>
         <div className="contact-block">
           <PhoneNumber />
           <Button label="Заказать звонок!" clickHandler={switchModal} />
@@ -21,16 +33,6 @@ export default () => {
             <CallMeForm />
           </Modal>
           
-        </div>
-        <div className="menu">
-          <span>Продукция:</span>
-          <NavLink to="/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
-          <NavLink to="/crushers" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
-        </div>
-        <div className="menu">
-          <span>О компании:</span>
-          <NavLink to="/delivery" activeClassName="selected"><span className="underline">Доставка</span></NavLink>
-          <NavLink to="/contacts" activeClassName="selected"><span className="underline">Контакты</span></NavLink>
         </div>
       </div>
     </div>
