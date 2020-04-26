@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Boiler from './views/boiler';
 import Crusher from './views/crusher';
-import ShowcaseItem from './showcase-item/showcase-item';
+import ShowcaseCarousel from './showcase-item/showcase-carousel';
 import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
 import './showcase.scss';
@@ -21,12 +21,12 @@ export default () => {
   return (
     <div className="showcase">
       <div className="container-big">
-        <ShowcaseItem displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
+        <ShowcaseCarousel displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
           <Boiler />
-        </ShowcaseItem>
-        <ShowcaseItem displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => setTransitioning(false)}>
+        </ShowcaseCarousel>
+        <ShowcaseCarousel displayCondition={machine === 'crusher' && !transitioning} exitHandler={() => setTransitioning(false)}>
           <Crusher />
-        </ShowcaseItem>
+        </ShowcaseCarousel>
       </div>
       <div className="showcase-menu">
         <div className="container-big">

@@ -1,8 +1,12 @@
 import * as React from 'react';
-import './boiler.scss';
+import './showcase-item.scss';
+import imgBoiler from '../../../../images/showcase/boiler-transparent.png';
 
 export default () => (
   <div className="showcase-item boiler">
+    <div className="image-container">
+      <img src={imgBoiler} alt="Котел Резер Фит-40" />
+    </div>
     <div className="showcase-item-description">
       <h1 className="big-title">Твердотопливные котлы Rezer</h1>
       <div className="advantages">

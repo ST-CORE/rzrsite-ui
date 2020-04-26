@@ -52,8 +52,8 @@ export default () => {
         <div>
           <label htmlFor="tel">Ваш номер телефона:</label>
           <input type="tel" id="tel" name="tel" ref={register({ required: true })} placeholder="+7 (999) 000 00 00" />
-          {errors.tel && <span className="error">Введите номер телефона</span>}
-          <ButtonSubmit label="Отправить заявку" className={buttonTypes.longCallmeButton} />
+          <ButtonSubmit label="Позвоните мне!" className={buttonTypes.longCallmeButton} />
+          {errors.tel && <p className="error">Введите номер телефона</p>}
         </div>
       </form>
     </div>

@@ -1,8 +1,12 @@
 import * as React from 'react';
-import './crusher.scss';
+import './showcase-item.scss';
+import imgCrusher from '../../../../images/showcase/crusher-transparent.png';
 
 export default () => (
   <div className="showcase-item crusher">
+    <div className="image-container">
+      <img src={imgCrusher} alt="Дробилка Резер ДС-2" />
+    </div>
     <div className="showcase-item-description">
       <h1 className="big-title">Дробилки угля автоматические Rezer</h1>
       <div className="advantages">

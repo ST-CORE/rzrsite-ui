@@ -24,6 +24,19 @@
     font-size: 30px;
     color: #eeeeee;
     border: none;
+    
+      &:focus {
+        outline: none;
+        color: #30A2DE;
+      }
+      
+      &:hover {
+        color: #30A2DE;
+      }
+      
+      &:active {
+        color: #18516F;
+      }
     }
   }
   
