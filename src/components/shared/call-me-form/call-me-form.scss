@@ -3,6 +3,10 @@
   text-align: left;
   color: #DFDFDF;
   
+  &:focus {
+    outline: none;
+  }
+  
   h2 {
     font-weight: bold;
     font-size: 24px;
@@ -34,17 +38,23 @@
       color: #dddddd;
       font-size: 14px;
       line-height: 16px;
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
     }
-  }
-  
-  span.error {
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: bold;
-    color: #EA3C21;
   }
   
   .long-button {
     margin-top: 12px;
+  }
+  
+  p.error {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #EA3C21;
+    margin: 2px 0 -19px 5px;
   }
 }

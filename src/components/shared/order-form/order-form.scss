@@ -4,6 +4,10 @@
   color: #DFDFDF;
   padding: 15px 0 30px 20px;
   
+  &:focus {
+    outline: none;
+  }
+  
   p.model {
     margin-bottom: 38px;
     span {
@@ -40,6 +44,11 @@
       color: #dddddd;
       font-size: 14px;
       line-height: 16px;
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
     }
     
     .long-button {
@@ -47,11 +56,12 @@
       margin-top: 16px;
     }
     
-    span.error {
+    p.error {
       font-size: 14px;
-      line-height: 16px;
+      line-height: 18px;
       font-weight: bold;
       color: #EA3C21;
+      margin: 2px 0 -19px 5px;
     }
   }
 }
