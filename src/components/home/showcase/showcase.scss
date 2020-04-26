@@ -1,7 +1,7 @@
 .showcase {
-  background-color: #949597;
+  background-image: linear-gradient(to bottom, #949597 0%, #A1A2A4 40%, #828284 70%, #828284 80%, #949597 100%);
   
-  .container-big {
+  > .container-big {
     box-sizing: border-box;
     height: 625px;
     width: 100%;
@@ -11,7 +11,7 @@
     background-color: #a0a1a2;
     border-bottom: 1px dashed #FFFFFF;
 
-    .container-big {  
+    > .container-big {  
       height: 40px;
       box-sizing: border-box;
       display: flex;
