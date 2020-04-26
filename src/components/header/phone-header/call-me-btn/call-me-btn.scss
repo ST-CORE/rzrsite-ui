@@ -9,17 +9,17 @@
   font-size: 14px;
   line-height: 23px;
   
-  &:focus, 
-  &:hover {
-    box-shadow: inset 0 0 13px 0 #6CB5DC;
+  &:focus {
+    box-shadow: inset 0 0 0 1px #ffffff;
     outline: none;
-    transition: box-shadow 400ms;
+  }
+  
+  &:hover {
+    background: linear-gradient(180deg, #4AAEE2 0%, #3184AF 97.54%);
   }
   
   &:active {
-    box-shadow: inset 0 0 13px 0 #11618B;
-    outline: none;
-    transition: box-shadow 50ms;
+    background: linear-gradient(180deg, #247AA6 0%, #0F567A 97.54%);
   }
 }
 
