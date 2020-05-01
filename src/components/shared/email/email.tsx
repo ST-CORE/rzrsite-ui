@@ -1,5 +1,5 @@
 import * as React from 'react';
 
 export default () => (
-  <span className="email">Rezer@mail.ru</span>
+  <span className="email desktop">Rezer@mail.ru</span>
 );
