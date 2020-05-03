@@ -1,4 +1,4 @@
-section.pay-and-delivery.desktop {
+section.pay-and-delivery.mobile {
   color: #DFDFDF;
   
   h1 {
@@ -7,7 +7,7 @@ section.pay-and-delivery.desktop {
   
   h2 {
     margin-bottom: 5px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   p {
@@ -15,18 +15,18 @@ section.pay-and-delivery.desktop {
   }
   
   ul.blue-bullets-list {
-    padding: 5px 3px;
+    padding: 5px 10px;
     line-height: 30px;
     
     li:before {
       display: inline-block;
       content: '';
-      width: 4px;
-      height: 4px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background-color: #30A2DE;
       vertical-align: middle; 
-      margin-right: 15px;
+      margin-right: 10px;
     }
   }
 }

@@ -1,28 +1,27 @@
 /* eslint-disable max-len */
 import * as React from 'react';
-import './pay-and-delivery.scss';
+import './pay-and-delivery-mobile.scss';
 
 export default () => (
-  <section className="pay-and-delivery desktop">
+  <section className="pay-and-delivery mobile">
     <h1>Оплата и доставка</h1>
     <p>
-      Оплатить продукцию можно несколькими способами:
+      Оплатить продукцию можно переводом:
     </p>
     <ul className="blue-bullets-list">
       <li>
-        Наличными средствами (переводом на расчетный счет или банковскую карту),
+        на банковскую карту,
       </li>
       <li>
-        Переводом на расчетный счет с НДС,
+        на расчетный счет с НДС,
       </li>
       <li>
-        Переводом на расчетный счет без НДС,
+        на расчетный счет без НДС,
       </li>
     </ul>
     <h2>Доставка</h2>
     <p>
       Доставка заказов осуществляется одним из следующих способов:
-      
     </p>
     <ul className="blue-bullets-list">
       <li>

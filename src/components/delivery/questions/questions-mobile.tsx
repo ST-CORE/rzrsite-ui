@@ -1,17 +1,17 @@
 /* eslint-disable max-len */
 import * as React from 'react';
-import './questions.scss';
+import './questions-mobile.scss';
 import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
-import AnyQuestions from '../../shared/any-questions/any-questions';
+import AnyQuestionsMobile from '../../shared/any-questions/any-questions-mobile';
 
 export default () => {
   const [tab, setTab] = React.useState('guide');
-  const classButton = buttonClassName.tabSwitchButton;
+  const classButton = buttonClassName.tabSwitchButtonMobile;
   const activeClassName = `${classButton} active`;
 
   return (
-    <section className="questions desktop">
+    <section className="questions mobile">
       <header>
         <Button className={(tab === 'guide') ? activeClassName : classButton} clickHandler={() => setTab('guide')} label="Как сделать заказ?" />
         <Button className={(tab === 'questions') ? activeClassName : classButton} clickHandler={() => setTab('questions')} label="Остались вопросы?" />
@@ -19,7 +19,7 @@ export default () => {
 
       {(tab === 'guide') && (
         <div className="guide">
-          <ol className="bold-counters-list">
+          <ol className="regular-counters-list">
             <li>
               Вы связываетесь с нашим менеджером, выбираете интересующую вас модель и/или дополнительные опции;
             </li>
@@ -39,7 +39,7 @@ export default () => {
         </div>
       )}
 
-      {(tab === 'questions') && <AnyQuestions />}
+      {(tab === 'questions') && <AnyQuestionsMobile />}
         
     </section>
   );

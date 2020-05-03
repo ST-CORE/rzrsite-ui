@@ -5,7 +5,7 @@ import Email from '../email/email';
 import CallMeForm from '../call-me-form/call-me-form';
 
 export default () => (
-  <div className="any-questions">
+  <div className="any-questions desktop">
     <div className="any-question--info">
       <h2>Остались вопросы?</h2>
       <p>

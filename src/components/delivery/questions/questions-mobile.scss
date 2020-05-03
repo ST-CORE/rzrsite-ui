@@ -1,20 +1,15 @@
-section.questions.desktop { 
+section.questions.mobile { 
   color: #DFDFDF;
 
   header {
     border-bottom: 1px solid white;
-    width: 97%;
-  }
-  
-  div.guide, div.any-questions {
-    height: 205px;
-    box-sizing: border-box;
+    width: 90%;
   }
     
   .guide {
     padding-top: 15px;
     
-    ol.bold-counters-list {
+    ol.regular-counters-list {
       padding: 5px 3px;
       counter-reset: num;
       
@@ -25,20 +20,19 @@ section.questions.desktop {
       li:before {
         content: counter(num) ". ";
         counter-increment: num;
-        font-weight: bold;
+        font-weight: 400;
+        color: #30a2de;
       }
     }
   }
   
   div.any-questions {
     padding-top: 15px;
-    width: 700px;
     
+    h2 {
+      display: none;
+    }
     .any-question--info {
-      h2 {
-        display: none;
-      }
-      
       span {
         font-size: 20px;
         line-height: 28px;
