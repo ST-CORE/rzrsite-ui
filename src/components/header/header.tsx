@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import DesktopHeader from './desktop-header/desktop-header';
+import PhoneHeader from './phone-header/phone-header';
+import NavHeader from './nav-header/nav-header';
 
 interface HeaderProps {
   lightTheme: boolean
 }
 
 export default ({ lightTheme }: HeaderProps) => (
-  
   <ProvideMediaMatchers>
     <MediaMatcher
       mobile={
@@ -17,10 +17,12 @@ export default ({ lightTheme }: HeaderProps) => (
           </header>
         )
       }
-      desktop={
-        <DesktopHeader lightTheme={lightTheme} />
-      }
+      desktop={(
+        <header>
+          <PhoneHeader lightTheme={lightTheme} />
+          <NavHeader lightTheme={lightTheme} />
+        </header>
+      )}
     />
   </ProvideMediaMatchers>
-  
 );
