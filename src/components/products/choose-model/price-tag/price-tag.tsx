@@ -17,7 +17,7 @@ export default ({ inStock, price }: PriceTagProps) => {
   const stock: string = (inStock) ? 'в наличии' : 'нет в наличии';
   const stockClassName: string = (inStock) ? 'stock in-stock' : 'stock not-in-stock';
   return (
-    <div className="price-tag">
+    <div className="price-tag desktop">
       <Dropdown />
       <span className="price">
         {price}

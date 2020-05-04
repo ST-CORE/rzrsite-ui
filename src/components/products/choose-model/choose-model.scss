@@ -1,4 +1,4 @@
-.choose-model {
+.choose-model.desktop {
   padding-top: 50px;
   
   display: grid;
@@ -17,3 +17,16 @@
   }
   
 }
+
+.choose-model.mobile {
+  display: grid;
+  grid-template-columns: 100%; 
+  grid-gap: 20px;
+  padding: 10px;
+  
+  .feature-table {
+    height: auto;
+    width: 100%;
+    max-width: 450px;
+  }
+} 

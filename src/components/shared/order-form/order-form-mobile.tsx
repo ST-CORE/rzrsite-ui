@@ -2,7 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import './order-form.scss';
+import './order-form-mobile.scss';
 import address from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
@@ -33,7 +33,7 @@ export default () => {
   };
   
   return (
-    <div className="order-form desktop" tabIndex={-1} role="dialog">
+    <div className="order-form mobile" tabIndex={-1} role="dialog">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Вы выбрали:</h3>
         <p className="model">
@@ -45,11 +45,9 @@ export default () => {
           </span>
         </p>
         <p className="comment">
-          Мы получим Вашу заявку на эту модель и
-          <br />
-          перезвоним Вам, чтобы оформить заказ.
+          Мы получим Вашу заявку на эту модель и перезвоним Вам, чтобы оформить заказ.
         </p>
-        <div>
+        <div className="input-and-button">
           <label htmlFor="tel">Ваш номер телефона:</label>
           <input type="tel" id="tel" name="tel" ref={register({ required: true })} placeholder="+7 (999) 000 00 00" />
           <ButtonSubmit label="Позвоните мне!" className={buttonTypes.longCallmeButton} />
