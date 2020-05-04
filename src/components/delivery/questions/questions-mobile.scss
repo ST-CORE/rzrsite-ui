@@ -33,7 +33,7 @@ section.questions.mobile {
       display: none;
     }
     .any-question--info {
-      span {
+      .phone-number, .email {
         font-size: 20px;
         line-height: 28px;
       }

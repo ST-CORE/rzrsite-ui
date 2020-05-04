@@ -1,0 +1,111 @@
+.nav-footer.mobile {
+  background-color: #151515;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #DFDFDF;
+  padding: 15px 0;
+
+  .menu p {
+    padding: 10px;
+    
+    & > span {
+      font-weight: bold;
+    }
+
+    a {
+      color: #DFDFDF;
+      margin-left: 28px; 
+
+      .underline {
+        display: inline-block;
+        line-height: 0.8;
+        border-bottom: 1px solid #DFDFDF;
+      }
+    }
+
+    a.selected {
+      .underline {
+        border: none;
+      }
+    }
+  }
+  
+  .contact-block {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+    .phone-number {
+      margin: 10px 10px 0;
+      font-size: 24px;
+      line-height: auto;
+      color: #30a2de;
+    }
+
+    > button {
+      margin: 10px 10px 0;
+    }
+  }
+  
+  .call-me-form--background {
+    margin: 10px 0 0 15px;
+    padding-bottom: 10px;
+    width: 90%;
+    min-width: 260px;
+    max-width: 400px;
+    background: #343434;
+    border-radius: 4px;
+    border-bottom: 7px solid #4E4E4E;
+    
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 15px;
+      background-image: radial-gradient(circle, #151515 0%, #151515 43%, #343434 43%);
+      background-size: 31px 31px;
+      background-repeat: repeat-x;
+      background-position: 5px -15px;
+    } 
+    
+    .call-me-form {
+      margin: 0 auto;
+      
+      div {
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  // CSSTransition
+  
+  .to-top-slider {
+    &-enter {
+      height: 0;
+      transform-origin: bottom;
+      transform: scale(1, 0);
+      opacity: 0;
+    }
+    
+    &-enter-active { 
+      transform: scale(1, 1);
+      height: auto;
+      opacity: 1;
+      transition: transform 400ms, height 400ms, opacity 400ms ease-in;
+    }
+    
+    &-exit {
+      transform-origin: bottom;
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+    
+    &-exit-active {
+      transform: scale(1, 0);
+      opacity: 0;
+      transition: transform 200ms, opacity 200ms ease-in;
+    }
+  }
+}

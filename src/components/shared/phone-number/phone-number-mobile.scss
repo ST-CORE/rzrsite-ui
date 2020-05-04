@@ -1,9 +1,7 @@
-.phone-number.mobile {
-  a {
-    color: white;
-    font-weight: bold;
-  }
-  
+a.phone-number.mobile {
+  color: white;
+  font-weight: bold;
+
   &:active {
     color: #30A2de;
   }

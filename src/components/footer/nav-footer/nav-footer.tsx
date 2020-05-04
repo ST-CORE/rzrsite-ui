@@ -11,7 +11,7 @@ export default () => {
   const switchModal = () => toggleModal(!modalState);
   
   return (
-    <div className="nav-footer">
+    <div className="nav-footer desktop">
       <div className="container-small">
         <div className="menu">
           <p>

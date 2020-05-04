@@ -1,7 +1,9 @@
-.call-me-form.desktop {
-  width: 380px;
+.call-me-form.mobile {
+  min-width: 260px;
+  max-width: 95%;
   text-align: left;
   color: #DFDFDF;
+  white-space: normal;
   
   &:focus {
     outline: none;
@@ -10,17 +12,18 @@
   h2 {
     font-weight: bold;
     font-size: 24px;
-    margin: 0 0 20px 5px;
+    margin-bottom: 10px;
+    text-align: center;
   }
 
   span {
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-    margin-left: 5px;
   }
   
   div {    
+    width: 260px;
     label {
       display: none;
     }
@@ -48,13 +51,5 @@
   
   .long-button {
     margin-top: 12px;
-  }
-  
-  p.error {
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: bold;
-    color: #EA3C21;
-    margin: 2px 0 -19px 5px;
   }
 }
