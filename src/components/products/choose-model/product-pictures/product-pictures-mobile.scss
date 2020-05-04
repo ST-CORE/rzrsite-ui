@@ -1,0 +1,23 @@
+.product-pictures.mobile {
+  max-width: 450px;
+  
+  .small-pictures {
+    max-width: 450px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    
+    button {
+      padding: 0;
+      flex-shrink: 1;
+
+      &:nth-of-type(2) {
+        margin: 0 10px;
+      }
+      
+      img {
+        max-width:100%;
+      }
+    }
+  }
+}

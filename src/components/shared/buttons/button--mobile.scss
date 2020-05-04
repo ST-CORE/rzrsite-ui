@@ -1,0 +1,30 @@
+.tab-switch-button--mobile {
+  display: block;
+  background: transparent;
+  box-sizing: border-box;  
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #DFDFDF;
+  border-bottom: 1px solid #DFDFDF;
+  padding: 15px 0 2px 15px;
+  
+  &:focus {
+    outline: none;
+    color: #30A2DE;
+  }
+  
+  &:hover {
+    color: #30A2DE;
+  }
+  
+  &.active {
+    border-bottom: 2px solid #30A2DE;    
+    margin-bottom: -1px;
+  }
+  
+  &:last-of-type:not(.active) {
+    border: none;
+  }
+}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './button.scss';
+import './button--mobile.scss';
 
 interface ButtonProps {
   label: string,

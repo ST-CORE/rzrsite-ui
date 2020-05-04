@@ -1,16 +1,26 @@
 import * as React from 'react';
-import PhoneHeader from './phone-header/phone-header';
-import NavHeader from './nav-header/nav-header';
+import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
+import DesktopHeader from './desktop-header/desktop-header';
 
 interface HeaderProps {
   lightTheme: boolean
 }
 
-const Header = ({ lightTheme }: HeaderProps) => (
-  <header>
-    <PhoneHeader lightTheme={lightTheme} />
-    <NavHeader lightTheme={lightTheme} />
-  </header>
+export default ({ lightTheme }: HeaderProps) => (
+  
+  <ProvideMediaMatchers>
+    <MediaMatcher
+      mobile={
+        (
+          <header>
+            Menu Logo Phone
+          </header>
+        )
+      }
+      desktop={
+        <DesktopHeader lightTheme={lightTheme} />
+      }
+    />
+  </ProvideMediaMatchers>
+  
 );
-
-export default Header;

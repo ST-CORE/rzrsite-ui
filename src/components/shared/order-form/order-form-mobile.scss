@@ -1,15 +1,20 @@
-.order-form.desktop {
-  min-width: 330px;
-  text-align: left;
-  color: #DFDFDF;
-  padding: 15px 0 30px 20px;
+.order-form.mobile {
+  box-sizing: border-box;
+  
   
   &:focus {
     outline: none;
   }
   
+  form {
+    width: 100%;
+    padding: 15px 15px 0;
+    color: #DFDFDF;
+  }
+  
   p.model {
-    margin-bottom: 38px;
+    margin-bottom: 18px;
+    width: 90%;
     span {
       font-weight: bold;
       font-size: 20px;
@@ -20,10 +25,12 @@
   
   p.comment {
     line-height: 20px;
+    white-space: normal;
   }
   
-  div {
-    margin-top: 18px;
+  .input-and-button {
+    margin: 18px 0;
+    max-width: 260px;
     
     label {
       font-weight: bold;
@@ -33,7 +40,7 @@
     
     input {
       display: block;
-      width: 260px;
+      width: 100%;
       height: 34px;
       padding: 8px 12px;
       margin-top: 14px;

@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
-import './product-description.scss';
+import './product-description-mobile.scss';
 import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
 
@@ -43,7 +43,7 @@ export default () => {
     setItemIndex(index);
   };
   
-  const classButton = buttonClassName.tabSwitchButton;
+  const classButton = buttonClassName.tabSwitchButtonMobile;
   const classActiveButton = `${classButton} active`;
   const buttons = myList.map((listItem, i) => (
     <Button
@@ -55,7 +55,7 @@ export default () => {
   ));
   
   return (
-    <div className="product-description desktop">
+    <div className="product-description mobile">
       <header>
         {buttons}
       </header>
