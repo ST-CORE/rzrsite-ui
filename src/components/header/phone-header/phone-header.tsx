@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PhoneNumber from '../../shared/phone-number/phone-number';
-import CallMeButton from './call-me-btn/call-me-btn';
+import Button from '../../shared/buttons/button';
+import * as buttonTypes from '../../../consts/button-types';
 import './phone-header.scss';
 import Modal from '../../shared/modal/modal';
 import CallMeForm from '../../shared/call-me-form/call-me-form';
@@ -13,7 +14,7 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
   const [modalState, toggleModal] = React.useState(false);
   const switchModal = () => toggleModal(!modalState);
   
-  let className: string = 'phone-header';
+  let className: string = 'desktop phone-header';
   if (lightTheme) {
     className += ' light-theme';
   }
@@ -22,7 +23,7 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
       <div className="container-big">
         <span>Есть вопросы? Звоните</span>
         <PhoneNumber />
-        <CallMeButton clickHandler={switchModal} />
+        <Button label="Позвоните мне!" className={buttonTypes.blueSquareButton} clickHandler={switchModal} />
         
         <Modal overlay={false} modalState={modalState} closeModal={switchModal}>
           <CallMeForm />

@@ -19,6 +19,27 @@
   }
 }
 
+.blue-square-button--mobile {
+  border: none;
+  border-top: 1px solid #30A2DE;
+  padding: 5px 15px 7px;
+  background: linear-gradient(180deg, #30A2DE 0%, #1472A3 97.54%);
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 23px;
+  
+  &:focus {
+    box-shadow: inset 0 0 0 1px #ffffff;
+    outline: none;
+  }
+  
+  &:active {
+    background: linear-gradient(180deg, #247AA6 0%, #0F567A 97.54%);
+  }
+}
+
 .tab-switch-button--mobile {
   display: block;
   background: transparent;

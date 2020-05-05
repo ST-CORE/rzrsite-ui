@@ -8,7 +8,7 @@ import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
 export default () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (inputData: object) => {
     console.log(inputData);
     

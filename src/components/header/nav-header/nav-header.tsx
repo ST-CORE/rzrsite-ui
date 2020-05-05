@@ -8,7 +8,7 @@ interface NavHeaderProps {
 }
 
 export default ({ lightTheme }: NavHeaderProps) => {
-  let className: string = 'nav-header';
+  let className: string = 'desktop nav-header';
   if (lightTheme) {
     className += ' light-theme';
   }

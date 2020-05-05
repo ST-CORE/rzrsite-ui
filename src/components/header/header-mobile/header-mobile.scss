@@ -1,0 +1,62 @@
+.header-mobile {
+  background-color: #151515;
+  
+  .menu-button {
+    align-self: flex-end;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    margin: 15px 0 10px 15px;
+    
+    &:focus, &:hover {
+      outline: none;
+    }
+  }
+  
+  .logo {
+    margin-top: 15px;
+    vertical-align: baseline;
+  }
+  
+  .button-and-phone {
+    float: right;
+    text-align: right;
+    margin-bottom: 5px;
+    
+    button {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .phone-number {
+      padding-right: 5px;
+      font-size: 18px;
+    }
+  }
+  
+  .clearfix {
+    display: table;
+    clear: both;
+  }
+  
+  &.light-theme {
+    background-color: #353535;
+  }
+  
+  .container-menu-mobile {
+    padding: 0 10px 10px;
+    border-bottom: 2px solid #30a2de;
+
+  }
+  
+  .call-me-form {
+    margin: 0 auto;
+    
+    div {
+      margin: 0 auto;
+    }
+  }
+  
+}
