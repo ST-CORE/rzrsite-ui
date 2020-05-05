@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './landing-info.scss';
+import './landing-info-mobile.scss';
 import VideoRezer from '../../shared/video/videoRezer';
 
 export default () => (
-  <div className="landing-info container-small desktop">
+  <div className="landing-info mobile">
     <div className="why-us">
       <h2>Почему стоит выбрать Rezer?</h2>
       <ul>

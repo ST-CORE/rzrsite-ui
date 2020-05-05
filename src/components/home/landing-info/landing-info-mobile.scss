@@ -1,8 +1,5 @@
-.landing-info.desktop {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 113px 0 71px;
+.landing-info {
+  padding: 40px 20px;
   
   h2 {
     text-transform: uppercase;
@@ -23,7 +20,7 @@
   
   .why-us {
     ul {
-      margin-top: 54px;
+      margin-top: 34px;
       padding-left: 38px;
       border-left: 1px dashed #FFFFFF;
       li {
@@ -35,11 +32,12 @@
     }
   }
   .video-block {
-    margin-left: 114px;
+    margin-top: 54px;
     .video {
-      margin-top: 54px;
-      width: 427px;
-      height: 241px;
+      margin-top: 30px;
+      width: 340px;
+      height: 192px;
+      border: 1px solid #D8D8D8;
     }
   }
 }
