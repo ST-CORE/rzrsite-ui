@@ -54,6 +54,15 @@
   .call-me-form {
     margin: 0 auto;
     
+    h2 {
+      margin-bottom: none;
+    }
+    
+    span {
+      display: block;
+      text-align: center;
+    }
+    
     div {
       margin: 0 auto;
     }

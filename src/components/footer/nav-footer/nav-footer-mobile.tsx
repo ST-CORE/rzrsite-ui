@@ -24,13 +24,13 @@ export default () => {
           <NavLink to="/contacts" activeClassName="selected"><span className="underline">Контакты</span></NavLink>
         </p>
       </div>
-      <CSSTransition in={form} timeout={{ enter: 400, exit: 300 }} classNames="to-top-slider" unmountOnExit>
-        <CallMeFormMobile />
-      </CSSTransition>
       <div className="contact-block">
         <PhoneNumberMobile />
         <Button label={form ? 'Скрыть форму' : 'Заказать звонок!'} clickHandler={() => switchForm(!form)} className={buttonTypes.defaultMobile} />
       </div>
+      <CSSTransition in={form} timeout={{ enter: 400, exit: 300 }} classNames="to-bottom-slider" unmountOnExit>
+        <CallMeFormMobile />
+      </CSSTransition>
     </div>
   );
 };
