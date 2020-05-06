@@ -27,8 +27,8 @@ export default ({ inStock, price }: PriceTagProps) => {
             {stock}
           </span>
         </div>
-        <Button label={form ? 'Свернуть форму' : 'Оставить заявку'} className={form ? '' : buttonClassName.blueButton} clickHandler={() => switchForm(!form)} />
-        <CSSTransition in={form} timeout={400} classNames="vertical-slider" unmountOnExit>
+        <Button label={form ? 'Скрыть форму' : 'Оставить заявку'} className={form ? buttonClassName.defaultMobile : buttonClassName.blueButton} clickHandler={() => switchForm(!form)} />
+        <CSSTransition in={form} timeout={400} classNames="to-bottom-slider" unmountOnExit>
           <OrderForm />
         </CSSTransition>
       </div>

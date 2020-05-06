@@ -1,4 +1,4 @@
-.phone-header {
+.phone-header.desktop {
   background: #000000;
   text-align: right;
   font-size: 14px;
@@ -16,7 +16,7 @@
 }
 
 //при включении светлой темы цвет текста (кроме текста кнопки) становится прозрачнее
-.phone-header {
+.phone-header.desktop {
   &.light-theme {
     span, .phone-number { 
     mix-blend-mode: normal;

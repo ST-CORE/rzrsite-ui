@@ -13,7 +13,7 @@ export default () => (
     <Route exact path="/delivery">
       <Delivery />
     </Route>
-    <Route exact path="/products">
+    <Route path="/products">
       <Products />
     </Route>
     <Route exact path="/contacts">

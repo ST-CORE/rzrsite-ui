@@ -2,13 +2,13 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import './call-me-form.scss';
+import './call-me-form-mobile.scss';
 import address from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
 export default () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (inputData: object) => {
     console.log(inputData);
     
@@ -26,17 +26,16 @@ export default () => {
   };
   
   return (
-    <div className="call-me-form desktop" tabIndex={-1} role="dialog">
-      <form name="callMeForm" onSubmit={handleSubmit(onSubmit)}>
+    <div className="call-me-form--background">
+      <form name="callMeForm" className="call-me-form mobile" tabIndex={-1} role="dialog" onSubmit={handleSubmit(onSubmit)}>
         <h2>
           Вам позвонить?
         </h2>
-        <span>Оставьте свой номер и мы сами вам позвоним</span>
+        <span>Оставьте свой номер и мы сами вам позвоним:</span>
         <div>
           <label htmlFor="tel">Телефон:</label>
           <input type="tel" id="tel" name="tel" ref={register({ required: true })} placeholder="+7 (999) 000 00 00" />
           <ButtonSubmit label="Позвоните мне!" className={buttonTypes.longCallmeButton} />
-          {errors.tel && <p className="error">Введите номер телефона</p>}
         </div>
       </form>
     </div>

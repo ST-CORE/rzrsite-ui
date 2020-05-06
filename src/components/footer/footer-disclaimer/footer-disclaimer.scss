@@ -4,8 +4,12 @@
   opacity: 0.58;
   font-weight: normal;
   font-size: 14px;
-
-  > .container-small {
-    line-height: 50px;
+  
+  &.desktop {
+    padding: 15px;
+  }
+  
+  &.mobile {
+    padding: 15px 10px;
   }
 }

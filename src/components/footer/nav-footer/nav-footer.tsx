@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import './nav-footer.scss';
+import FooterMenu from './footer-menu/footer-menu';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import Button from '../../shared/buttons/button';
 import Modal from '../../shared/modal/modal';
@@ -11,20 +11,9 @@ export default () => {
   const switchModal = () => toggleModal(!modalState);
   
   return (
-    <div className="nav-footer">
+    <div className="nav-footer desktop">
       <div className="container-small">
-        <div className="menu">
-          <p>
-            <span>Продукция:</span>
-            <NavLink to="/boilers" activeClassName="selected"><span className="underline">Котлы</span></NavLink>
-            <NavLink to="/crushers" activeClassName="selected"><span className="underline">Дробилки</span></NavLink>
-          </p>
-          <p>
-            <span>О компании:</span>
-            <NavLink to="/delivery" activeClassName="selected"><span className="underline">Доставка</span></NavLink>
-            <NavLink to="/contacts" activeClassName="selected"><span className="underline">Контакты</span></NavLink>
-          </p>
-        </div>
+        <FooterMenu />
         <div className="contact-block">
           <PhoneNumber />
           <Button label="Заказать звонок!" clickHandler={switchModal} />
