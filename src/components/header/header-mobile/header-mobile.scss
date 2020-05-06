@@ -45,12 +45,6 @@
     background-color: #353535;
   }
   
-  .container-menu-mobile {
-    padding: 0 10px 10px;
-    border-bottom: 2px solid #30a2de;
-
-  }
-  
   .call-me-form {
     margin: 0 auto;
     
@@ -68,4 +62,42 @@
     }
   }
   
+  // CSS Transition and container for menu and CallMeForm
+  
+  .container-menu-mobile {
+    &.enter {
+      height: 0;
+      transform-origin: top;
+      transform: scale(1, 0);
+      opacity: 0;
+    }
+    
+    &.enter-active {
+      transform: scale(1, 1);
+      height: auto;
+      opacity: 1;
+      transition: transform 400ms, height 400ms, opacity 400ms ease-in;
+      padding: 0 10px 10px;
+      border-bottom: 2px solid #30a2de;
+    }
+    
+    &.enter-done {
+      padding: 0 10px 10px;
+      border-bottom: 2px solid #30a2de;
+    }
+    
+    &.exit {
+      height: auto;
+      transform-origin: top;
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+    
+    &.exit-active {
+      height: 0;
+      transform: scale(1, 0);
+      opacity: 0;
+      transition: transform 400ms, opacity 400ms ease-in, height 400ms;
+    }
+  }
 }

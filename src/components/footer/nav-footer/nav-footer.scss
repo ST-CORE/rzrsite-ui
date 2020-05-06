@@ -25,28 +25,5 @@
         margin: auto;
       }
     }
-
-    .menu p {
-      & > span {
-        font-weight: bold;
-      }
-
-      a {
-        color: #DFDFDF;
-        margin-left: 28px; 
-
-        .underline {
-          display: inline-block;
-          line-height: 0.8;
-          border-bottom: 1px solid #DFDFDF;
-        }
-      }
-
-      a:hover, a:focus, a.selected {
-        .underline {
-          border: none;
-        }
-      }
-    }
   }
 }

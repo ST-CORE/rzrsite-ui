@@ -6,29 +6,8 @@
   color: #DFDFDF;
   padding: 15px 0;
 
-  .menu p {
+  .footer-menu p {
     padding: 10px;
-    
-    & > span {
-      font-weight: bold;
-    }
-
-    a {
-      color: #DFDFDF;
-      margin-left: 28px; 
-
-      .underline {
-        display: inline-block;
-        line-height: 0.8;
-        border-bottom: 1px solid #DFDFDF;
-      }
-    }
-
-    a.selected {
-      .underline {
-        border: none;
-      }
-    }
   }
   
   .contact-block {
