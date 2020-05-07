@@ -1,22 +1,22 @@
 import * as React from 'react';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import Showcase from './showcase/showcase';
+import ShowcaseDesktop from './showcase/showcase';
+import ShowcaseMobile from './showcase/showcase-mobile';
 import LandingInfo from './landing-info/landing-info';
-import LandingInfoMobile from './landing-info/landing-info-mobile';
 
 export default () => (
   <ProvideMediaMatchers>
     <MediaMatcher
       mobile={(
         <div className="home-mobile">
-          <Showcase />
-          <LandingInfoMobile />
+          <ShowcaseMobile />
+          <LandingInfo mobile />
         </div>
       )}
       desktop={(
         <div className="home">
-          <Showcase />
-          <LandingInfo />
+          <ShowcaseDesktop />
+          <LandingInfo mobile={false} />
         </div>
       )}
     />

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Boiler from './views/boiler';
-import Crusher from './views/crusher';
-import ShowcaseCarousel from './showcase-item/showcase-carousel';
+import Boiler from './views/boiler/boiler';
+import Crusher from './views/crusher/crusher';
+import ShowcaseCarousel from './showcase-carousel/showcase-carousel';
 import Button from '../../shared/buttons/button';
 import * as buttonClassName from '../../../consts/button-types';
 import './showcase.scss';
@@ -17,10 +17,10 @@ export default () => {
   const classActiveLink = `${classLink} active`;
   const boilerButtonClass: string = machine === 'boiler' ? classActiveLink : classLink;
   const crusherButtonClass: string = machine === 'crusher' ? classActiveLink : classLink;
-  
+    
   return (
-    <div className="showcase">
-      <div className="container-big">
+    <div className="showcase desktop">
+      <div className="container-big showcase-carousel">
         <ShowcaseCarousel displayCondition={machine === 'boiler' && !transitioning} exitHandler={() => setTransitioning(false)}>
           <Boiler />
         </ShowcaseCarousel>

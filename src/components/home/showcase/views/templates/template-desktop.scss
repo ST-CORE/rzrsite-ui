@@ -1,4 +1,4 @@
-.showcase-item {
+.showcase-item.desktop {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -24,47 +24,6 @@
       text-transform: uppercase;
       text-align: left;
       color: #fefefe;
-    }
-    
-    .advantages ul {
-      height: 235px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 21px;
-      margin: 29px 93px 35px 0;
-
-      li {
-        display: inline-block;
-        width: 360px;
-      }
-      
-      li::before {
-        content: "";
-        float: left;
-        height: 51px;
-        width: 51px;
-        margin-right: 15px;
-      }
-      
-      li:first-of-type::before {
-        background-image: url("../../../../images/icons/autonomy.svg");
-        background-size: contain;
-      }
-      
-      li:nth-of-type(2)::before {
-        background-image: url("../../../../images/icons/hand.svg");
-        background-size: cover;      
-      }
-      
-      li:last-of-type::before {
-        background-image: url("../../../../images/icons/levels.svg");
-        background-size: cover;
-      }
     }
     
     .to-catalog {
