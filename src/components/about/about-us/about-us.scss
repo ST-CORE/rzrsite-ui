@@ -2,35 +2,46 @@ article.about-us {
   padding: 30px 3px 30px;
   color: #DFDFDF;
   
+  a {
+    color: #30a2de;
+    font-weight: bold;
+  }
+  
   h1 {
     margin: 21px 0;
   }
   
+  h2 {
+    margin: 25px 0 15px;
+  }
+  
+  h3 {
+    margin: 30px 0 5px;
+  }
+  
   section {
     border-bottom: 1px dashed #DFDFDF;
-    padding: 20px 0;
+    padding: 10px 0;
     
     p {
       margin-bottom: 10px;
+      text-indent: 20px;
     }
-    
-    h2 {
-      margin: 25px 0 15px;
-    }
-    
-    ul {
-      list-style-type: circle;
-      color: #30A2DE;
-      padding-left: 20px;
-    }
-    
-    ol {
-      list-style-type: decimal;
-      padding-left: 20px;
-    }
+
   }
   
   section:last-of-type {
     border: none;
+  }
+  
+  ul.first-word-blue {
+    &>li {
+      padding: 5px 0;
+    }
+    b {
+      font-weight: 500;
+      color: #30a2de;
+      letter-spacing: 1.1;
+    }
   }
 }
