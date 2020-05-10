@@ -9,7 +9,7 @@ interface showcaseCarouselProps {
 }
 
 export default ({ exitHandler, children, displayCondition }: showcaseCarouselProps) => (
-  <CSSTransition in={displayCondition} timeout={800} classNames="carousel" onExited={exitHandler} unmountOnExit>
+  <CSSTransition in={displayCondition} timeout={800} classNames="carousel" onExited={exitHandler} mountOnEnter unmountOnExit>
     { children }
   </CSSTransition>
 );

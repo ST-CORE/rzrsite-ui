@@ -1,9 +1,4 @@
 .landing-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 113px 0 71px;
-  
   h2 {
     text-transform: uppercase;
     font-weight: normal;
@@ -23,7 +18,6 @@
   
   .why-us {
     ul {
-      margin-top: 54px;
       padding-left: 38px;
       border-left: 1px dashed #FFFFFF;
       li {
@@ -34,12 +28,44 @@
       }
     }
   }
+}
+
+.landing-info.desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 113px 0 71px;
+  
+  .why-us {
+    ul {
+      margin-top: 54px;
+    }
+  }
   .video-block {
-    margin-left: 109px;
+    margin-left: 114px;
     .video {
       margin-top: 54px;
-      width: 461px;
-      height: 253px;
+      width: 427px;
+      height: 241px;
+    }
+  }
+}
+
+.landing-info.mobile {
+  padding: 40px 20px;
+  
+  .why-us {
+    ul {
+      margin-top: 34px;
+    }
+  }
+  
+  .video-block {
+    margin-top: 54px;
+    .video {
+      margin-top: 30px;
+      width: 340px;
+      height: 192px;
       border: 1px solid #D8D8D8;
     }
   }

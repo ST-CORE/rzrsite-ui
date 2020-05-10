@@ -1,0 +1,42 @@
+.showcase-item.mobile {
+  .big-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 10px 0;
+  }
+  
+  .showcase-item-description {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    
+    .image-container {
+      width: 180px;
+      flex-shrink: 0;
+      
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  
+  .to-catalog {
+    a.to-catalog-button {
+      display: block;
+      box-sizing: border-box;
+      width: 50%;
+      max-width: 250px;
+      color: #ffffff;
+      padding: 13px 0;
+      margin: 10px auto;
+      text-align: center;
+      background: transparent;
+      border: 1px solid #FFFFFF;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+  }
+}
