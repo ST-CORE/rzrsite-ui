@@ -201,3 +201,26 @@
     background: #202020;
   }
 }
+
+.show-details-button {
+  display: block;
+  padding: 0;
+  line-height: 24px;
+  color: #30A2DE;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px dashed #30A2DE;
+  
+  &:focus {
+    outline: none;
+    font-weight: 600;
+  }
+  
+  &:hover {
+    font-weight: 600;
+  }
+  
+  &:active {
+    background: #202020;
+  }
+}

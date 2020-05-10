@@ -16,7 +16,11 @@ section.pay-and-delivery.mobile {
   
   ul.blue-bullets-list {
     padding: 5px 10px;
-    line-height: 30px;
+    line-height: 24px;
+    
+    li {
+      margin-bottom: 10px;
+    }
     
     li:before {
       display: inline-block;

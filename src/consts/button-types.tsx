@@ -10,3 +10,5 @@ export const tabSwitchButton: string = 'tab-switch-button'; // button on product
 export const tabSwitchButtonMobile: string = 'tab-switch-button--mobile';
 export const transparentButton: string = 'transparent-button'; // button with transparent bgcolor and uppercase text. Beware! 
 // The one on Home page is not a html-button but a anchor link. 
+export const showDetailsButton: string = 'show-details-button'; // blue text with dashed bottom border 
+export const showDetailsButtonMobile: string = 'show-details-button--mobile';

@@ -70,3 +70,15 @@
     border: none;
   }
 }
+
+.show-details-button--mobile {
+  line-height: 22px;
+  color: #30A2DE;
+  background-color: transparent;
+  border: 1px dashed #30A2DE;
+  
+  &:focus {
+    outline: none;
+    font-weight: 600;
+  }
+}

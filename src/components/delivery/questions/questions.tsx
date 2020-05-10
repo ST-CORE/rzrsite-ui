@@ -19,7 +19,7 @@ export default () => {
 
       {(tab === 'guide') && (
         <div className="guide">
-          <ol className="bold-counters-list">
+          <ol className="counters-list">
             <li>
               Вы связываетесь с нашим менеджером, выбираете интересующую вас модель и/или дополнительные опции;
             </li>
