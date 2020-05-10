@@ -6,6 +6,7 @@ import Delivery from '../delivery/delivery';
 import Home from '../home/home';
 import Contacts from '../contacts/contacts';
 import About from '../about/about';
+import ProductsAbout from '../products-about/products-about';
 import Products from '../products/products';
 
 export default () => (
@@ -13,7 +14,10 @@ export default () => (
     <Route exact path="/delivery">
       <Delivery />
     </Route>
-    <Route path="/products">
+    <Route exact path="/products">
+      <ProductsAbout />
+    </Route>
+    <Route path="/products/">
       <Products />
     </Route>
     <Route exact path="/contacts">
