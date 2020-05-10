@@ -6,7 +6,9 @@ export default () => (
   <nav className="header-menu">
     <ul className="first-level-menu">
       <li className="first-level-item complex-item">
-        Продукция
+        <NavLink to="/products" activeClassName="selected-category">
+          Продукция
+        </NavLink>
         <ul className="second-level-menu">
           <li>
             <NavLink to="/products/boilers" activeClassName="selected">

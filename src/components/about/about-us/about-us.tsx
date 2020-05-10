@@ -5,8 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './about-us.scss';
 import DetailsBlock from '../../shared/details-block/details-block';
-// import Button from '../../shared/buttons/button';
-// import * as buttonTypes from '../../../consts/button-types';
 
 export default () => (
   <article className="about-us">
@@ -105,7 +103,7 @@ export default () => (
     </section>
     
     <section>
-      <h2>Как мы обеспечиваем надежность нашего оборудования</h2>
+      <h2>Как мы обеспечиваем надежность оборудования</h2>
       <p>
         Наши котлы имеют классическую конструкцию с горизонтальными теплообменниками. 
         Такой тип компоновки топки позволяет легко очищать котёл от золы парой простых 

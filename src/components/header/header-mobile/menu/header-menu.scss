@@ -1,4 +1,4 @@
-.header-menu {
+ .header-menu {
   padding-left: 25px;
 
   a {
@@ -15,6 +15,10 @@
   a.selected {
     color: #30a2de;
     border-right: 2px solid #30a2de;
+  }
+  
+  a.selected-category {
+    color: #30a2de;
   }
   
   .first-level-menu {
