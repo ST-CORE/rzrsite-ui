@@ -19,10 +19,37 @@ export default ({ lightTheme }: NavHeaderProps) => {
           <Logo />
         </Link>
         <nav>
-          <NavLink to="/products" activeClassName="selected">Продукция</NavLink>
-          <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>
-          <NavLink to="/about" activeClassName="selected">О компании</NavLink>
-          <NavLink to="/contacts" activeClassName="selected">Контакты</NavLink>
+          <ul className="big-menu">
+            <li className="hoverable">
+              Продукция
+              <ul className="submenu">
+                <li>
+                  <NavLink to="/products" activeClassName="selected-dashed">
+                    О продукции
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/products/boilers" activeClassName="selected-dashed">
+                    Котлы отопления
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/products/crushers" activeClassName="selected-dashed">
+                    Дробилки угля
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <NavLink to="/delivery" activeClassName="selected">Доставка</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" activeClassName="selected">О компании</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contacts" activeClassName="selected">Контакты</NavLink>
+            </li>
+          </ul>
         </nav>
         <div className="fixer" />
       </div>
