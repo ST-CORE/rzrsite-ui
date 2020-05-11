@@ -1,7 +1,7 @@
 import React from 'react';
 import './any-questions-mobile.scss';
-import PhoneNumberMobile from '../phone-number/phone-number-mobile';
-import EmailMobile from '../email/email-mobile';
+import PhoneNumber from '../phone-number/phone-number';
+import Email from '../email/email';
 import CallMeFormMobile from '../call-me-form/call-me-form-mobile';
 
 export default () => (
@@ -14,12 +14,12 @@ export default () => (
       <p>
         Позвоните нам
         <br />
-        <PhoneNumberMobile />
+        <PhoneNumber />
       </p>
       <p>
         Пишите
         <br />
-        <EmailMobile />
+        <Email />
       </p>
     </div>
   </div>
