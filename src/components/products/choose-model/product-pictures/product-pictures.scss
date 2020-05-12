@@ -20,4 +20,21 @@
   .medium-picture {
     grid-area: m;
   }
+  
+  button {
+    padding: 0;
+  }
+  
+  .modal {
+    max-height: 90%;
+  }
+  
+  .modal-content {
+    padding: 10px 61px 41px;
+    max-height: 85%;
+    img {
+      max-height: 100%;
+      width: auto;
+    }
+  }
 }

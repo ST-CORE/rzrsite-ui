@@ -147,7 +147,7 @@ body {
 .popUp-enter-done, .popUp-enter, .popUp-exit, .popUp-enter-active, .popUp-exit-active {
   position: fixed;
   left: 50%;
-  top: 10%;
+  top: 0;
   z-index: 1;
   transform: translateX(-50%);
 }
