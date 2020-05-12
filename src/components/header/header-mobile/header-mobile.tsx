@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import Button from '../../shared/buttons/button';
 import * as buttonTypes from '../../../consts/button-types';
-import PhoneNumberMobile from '../../shared/phone-number/phone-number-mobile';
+import PhoneNumber from '../../shared/phone-number/phone-number';
 import Logo from '../../shared/logo/logo';
 import './header-mobile.scss';
 import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
@@ -45,7 +45,7 @@ export default ({ lightTheme }: HeaderMobileProps) => {
       </Link>
       <div className="button-and-phone">
         <Button label="Позвоните мне!" className={buttonTypes.blueSquareButtonMobile} clickHandler={() => switchContent('callmeform')} />
-        <PhoneNumberMobile />
+        <PhoneNumber />
       </div>
       <div className="clearfix" />
       <CSSTransition in={popDown} timeout={400} mountOnEnter unmountOnExit onExit={() => changeContentKey('')}>

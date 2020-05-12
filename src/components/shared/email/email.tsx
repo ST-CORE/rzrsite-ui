@@ -1,5 +1,7 @@
 import * as React from 'react';
+import './email.scss';
+
 
 export default () => (
-  <span className="email desktop">Rezer@mail.ru</span>
+  <a className="email mobile" href="mailto:Rezer@mail.ru">Rezer@mail.ru</a>
 );

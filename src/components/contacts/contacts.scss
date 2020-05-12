@@ -1,4 +1,4 @@
-.contacts {
+.contacts.desktop {
   height: 875px;
   position: relative;
 
@@ -9,3 +9,9 @@
   }
 }
 
+.contacts.mobile {
+  .map-container {
+    height: 410px;
+    padding: 0 10px;
+  }
+}
