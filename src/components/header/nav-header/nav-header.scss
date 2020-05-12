@@ -15,29 +15,34 @@
     nav {
       min-height: 25px;
       text-transform: uppercase;
+    }
 
-      a {
-        margin: 0 21px 0;
-        white-space: nowrap;
+    ul.big-menu > li {
+      display: inline-block;
+      margin: 0 21px 0;
+      white-space: nowrap;
+
+      > a {
         color: #ffffff;
-      }
+      
 
-      a:visited { 
-        color: white;
-      }
+        &:visited { 
+          color: white;
+        }
 
-      a:hover, a:focus {
-        display: inline-block;
-        line-height: 19px;
-        border-bottom: 1px solid #30A2DE;
-      }
+        &:hover, &:focus {
+          display: inline-block;
+          line-height: 19px;
+          border-bottom: 1px solid #30A2DE;
+        }
 
-      a:active {
-        border: none;
-        color: #30A2DE;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 19px;
+        &:active {
+          border: none;
+          color: #30A2DE;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+        }
       }
       
       a.selected {
@@ -47,11 +52,74 @@
         line-height: 19px;
       }
     }
+    
+    .hoverable {
+      position: relative;
+    }
+    
+    .hoverable > ul.submenu {
+      display: none;
+    }
+    
+    .hoverable:hover > ul.submenu {
+      display: block;
+    }
+    
+    ul.submenu {
+      width: 216px;
+      padding: 20px 15px 15px;
+      font-size: 18px;
+      background-color: transparent;
+      border-radius: 2px;
+      position: absolute;
+      top: 10px;
+          
+      li {
+        background-color: #070707;
+        text-transform: none;
+        padding: 5px 0;
+        
+        a {
+          color: #ffffff;
+          margin: 0 21px 0;
+          border-bottom: 1px dashed #ffffff;
+          
+          &:hover, &:focus {
+            color: #ffffff;
+            font-weight: 500;
+            border: none;
+          }
+          
+          &:active {
+            color: #ffffff;
+            font-weight: 600;
+          }
+        }
+        
+        &:first-of-type {
+          padding-top: 15px;
+        }
+        
+        &:last-of-type {
+          padding-bottom: 20px;
+        }
+      }
+    }
+    
+    
   }
 }
 
 .nav-header {
   &.light-theme {
     background-color: #949597;
+    
+    ul.submenu {
+      li {
+        background-color: #000000;
+        mix-blend-mode: normal;
+        opacity: 0.71;
+      }
+    }
   }
 }

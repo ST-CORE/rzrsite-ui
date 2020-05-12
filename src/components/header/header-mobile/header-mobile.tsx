@@ -31,13 +31,15 @@ export default ({ lightTheme }: HeaderMobileProps) => {
     }
   };
   
+  const lineColor = popDown ? '#30a2de' : '#ffffff';
+  
   return (
     <header className={className}>
       <button type="button" className="menu-button" aria-haspopup="true" onClick={() => switchContent('menu')}>
         <svg height="30" width="30">
           <line x1="2" y1="2" x2="23" y2="2" stroke="#30a2de" strokeWidth="2" strokeLinecap="round" />
-          <line x1="2" y1="12" x2="23" y2="12" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-          <line x1="2" y1="23" x2="23" y2="23" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          <line x1="2" y1="12" x2="23" y2="12" stroke={lineColor} strokeWidth="2" strokeLinecap="round" />
+          <line x1="2" y1="23" x2="23" y2="23" stroke={lineColor} strokeWidth="2" strokeLinecap="round" />
         </svg>
       </button>
       <Link to="/" className="logo">
