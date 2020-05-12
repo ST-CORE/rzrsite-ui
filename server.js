@@ -9,5 +9,5 @@ const bundler        = new Bundler( filePath, bundlerOptions );
 // Let express use the bundler middleware, this will let Parcel handle every request over your express server
 app.use(bundler.middleware());
 
-// Listen on port 4242
-app.listen(4242);
+// Listen on port 4343
+app.listen(4343);
