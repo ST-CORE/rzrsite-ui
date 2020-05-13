@@ -1,12 +1,8 @@
 .showcase-item.desktop {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   
-  .image-container {
-    margin-left: 50px;
-  }
-
   .showcase-item-description { 
     font-family: "Roboto";
     color: #fefefe;
@@ -14,7 +10,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-right: 95px;
     padding-top: 40px; 
     
     h1.big-title {
