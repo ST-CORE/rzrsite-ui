@@ -1,5 +1,5 @@
 import React from 'react';
-import '../showcase-advantages.scss';
+import '../showcase-advantages-mobile.scss';
 
 export default () => (
   <ul className="advantages">
