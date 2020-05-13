@@ -6,11 +6,15 @@
     padding: 5px 5px;
     border-bottom: 1px solid #151515;
     color: #ffffff;
+    
+    &:focus {
+      border-bottom-color: #ffffff;
+    }
+    
+    &:active {
+      background-color: #575757;
+    } 
   }
-  
-  a:active {
-    background-color: #575757;
-  } 
   
   a.selected {
     color: #30a2de;

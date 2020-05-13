@@ -2,7 +2,7 @@ a.phone-number.mobile {
   color: white;
   font-weight: bold;
 
-  &:active {
+  &:focus, &:active {
     color: #30A2de;
   }
 }
