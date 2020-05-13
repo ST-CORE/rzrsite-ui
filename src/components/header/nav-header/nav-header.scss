@@ -10,6 +10,11 @@
     a.logo {
       flex-shrink: 0;
       margin-right: 38px;
+      
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
 
     nav {
@@ -67,17 +72,18 @@
     
     ul.submenu {
       width: 216px;
-      padding: 20px 15px 15px;
+      padding: 5px 0;
       font-size: 18px;
       background-color: transparent;
       border-radius: 2px;
       position: absolute;
-      top: 10px;
+      top: 20px;
+      z-index: 5;
           
       li {
         background-color: #070707;
         text-transform: none;
-        padding: 5px 0;
+        padding: 7px 0 10px;
         
         a {
           color: #ffffff;
@@ -97,12 +103,13 @@
         }
         
         &:first-of-type {
-          padding-top: 15px;
+          padding: 10px 0 5px;
         }
         
         &:last-of-type {
-          padding-bottom: 20px;
+          padding: 5px 0 13px;
         }
+        
       }
     }
     
