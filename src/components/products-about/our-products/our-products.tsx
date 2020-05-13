@@ -30,26 +30,36 @@ export default () => (
       </h2>
       
       <div className="grid-block">
-        <section className="about-product-lines">
-          <img src={imageFit} alt="Котел Fit" />
+        <section className="about-product-lines grid-item">
+          <Link to="/products/boilers/Fit" className="image-container image-link">
+            <img src={imageFit} alt="Котел Fit" />
+          </Link>
           <p>
-            <Link to="/products/boilers/Fit">Линейка Fit </Link>
+            <Link to="/products/boilers/Fit" className="text-link">Линейка Fit</Link>
+            {' '}
             отличается небольшими габаритами и полной автономностью. Эти котлы прекрасно подойдут для отопления помещений меньше 460 кв.м.
           </p>
           <p>
-            В них установлены две камеры сжигания топлива - для ручного и для автоматического сжигания; 
-            водонаполненные колосники входят в базовую комплектацию. Рабочая фракция топлива - уголь &ldquo;орех&rdquo; 25-50 мм.
+            В них установлены две камеры сжигания топлива — для ручного и для автоматического сжигания; 
+            водонаполненные колосники входят в базовую комплектацию. Рабочая фракция топлива — уголь &ldquo;орех&rdquo; 25-50 мм.
             Однако, благодаря фирменной системе анти-клин, крупные фракции угля (до +30% от фракции &ldquo;орех&rdquo;) не создают помех в работе.
           </p>
         </section>
         
-        <section className="about-product-lines">
-          <img src={imageMaxi} alt="Котел Maxi" />
+        <section className="about-product-lines grid-item">
+          <Link to="/products/boilers/Maxi" className="image-container image-link">
+            <img src={imageMaxi} alt="Котел Maxi" />
+          </Link>
           <p>
-            <Link to="/products/boilers/Maxi">Линейка Maxi </Link>
+            <Link to="/products/boilers/Maxi" className="text-link">Линейка Maxi</Link>
+            {' '}
             разнообразнее по размерам: от котлов для небольших помещений (до 140 кв.м) до автоматических котельных
-            в производственные помещения с площадью 2500 кв.м. Эта линейка отличается низким потреблением топлива; рабочая фракция - уголь &ldquo;орех&rdquo; 25-50 мм.
-            В них также установлена система анти-клин, благодаря которой более крупные фракции угля (до +30% от фракции &ldquo;орех&rdquo;) не забивают топливный бункер.
+            в производственные помещения с площадью 2500 кв.м. 
+          </p>
+          <p>
+            Эта линейка отличается низким потреблением топлива; рабочая фракция — уголь &ldquo;орех&rdquo; 25-50 мм.
+            В них также установлена система анти-клин, благодаря которой более крупные фракции угля (до +30% от фракции &ldquo;орех&rdquo;) 
+            не забивают топливный бункер.
           </p>
         </section>
       </div>
@@ -59,10 +69,13 @@ export default () => (
       </h2>
       
       <section className="about-product-lines grid-block">
-        <img src={imageCrusher} alt="Дробилка DC" />
-        <div>
+        <Link to="/products/crushers" className="image-link grid-item image-container">
+          <img src={imageCrusher} alt="Дробилка DC" />
+        </Link>
+        <div className="grid-item">
           <p>
-            <Link to="/products/boilers/Maxi">Линейка DC </Link> 
+            <Link to="/products/crushers" className="text-link">Линейка DC</Link> 
+            {' '}
             представлена одной моделью DC-2. Она предназначена для дробления угля и отходов производства, в которых
             размер кусков не более 25 см. На аппарате 
             установлена регулируемая система Антиклин и дробящий вал с распределённой 
@@ -71,7 +84,7 @@ export default () => (
           </p>
           <p>
             Благодаря небольшим размерам дробилку DC-2 можно установить в любом месте, она мобильная и легка в эксплуатации 
-            - для работы необходим один оператор.
+            — для работы необходим один оператор.
           </p>
         </div>
       </section>
