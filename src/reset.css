@@ -26,7 +26,7 @@ time, mark, audio, video {
 
 /* make sure to set some focus styles for accessibility */
 :focus {
-    outline: solid;
+    outline: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -129,9 +129,6 @@ html {
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 
-a:focus {
-    outline: thin dotted;
-}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -140,7 +137,8 @@ a:focus {
 a,
 a:active,
 a:hover, 
-a:visited {
+a:visited,
+a:focus {
     outline: 0;
     text-decoration: none;
 }

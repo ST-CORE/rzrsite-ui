@@ -127,7 +127,7 @@
   &:focus {
     outline: none;
     text-shadow: #aaaaaa 0 -1px 1px, #202020 0 0 12px;
-    
+        
     &::after {
       display: block;
       box-sizing: border-box;
@@ -142,7 +142,11 @@
   }
   
   &:hover {
-    text-shadow: #aaaaaa 0 -1px 1px, #000000 0 0 14px;
+    color: #3f3f3f;
+  }
+  
+  &:active {
+    color: #30A2DE;
   }
   
   &.active::after {
@@ -169,6 +173,10 @@
   
   &:hover {
     color: #30A2DE;
+  }
+  
+  &:active {
+    color: #18516F;
   }
   
   &.active {
@@ -213,14 +221,17 @@
   
   &:focus {
     outline: none;
-    font-weight: 600;
+    border-color: #FFFFFF;
+    // font-weight: 600;
   }
   
   &:hover {
-    font-weight: 600;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    // font-weight: 600;
   }
   
   &:active {
-    background: #202020;
+    border-color: #30A2DE;
   }
 }

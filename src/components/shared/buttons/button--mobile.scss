@@ -76,9 +76,14 @@
   color: #30A2DE;
   background-color: transparent;
   border: 1px dashed #30A2DE;
+  font-weight: 600;
   
   &:focus {
     outline: none;
-    font-weight: 600;
+    border-color: #FFFFFF;
+  }
+  
+  &:active {
+    color: #dedede;
   }
 }

@@ -37,6 +37,12 @@
       border: 1px solid #FFFFFF;
       border-radius: 5px;
       text-transform: uppercase;
+      
+      &:focus, &:active {
+        color: #3F3F3F;
+        border-color: #3F3F3F;
+        box-shadow: 0 0 0 2px #3F3F3F;
+      }
     }
   }
 }
