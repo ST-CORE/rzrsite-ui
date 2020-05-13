@@ -4,6 +4,8 @@ services:
     image: "cashtusk/rzrsite-ui:latest"
     restart: always
     hostname: rzrsite-ui
+    ports:
+      - "4343:4343"
 networks:
   default:
     external:
