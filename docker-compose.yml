@@ -4,7 +4,5 @@ services:
     image: "cashtusk/rzrsite-ui:latest"
     restart: always
     hostname: rzrsite-ui
-networks:
-  default:
-    external:
-      name: compose_default
+    ports:
+      - 4343:4343
