@@ -1,10 +1,18 @@
 article.about-us {
-  padding: 30px 3px 30px;
   color: #DFDFDF;
   
   a {
     color: #30a2de;
     font-weight: bold;
+    text-decoration: underline;
+    
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    
+    &:active {
+      color: white;
+    }
   }
   
   h1 {

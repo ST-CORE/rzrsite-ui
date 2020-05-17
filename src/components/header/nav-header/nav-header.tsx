@@ -21,13 +21,10 @@ export default ({ lightTheme }: NavHeaderProps) => {
         <nav>
           <ul className="big-menu">
             <li className="hoverable">
-              Продукция
+              <NavLink to="/products" activeClassName="selected-dashed">
+                Продукция
+              </NavLink>
               <ul className="submenu">
-                <li>
-                  <NavLink to="/products" activeClassName="selected-dashed">
-                    О продукции
-                  </NavLink>
-                </li>
                 <li>
                   <NavLink to="/products/boilers" activeClassName="selected-dashed">
                     Котлы отопления
