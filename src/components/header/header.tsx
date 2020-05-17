@@ -10,16 +10,44 @@ interface HeaderProps {
   lightTheme: boolean
 }
 
+interface DataItem {
+  id: number;
+  name: string;
+  weight: 0;
+  path: string;
+}
+
+class Category {
+  id: number;
+
+  name: string;
+  
+  path: string;
+  
+  constructor(id: number, name: string, path: string) {
+    this.id = id;
+    this.name = name;
+    this.path = path;
+  }
+}
+
 export default ({ lightTheme }: HeaderProps) => {
-  axios.get(`${apiUrl}/category/`).then((response) => console.log(response));
+  
+  axios.get(`${apiUrl}/category/`).then((response) => {
+    console.log(response);
+    console.log(response.data);
+    const responseData = response.data;
+    const categoryInstances = responseData.map((item: DataItem) => new Category(item.id, item.name, item.path));
+    console.log(categoryInstances);
+  });
   return (
     <ProvideMediaMatchers>
       <MediaMatcher
-        mobile={<HeaderMobile lightTheme={lightTheme} />}
+        mobile={<HeaderMobile lightTheme={lightTheme} categoryInstances />}
         desktop={(
           <header>
             <PhoneHeader lightTheme={lightTheme} />
-            <NavHeader lightTheme={lightTheme} />
+            <NavHeader lightTheme={lightTheme} categoryInstances />
           </header>
       )}
       />

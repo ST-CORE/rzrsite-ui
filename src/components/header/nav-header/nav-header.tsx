@@ -3,15 +3,32 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
 
-interface NavHeaderProps {
-  lightTheme: boolean
+interface DataItem {
+  id: number;
+  name: string;
+  weight: 0;
+  path: string;
 }
 
-export default ({ lightTheme }: NavHeaderProps) => {
+interface NavHeaderProps {
+  lightTheme: boolean,
+  categoryInstances: Array<DataItem>
+}
+
+export default ({ lightTheme, categoryInstances }: NavHeaderProps) => {
   let className: string = 'desktop nav-header';
   if (lightTheme) {
     className += ' light-theme';
   }
+  
+  const categoryLinks = categoryInstances.map((item: DataItem) => (
+    <li key={item.id}>
+      <NavLink to={item.path} activeClassName="selected-dashed">
+        {item.name}
+      </NavLink>
+    </li>
+  ));
+  
   return (
     <div className={className}>
       <div className="container-big">
