@@ -9,11 +9,19 @@ import './header-mobile.scss';
 import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
 import HeaderMenu from './menu/header-menu';
 
-interface HeaderMobileProps {
-  lightTheme: boolean
+interface DataItem {
+  id: number;
+  name: string;
+  weight?: 0;
+  path: string;
 }
 
-export default ({ lightTheme }: HeaderMobileProps) => {
+interface HeaderMobileProps {
+  lightTheme: boolean,
+  categories: Array<DataItem>
+}
+
+export default ({ lightTheme, categories }: HeaderMobileProps) => {
   let className: string = 'header-mobile';
   if (lightTheme) {
     className += ' light-theme';
@@ -53,7 +61,7 @@ export default ({ lightTheme }: HeaderMobileProps) => {
       <CSSTransition in={popDown} timeout={400} mountOnEnter unmountOnExit onExit={() => changeContentKey('')}>
         <div className="container-menu-mobile">
           {
-            (contentKey === 'menu') && <HeaderMenu />
+            (contentKey === 'menu') && <HeaderMenu categories={categories} />
           }
           {
           (contentKey === 'callmeform') && <CallMeFormMobile />

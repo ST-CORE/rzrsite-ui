@@ -13,7 +13,7 @@ interface HeaderProps {
 interface DataItem {
   id: number;
   name: string;
-  weight: 0;
+  weight?: 0;
   path: string;
 }
 
@@ -32,22 +32,39 @@ class Category {
 }
 
 export default ({ lightTheme }: HeaderProps) => {
+  // const categoriesOMG = [new Category(1, 'Котлы', '/boilers'), new Category(2, 'Котлы', '/boilers')];
+  const [categoryInstances, changeCategoryInstances] = React.useState([{'':''}]);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `${apiUrl}/category/`,
+      );
+      changeCategoryInstances(result.data);
+    };
+    fetchData();
+  }, []);
   
-  axios.get(`${apiUrl}/category/`).then((response) => {
-    console.log(response);
-    console.log(response.data);
-    const responseData = response.data;
-    const categoryInstances = responseData.map((item: DataItem) => new Category(item.id, item.name, item.path));
-    console.log(categoryInstances);
-  });
+  const transformData = (myObj) => {
+    const categories: Array<DataItem> = [];
+    myObj.forEach((item: DataItem) => {
+      const category = new Category(item.id, item.name, item.path);
+      categories.push(category);
+    });
+    return categories;
+  };
+  
+  const categoriesForProps = transformData(categoryInstances);
+  console.log(categoriesForProps);
+
   return (
     <ProvideMediaMatchers>
       <MediaMatcher
-        mobile={<HeaderMobile lightTheme={lightTheme} categoryInstances />}
+        mobile={<HeaderMobile lightTheme={lightTheme} categories={categoriesForProps} />}
         desktop={(
           <header>
             <PhoneHeader lightTheme={lightTheme} />
-            <NavHeader lightTheme={lightTheme} categoryInstances />
+            <NavHeader lightTheme={lightTheme} categories={categoriesForProps} />
           </header>
       )}
       />

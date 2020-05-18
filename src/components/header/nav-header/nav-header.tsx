@@ -6,24 +6,24 @@ import './nav-header.scss';
 interface DataItem {
   id: number;
   name: string;
-  weight: 0;
+  weight?: 0;
   path: string;
 }
 
 interface NavHeaderProps {
   lightTheme: boolean,
-  categoryInstances: Array<DataItem>
+  categories: Array<DataItem>
 }
 
-export default ({ lightTheme, categoryInstances }: NavHeaderProps) => {
+export default ({ lightTheme, categories }: NavHeaderProps) => {
   let className: string = 'desktop nav-header';
   if (lightTheme) {
     className += ' light-theme';
   }
   
-  const categoryLinks = categoryInstances.map((item: DataItem) => (
+  const categoryLinks = categories.map((item: DataItem) => (
     <li key={item.id}>
-      <NavLink to={item.path} activeClassName="selected-dashed">
+      <NavLink to={`/products${item.path}`} activeClassName="selected-dashed">
         {item.name}
       </NavLink>
     </li>
@@ -42,16 +42,7 @@ export default ({ lightTheme, categoryInstances }: NavHeaderProps) => {
                 Продукция
               </NavLink>
               <ul className="submenu">
-                <li>
-                  <NavLink to="/products/boilers" activeClassName="selected-dashed">
-                    Котлы отопления
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/products/crushers" activeClassName="selected-dashed">
-                    Дробилки угля
-                  </NavLink>
-                </li>
+                {categoryLinks}
               </ul>
             </li>
             <li>
