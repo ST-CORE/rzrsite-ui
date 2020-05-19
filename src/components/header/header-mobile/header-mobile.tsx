@@ -8,20 +8,15 @@ import Logo from '../../shared/logo/logo';
 import './header-mobile.scss';
 import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
 import HeaderMenu from './menu/header-menu';
-
-interface DataItem {
-  id: number;
-  name: string;
-  weight?: 0;
-  path: string;
-}
+import { ICategory } from '../../../consts/for-categories-request';
 
 interface HeaderMobileProps {
   lightTheme: boolean,
-  categories: Array<DataItem>
+  categories: Array<ICategory>,
+  renderPermission: boolean
 }
 
-export default ({ lightTheme, categories }: HeaderMobileProps) => {
+export default ({ lightTheme, categories, renderPermission }: HeaderMobileProps) => {
   let className: string = 'header-mobile';
   if (lightTheme) {
     className += ' light-theme';
@@ -61,7 +56,7 @@ export default ({ lightTheme, categories }: HeaderMobileProps) => {
       <CSSTransition in={popDown} timeout={400} mountOnEnter unmountOnExit onExit={() => changeContentKey('')}>
         <div className="container-menu-mobile">
           {
-            (contentKey === 'menu') && <HeaderMenu categories={categories} />
+            (contentKey === 'menu') && <HeaderMenu categories={categories} renderPermission={renderPermission} />
           }
           {
           (contentKey === 'callmeform') && <CallMeFormMobile />

@@ -1,20 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './header-menu.scss';
-
-interface DataItem {
-  id: number;
-  name: string;
-  weight?: 0;
-  path: string;
-}
+import { ICategory } from '../../../../consts/for-categories-request';
 
 interface HeaderMenuProps {
-  categories: Array<DataItem>
+  categories: Array<ICategory>,
+  renderPermission: boolean
 }
 
-export default ({ categories }: HeaderMenuProps) => {
-  const categoryLinks = categories.map((item: DataItem) => (
+export default ({ categories, renderPermission }: HeaderMenuProps) => {
+  const categoryLinks = categories.map((item: ICategory) => (
     <li key={item.id}>
       <NavLink to={`/products${item.path}`} activeClassName="selected">
         {item.name}
@@ -29,7 +24,7 @@ export default ({ categories }: HeaderMenuProps) => {
             Продукция
           </NavLink>
           <ul className="second-level-menu">
-            {categoryLinks}
+            {renderPermission && categoryLinks}
           </ul>
         </li>
         <li className="first-level-item">

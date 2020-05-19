@@ -2,26 +2,21 @@ import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
-
-interface DataItem {
-  id: number;
-  name: string;
-  weight?: 0;
-  path: string;
-}
+import { ICategory } from '../../../consts/for-categories-request';
 
 interface NavHeaderProps {
   lightTheme: boolean,
-  categories: Array<DataItem>
+  categories: Array<ICategory>,
+  renderPermission: boolean
 }
 
-export default ({ lightTheme, categories }: NavHeaderProps) => {
+export default ({ lightTheme, categories, renderPermission }: NavHeaderProps) => {
   let className: string = 'desktop nav-header';
   if (lightTheme) {
     className += ' light-theme';
   }
   
-  const categoryLinks = categories.map((item: DataItem) => (
+  const categoryLinks = categories.map((item: ICategory) => (
     <li key={item.id}>
       <NavLink to={`/products${item.path}`} activeClassName="selected-dashed">
         {item.name}
@@ -42,7 +37,7 @@ export default ({ lightTheme, categories }: NavHeaderProps) => {
                 Продукция
               </NavLink>
               <ul className="submenu">
-                {categoryLinks}
+                {renderPermission && categoryLinks}
               </ul>
             </li>
             <li>
