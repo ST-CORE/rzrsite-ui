@@ -1,35 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { IProdLine, ICategory } from '../../../consts/for-categories-request';
 import './products-nav-mobile.scss';
 
-export default () => {
-  const myList = [
-    {
-      category: 'Котлы',
-      productLines: [
-        'Линейка Fit 20 - 70', 'Линейка Maxi 100-250',
-      ],
-    },
-    {
-      category: 'Дробилки',
-      productLines: [
-        'Линейка DC 20-50',
-      ],
-    },
-  ];
-  
-  const categories = myList.map((item, index) => (
-    <li key={index}>
-      <NavLink to="">
-        {item.category}
+interface ProductNavProps {
+  parentUrl: string;
+  prodlines: IProdLine[];
+  categories: ICategory[];
+}
+
+export default ({ parentUrl, prodlines, categories }: ProductNavProps) => {
+  const categoriesLinks = categories.map((item) => (
+    <li key={item.id}>
+      <NavLink to={`/products${item.path}`} activeClassName="active-category-link">
+        {item.name}
       </NavLink>
     </li>
   ));
   
-  const boilerLines = myList[0].productLines.map((item, index) => (
-    <li key={index}>
-      <NavLink to="">
-        {item}
+  const boilerLines = prodlines.map((item) => (
+    <li key={item.id}>
+      <NavLink to={`${parentUrl}${item.path}`} activeClassName="active-prodline-link">
+        {item.name}
       </NavLink>
     </li>
   ));
@@ -37,7 +30,7 @@ export default () => {
   return (
     <div className="products-nav mobile">
       <ul className="product-category">
-        {categories}
+        {categoriesLinks}
       </ul>
       <ul className="product-lines">
         {boilerLines}

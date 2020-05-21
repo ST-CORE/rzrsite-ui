@@ -10,6 +10,7 @@ import Contacts from '../contacts/contacts';
 import About from '../about/about';
 import ProductsAbout from '../products-about/products-about';
 import Products from '../products/products';
+// eslint-disable-next-line no-unused-vars
 import { ICategory } from '../../consts/for-categories-request';
 
 export default () => (

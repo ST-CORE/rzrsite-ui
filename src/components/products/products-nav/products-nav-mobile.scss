@@ -22,8 +22,12 @@
     li {
       flex-grow: 1;
       display: inline-block;
-      padding: 10px;
       text-align: center;
+      
+      a {
+        display: inline-block;
+        width: 100%;
+      }
     }
   }
     
@@ -38,25 +42,16 @@
     }
   }
     
-  // Применить эти стили, когда будут работать 
-  // NavLink, к их активному классу. Пока статично
   ul.product-category {    
-    li:first-of-type {
+    a.active-category-link {
       background-color: #343434;
     }
   }
   
   ul.product-lines {
-    li:first-of-type {
+    a.active-prodline-link {
       background-color: #343434;
       border-bottom: 5px solid #30A2DE;
     }
   }
-  
-  
-  //   // .product-link--active {
-  //   //   background-color: #343434;
-  //   //   border-bottom: 5px solid #30A2DE;
-  //   // }
-  // }
 }
