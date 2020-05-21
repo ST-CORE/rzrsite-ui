@@ -8,15 +8,12 @@ import Logo from '../../shared/logo/logo';
 import './header-mobile.scss';
 import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
 import HeaderMenu from './menu/header-menu';
-import { ICategory } from '../../../consts/for-categories-request';
 
 interface HeaderMobileProps {
-  lightTheme: boolean,
-  categories: Array<ICategory>,
-  renderPermission: boolean
+  lightTheme: boolean
 }
 
-export default ({ lightTheme, categories, renderPermission }: HeaderMobileProps) => {
+export default ({ lightTheme }: HeaderMobileProps) => {
   let className: string = 'header-mobile';
   if (lightTheme) {
     className += ' light-theme';
@@ -56,7 +53,7 @@ export default ({ lightTheme, categories, renderPermission }: HeaderMobileProps)
       <CSSTransition in={popDown} timeout={400} mountOnEnter unmountOnExit onExit={() => changeContentKey('')}>
         <div className="container-menu-mobile">
           {
-            (contentKey === 'menu') && <HeaderMenu categories={categories} renderPermission={renderPermission} />
+            (contentKey === 'menu') && <HeaderMenu />
           }
           {
           (contentKey === 'callmeform') && <CallMeFormMobile />
