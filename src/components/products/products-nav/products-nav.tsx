@@ -1,20 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './products-nav.scss';
+import { IProdLine, IExtendedCategory } from '../../../consts/interfaces-for-request';
 
-export default () => {
-  const myObj = {
-    category: 'Котлы',
-    productLines: [
-      'Линейка Fit 20 - 70', 'Линейка Maxi 100-250',
-    ],
-  };
-  const { productLines } = myObj;
-  const productLineItem = productLines.map((line, index) => (
-    <li key={index}>
-      {/* Подключить сюда правильный путь! */}
-      <NavLink to="">
-        {line}
+
+interface ProductNavProps {
+  parentUrl: string;
+  extendedCategory: IExtendedCategory;
+}
+
+export default ({ parentUrl, extendedCategory }: ProductNavProps) => {
+  const currentCategory = extendedCategory.name;
+  const productLines = extendedCategory.productLines as IProdLine[];
+  const currentProductLines = productLines.map((item) => (
+    <li key={item.id}>
+      <NavLink to={`${parentUrl}${item.path}`} activeClassName="product-link-active ">
+        <span>{item.name}</span>
       </NavLink>
     </li>
   ));
@@ -22,10 +23,10 @@ export default () => {
     <div className="products-nav desktop">
       <div className="container-big">
         <div className="product-category">
-          {myObj.category}
+          {currentCategory}
         </div>
         <ul className="product-lines">
-          {productLineItem}
+          {currentProductLines}
         </ul>
       </div>
     </div>

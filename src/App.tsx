@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import ApiUrl from './consts/api';
 // eslint-disable-next-line no-unused-vars
-import { ICategory } from './consts/for-categories-request';
+import { ICategory } from './consts/interfaces-for-request';
 import { MyContext } from './components/shared/my-context';
 
 import Header from './components/header/header';

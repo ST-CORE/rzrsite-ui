@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './footer-menu.scss';
 import { MyContext } from '../../../shared/my-context';
 // eslint-disable-next-line no-unused-vars
-import { ICategory } from '../../../../consts/for-categories-request';
+import { ICategory } from '../../../../consts/interfaces-for-request';
 
 export default () => (
   <div className="footer-menu">

@@ -4,7 +4,7 @@ import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
 import { MyContext } from '../../shared/my-context';
 // eslint-disable-next-line no-unused-vars
-import { ICategory } from '../../../consts/for-categories-request';
+import { ICategory } from '../../../consts/interfaces-for-request';
 
 interface NavHeaderProps {
   lightTheme: boolean

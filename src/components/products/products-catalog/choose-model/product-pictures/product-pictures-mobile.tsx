@@ -1,12 +1,12 @@
 import React from 'react';
 import './product-pictures-mobile.scss';
 
-import thumbBoiler from '../../../../images/products/boilers/boiler-thumb.png';
-import largeBoiler from '../../../../images/products/boilers/boiler-large.png';
-import thumbFit20 from '../../../../images/products/boilers/Fit20-thumb.jpg';
-import largeFit20 from '../../../../images/products/boilers/Fit20-large.jpg';
-import thumbFit40 from '../../../../images/products/boilers/Fit40-thumb.jpg';
-import largeFit40 from '../../../../images/products/boilers/Fit40-large.jpg';
+import thumbBoiler from '../../../../../images/products/boilers/boiler-thumb.png';
+import largeBoiler from '../../../../../images/products/boilers/boiler-large.png';
+import thumbFit20 from '../../../../../images/products/boilers/Fit20-thumb.jpg';
+import largeFit20 from '../../../../../images/products/boilers/Fit20-large.jpg';
+import thumbFit40 from '../../../../../images/products/boilers/Fit40-thumb.jpg';
+import largeFit40 from '../../../../../images/products/boilers/Fit40-large.jpg';
 
 
 export default () => {

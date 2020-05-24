@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
-import { IProdLine, ICategory } from '../../../consts/for-categories-request';
+import { IProdLine, ICategory } from '../../../consts/interfaces-for-request';
 import './products-nav-mobile.scss';
 
 interface ProductNavProps {
@@ -19,7 +19,7 @@ export default ({ parentUrl, prodlines, categories }: ProductNavProps) => {
     </li>
   ));
   
-  const boilerLines = prodlines.map((item) => (
+  const prodLines = prodlines.map((item) => (
     <li key={item.id}>
       <NavLink to={`${parentUrl}${item.path}`} activeClassName="active-prodline-link">
         {item.name}
@@ -33,7 +33,7 @@ export default ({ parentUrl, prodlines, categories }: ProductNavProps) => {
         {categoriesLinks}
       </ul>
       <ul className="product-lines">
-        {boilerLines}
+        {prodLines}
       </ul>
     </div>
   );

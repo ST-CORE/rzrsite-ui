@@ -11,7 +11,7 @@ import About from '../about/about';
 import ProductsAbout from '../products-about/products-about';
 import Products from '../products/products';
 // eslint-disable-next-line no-unused-vars
-import { ICategory } from '../../consts/for-categories-request';
+import { ICategory } from '../../consts/interfaces-for-request';
 
 export default () => (
   <Switch>
@@ -21,7 +21,7 @@ export default () => (
     <Route exact path="/products">
       <ProductsAbout />
     </Route>
-    <Route path="/products/:category/">
+    <Route path={['/products/:category/', '/products/:category/:line', '/products/:category/:line/:product']}>
       <MyContext.Consumer>
         {(value: ICategory[]) => <Products categories={value} />}
       </MyContext.Consumer>
