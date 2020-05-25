@@ -5,14 +5,15 @@ import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import ApiUrl from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
-import { IProdLine, IProduct, productLoading } from '../../../consts/interfaces-for-request';
+import { IProdLine, IProduct } from '../../../consts/interfaces-for-request';
 
-// import DecorLine from '../products-catalog/decor-line/decor-line';
+import DecorLine from '../products-catalog/decor-line/decor-line';
 import ChooseModel from './choose-model/choose-model';
-// import ProductDescription from './product-description/product-description';
+import ProductDescription from './product-description/product-description';
 
 interface ProductCatalogProps {
   prodlines: IProdLine[];
+  liftCurrentProduct: Function;
 }
 
 interface IProdlineParams {
@@ -21,7 +22,7 @@ interface IProdlineParams {
   product?: string;
 }
 
-export default ({ prodlines }: ProductCatalogProps) => {
+export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   const params: IProdlineParams = useParams();
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
@@ -58,24 +59,38 @@ export default ({ prodlines }: ProductCatalogProps) => {
       }
     }
   }, [arrayOfProducts]);
-    
+  
+  React.useEffect(() => {
+    if (currentProduct && matchedLine) {
+      liftCurrentProduct([currentProduct, matchedLine]);
+    }
+  }, [currentProduct, matchedLine]);
+  
+  const catchSelect = (value: string) => {
+    const selectedProductIndex = arrayOfProducts.findIndex((item) => value === item.name);
+    setCurrentProduct(arrayOfProducts[selectedProductIndex]);
+    liftCurrentProduct([currentProduct, matchedLine]);
+  };
+  
+  
+
   return (
     <ProvideMediaMatchers>
       <MediaMatcher
         mobile={
           renderPermission && (
           <div>
-            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} />
-            {/* <ProductDescription isMobile /> */}
+            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+            <ProductDescription isMobile />
           </div>
           )
         }
         desktop={
           renderPermission && (
           <div className="container-small">
-            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} />
-            {/* <DecorLine />
-            <ProductDescription isMobile={false} /> */}
+            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+            <DecorLine />
+            <ProductDescription isMobile={false} />
           </div>
           )
         }

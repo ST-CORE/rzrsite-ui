@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  Switch, Route,
+  Switch, Route, Redirect,
 } from 'react-router-dom';
 import { MyContext } from '../shared/my-context';
 
@@ -11,29 +11,65 @@ import About from '../about/about';
 import ProductsAbout from '../products-about/products-about';
 import Products from '../products/products';
 // eslint-disable-next-line no-unused-vars
-import { ICategory } from '../../consts/interfaces-for-request';
+import { ICategory, IProduct, IProdLine } from '../../consts/interfaces-for-request';
 
-export default () => (
-  <Switch>
-    <Route exact path="/delivery">
-      <Delivery />
-    </Route>
-    <Route exact path="/products">
-      <ProductsAbout />
-    </Route>
-    <Route path={['/products/:category/', '/products/:category/:line', '/products/:category/:line/:product']}>
-      <MyContext.Consumer>
-        {(value: ICategory[]) => <Products categories={value} />}
-      </MyContext.Consumer>
-    </Route>
-    <Route exact path="/contacts">
-      <Contacts />
-    </Route>
-    <Route exact path="/about">
-      <About />
-    </Route>
-    <Route exact path="/">
-      <Home />
-    </Route>
-  </Switch>
-);
+export default () => {
+  const [permissionToRedirect, allowRedirect] = React.useState(false);
+  const [currentProductPath, setProductPath] = React.useState('');
+  const [currentProductLine, setProductLine] = React.useState('');
+  const [currentUrl, setCurrentUrl] = React.useState('');
+  const liftCurrentProductAndPath = (currentProdPath: [IProduct, IProdLine, string]) => {
+    const [currentProd, currentLine, url] = currentProdPath;
+    setProductPath(currentProd.path);
+    setProductLine(currentLine.path);
+    setCurrentUrl(url);
+    allowRedirect(true);
+  };
+  const pathToRedirect = `${currentUrl}${currentProductLine}/${currentProductPath}`;
+  console.log(pathToRedirect);
+  
+  return (
+    <Switch>
+      <Route exact path="/delivery">
+        <Delivery />
+      </Route>
+      <Route exact path="/products">
+        <ProductsAbout />
+      </Route>
+      <Route path={['/products/:category/', '/products/:category/:line', '/products/:category/:line/:product']}>
+        {/* <Redirect to={`${currentUrl}${currentProductPath}`} />
+        </Route> */}
+        {/* <Route path="/products/:category/:line/:product"> */}
+        <MyContext.Consumer>
+          {() => {
+            if (permissionToRedirect) {
+              return (
+                <Route>
+                  <Redirect to={pathToRedirect} />
+                </Route>
+              );
+            }
+          }
+          }
+        </MyContext.Consumer>
+        <MyContext.Consumer>
+          {(value: ICategory[]) => (
+            <Route>
+              <Products categories={value} liftCurrentProductAndPath={liftCurrentProductAndPath} />
+            </Route>
+          )
+          }
+        </MyContext.Consumer>
+      </Route>
+      <Route exact path="/contacts">
+        <Contacts />
+      </Route>
+      <Route exact path="/about">
+        <About />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </Switch>
+  );
+};

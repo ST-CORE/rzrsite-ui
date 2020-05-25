@@ -1,25 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import './choose-model.scss';
-import {
-  Switch, Route, Redirect, useParams,
-} from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 // eslint-disable-next-line no-unused-vars
 import { IProduct } from '../../../../consts/interfaces-for-request';
 
 import ProductPictures from './product-pictures/product-pictures';
 import ProductPicturesMobile from './product-pictures/product-pictures-mobile';
-// import FeatureTable from './feature-table/feature-table';
-// import PriceTag from './price-tag/price-tag';
+import FeatureTable from './feature-table/feature-table';
+import PriceTag from './price-tag/price-tag';
 import PriceTagMobile from './price-tag/price-tag-mobile';
 
 interface ChooseModelProps {
   arrayOfProducts: IProduct[];
   currentProduct: IProduct;
+  catchSelect: Function;
 }
 
-export default ({ arrayOfProducts, currentProduct } : ChooseModelProps) => {
+export default ({ arrayOfProducts, currentProduct, catchSelect } : ChooseModelProps) => {
   const model: string = currentProduct.name;
   return (
     <ProvideMediaMatchers>
@@ -31,8 +29,8 @@ export default ({ arrayOfProducts, currentProduct } : ChooseModelProps) => {
                 {` ${model}`}
               </h2>
               <ProductPicturesMobile />
-              {/* <FeatureTable /> */}
-              {/* <PriceTagMobile arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} /> */}
+              <FeatureTable />
+              <PriceTagMobile arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             </div>
           )
         }
@@ -43,8 +41,8 @@ export default ({ arrayOfProducts, currentProduct } : ChooseModelProps) => {
               <h2 className="product-title">
                 {` ${model}`}
               </h2>
-              {/* <FeatureTable />
-              <PriceTag {...priceTagProps} /> */}
+              <FeatureTable />
+              <PriceTag arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             </div>
           )
         }
