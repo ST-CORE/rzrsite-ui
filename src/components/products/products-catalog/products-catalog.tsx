@@ -46,7 +46,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   }, [matchedLine]);
     
   React.useEffect(() => {
-    if (arrayOfProducts) {
+    if (arrayOfProducts[0]) {
       const matchedProduct = arrayOfProducts.find((item) => {
         const currentPath = params.product ? params.product : '';
         const examinedPath = item.path;
@@ -61,19 +61,17 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   }, [arrayOfProducts]);
   
   React.useEffect(() => {
-    if (currentProduct && matchedLine) {
+    if (currentProduct.id && matchedLine) {
       liftCurrentProduct([currentProduct, matchedLine]);
     }
   }, [currentProduct, matchedLine]);
-  
+    
   const catchSelect = (value: string) => {
     const selectedProductIndex = arrayOfProducts.findIndex((item) => value === item.name);
     setCurrentProduct(arrayOfProducts[selectedProductIndex]);
     liftCurrentProduct([currentProduct, matchedLine]);
   };
   
-  
-
   return (
     <ProvideMediaMatchers>
       <MediaMatcher
