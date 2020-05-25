@@ -36,10 +36,17 @@ export interface IProduct {
 }
 
 export const getOrderData = (telNumber: string, category: string, model: string) => ({
-  Template: 'AskForDetails',
+  Template: 'MakeOrder',
   Variables: {
     Phone: telNumber,
     Category: category,
     Model: model,
+  },
+});
+
+export const getCallMeData = (telNumber: string) => ({
+  Template: 'CallMe',
+  Variables: {
+    Phone: telNumber,
   },
 });

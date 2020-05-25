@@ -27,7 +27,13 @@ export default () => {
   
   return (
     <div className="call-me-form--background">
-      <form name="callMeForm" className="call-me-form mobile" tabIndex={-1} role="dialog" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        name="callMeForm"
+        className="call-me-form mobile"
+        tabIndex={-1}
+        role="dialog"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h2>
           Вам позвонить?
         </h2>
