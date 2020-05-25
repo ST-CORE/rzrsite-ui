@@ -1,13 +1,15 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 // eslint-disable-next-line no-unused-vars
-import { IProduct } from '../../../../../consts/interfaces-for-request';
+import { IProduct, ICategory } from '../../../../../consts/interfaces-for-request';
+import { MyContext } from '../../../../shared/my-context';
+
 
 import './price-tag-mobile.scss';
 import * as buttonClassName from '../../../../../consts/button-types';
 import Button from '../../../../shared/buttons/button';
 import Dropdown from '../../../../shared/dropdown/select';
-import OrderForm from '../../../../shared/order-form/order-form-mobile';
+import OrderForm from '../../../../shared/order-form/order-form';
 
 interface PriceTagProps {
   arrayOfProducts: IProduct[];
@@ -40,7 +42,15 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps)
         </div>
         <Button label={form ? 'Скрыть форму' : 'Оставить заявку'} className={form ? buttonClassName.defaultMobile : buttonClassName.blueButton} clickHandler={() => switchForm(!form)} />
         <CSSTransition in={form} timeout={400} classNames="to-bottom-slider" unmountOnExit>
-          <OrderForm />
+          <MyContext.Consumer>
+            {(value: ICategory[]) => (
+              <OrderForm
+                categoryArray={value}
+                currentProduct={currentProduct}
+                isMobile
+              />
+            )}
+          </MyContext.Consumer>
         </CSSTransition>
       </div>
     </div>

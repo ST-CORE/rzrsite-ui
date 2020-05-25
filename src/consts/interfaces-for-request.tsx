@@ -35,36 +35,11 @@ export interface IProduct {
   features: any;
 }
 
-export class ProductLoading implements IProduct {
-  id: number;
-  
-  name: string;
-  
-  title: string;
-  
-  price: number;
-  
-  inStock: boolean;
-  
-  weight: number;
-  
-  path: string;
-  
-  primaryImage: any;
-  
-  images: any;
-  
-  features: any;
-  
-  constructor(linePath: string) {
-    this.id = 0;
-    this.name = '';
-    this.title = '';
-    this.price = 0;
-    this.inStock = true;
-    this.weight = 0;
-    this.path = linePath;
-  }
-}
-
-export const productLoading = new ProductLoading('');
+export const getOrderData = (telNumber: string, category: string, model: string) => ({
+  Template: 'AskForDetails',
+  Variables: {
+    Phone: telNumber,
+    Category: category,
+    Model: model,
+  },
+});

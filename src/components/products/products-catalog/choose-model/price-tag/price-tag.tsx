@@ -2,7 +2,9 @@ import React from 'react';
 import './price-tag.scss';
 import * as buttonClassName from '../../../../../consts/button-types';
 // eslint-disable-next-line no-unused-vars
-import { IProduct } from '../../../../../consts/interfaces-for-request';
+import { IProduct, ICategory } from '../../../../../consts/interfaces-for-request';
+import { MyContext } from '../../../../shared/my-context';
+
 
 import Button from '../../../../shared/buttons/button';
 import Dropdown from '../../../../shared/dropdown/select';
@@ -35,7 +37,15 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps)
       </span>
       <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={() => switchForm(true)} />
       <Modal modalState={form} closeModal={() => switchForm(false)} overlay>
-        <OrderForm />
+        <MyContext.Consumer>
+          {(value: ICategory[]) => (
+            <OrderForm
+              categoryArray={value}
+              currentProduct={currentProduct}
+              isMobile={false}
+            />
+          )}
+        </MyContext.Consumer>
       </Modal>
     </div>
   );
