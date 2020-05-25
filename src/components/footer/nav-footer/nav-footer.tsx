@@ -19,7 +19,7 @@ export default () => {
           <Button label="Заказать звонок!" clickHandler={switchModal} />
           
           <Modal overlay={false} modalState={modalState} closeModal={switchModal}>
-            <CallMeForm />
+            <CallMeForm isMobile={false} />
           </Modal>
           
         </div>

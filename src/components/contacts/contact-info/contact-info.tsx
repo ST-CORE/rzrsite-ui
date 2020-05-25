@@ -3,7 +3,6 @@ import './contact-info.scss';
 import './contact-info-mobile.scss';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import CallMeForm from '../../shared/call-me-form/call-me-form';
-import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
 import Email from '../../shared/email/email';
 
 interface ContactInfoProps {
@@ -40,7 +39,6 @@ export default ({ mobile }: ContactInfoProps) => (
         ул. Щорса 8/14
       </dd>
     </dl>
-    { mobile ? <CallMeFormMobile /> : <CallMeForm /> }
-    
+    <CallMeForm isMobile={mobile} />
   </div>
 );

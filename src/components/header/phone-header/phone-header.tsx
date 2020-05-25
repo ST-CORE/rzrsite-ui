@@ -26,7 +26,7 @@ export default ({ lightTheme }: PhoneHeaderProps) => {
         <Button label="Позвоните мне!" className={buttonTypes.blueSquareButton} clickHandler={switchModal} />
         
         <Modal overlay={false} modalState={modalState} closeModal={switchModal}>
-          <CallMeForm />
+          <CallMeForm isMobile={false} />
         </Modal>
         
       </div>
