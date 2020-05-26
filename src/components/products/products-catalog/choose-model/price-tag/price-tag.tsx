@@ -3,7 +3,7 @@ import './price-tag.scss';
 import * as buttonClassName from '../../../../../consts/button-types';
 // eslint-disable-next-line no-unused-vars
 import { IProduct, ICategory } from '../../../../../consts/interfaces-for-request';
-import { MyContext } from '../../../../shared/my-context';
+import { CategoryContext } from '../../../../shared/category-context';
 
 
 import Button from '../../../../shared/buttons/button';
@@ -19,8 +19,8 @@ interface PriceTagProps {
 
 export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps) => {
   const [form, switchForm] = React.useState(false);
-  const stock: string = (currentProduct.inStock) ? 'в наличии' : 'нет в наличии';
-  const stockClassName: string = (currentProduct.inStock) ? 'stock in-stock' : 'stock not-in-stock';
+  const inStock: string = (currentProduct.inStock) ? 'в наличии' : 'нет в наличии';
+  const inStockClassName: string = (currentProduct.inStock) ? 'in-stock is-in-stock' : 'in-stock not-in-stock';
   const arrayOfSelectData = arrayOfProducts.map((item) => ({ name: item.name, id: item.id }));
   return (
     <div className="price-tag desktop">
@@ -32,12 +32,12 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps)
       <span className="price">
         {currentProduct.price}
       </span>
-      <span className={stockClassName}>
-        {stock}
+      <span className={inStockClassName}>
+        {inStock}
       </span>
       <Button label="Оставить заявку" className={buttonClassName.blueButton} clickHandler={() => switchForm(true)} />
       <Modal modalState={form} closeModal={() => switchForm(false)} overlay>
-        <MyContext.Consumer>
+        <CategoryContext.Consumer>
           {(value: ICategory[]) => (
             <OrderForm
               categoryArray={value}
@@ -45,7 +45,7 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps)
               isMobile={false}
             />
           )}
-        </MyContext.Consumer>
+        </CategoryContext.Consumer>
       </Modal>
     </div>
   );

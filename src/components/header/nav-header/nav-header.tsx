@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
-import { MyContext } from '../../shared/my-context';
+import { CategoryContext } from '../../shared/category-context';
 // eslint-disable-next-line no-unused-vars
 import { ICategory } from '../../../consts/interfaces-for-request';
 
@@ -29,7 +29,7 @@ export default ({ lightTheme }: NavHeaderProps) => {
                 Продукция
               </NavLink>
               <ul className="submenu">
-                <MyContext.Consumer>
+                <CategoryContext.Consumer>
                   {(value: ICategory[]) => {
                     const categoryLinks = value.map((item: ICategory) => (
                       <li key={item.id}>
@@ -40,7 +40,7 @@ export default ({ lightTheme }: NavHeaderProps) => {
                     ));
                     return categoryLinks;
                   }}
-                </MyContext.Consumer>
+                </CategoryContext.Consumer>
               </ul>
             </li>
             <li>

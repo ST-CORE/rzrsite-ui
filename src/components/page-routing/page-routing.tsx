@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   Switch, Route, Redirect,
 } from 'react-router-dom';
-import { MyContext } from '../shared/my-context';
+import { CategoryContext } from '../shared/category-context';
 
 import Delivery from '../delivery/delivery';
 import Home from '../home/home';
@@ -40,7 +40,7 @@ export default () => {
         {/* <Redirect to={`${currentUrl}${currentProductPath}`} />
         </Route> */}
         {/* <Route path="/products/:category/:line/:product"> */}
-        <MyContext.Consumer>
+        <CategoryContext.Consumer>
           {() => {
             if (permissionToRedirect) {
               return (
@@ -51,15 +51,15 @@ export default () => {
             }
           }
           }
-        </MyContext.Consumer>
-        <MyContext.Consumer>
+        </CategoryContext.Consumer>
+        <CategoryContext.Consumer>
           {(value: ICategory[]) => (
             <Route>
               <Products categories={value} liftCurrentProductAndPath={liftCurrentProductAndPath} />
             </Route>
           )
           }
-        </MyContext.Consumer>
+        </CategoryContext.Consumer>
       </Route>
       <Route exact path="/contacts">
         <Contacts />

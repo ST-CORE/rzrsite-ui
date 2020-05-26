@@ -4,7 +4,7 @@ import axios from 'axios';
 import ApiUrl from './consts/api';
 // eslint-disable-next-line no-unused-vars
 import { ICategory } from './consts/interfaces-for-request';
-import { MyContext } from './components/shared/my-context';
+import { CategoryContext } from './components/shared/category-context';
 
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -32,7 +32,7 @@ export default () => {
     
   return (
     responseReceived && (
-      <MyContext.Provider value={dataForProps}>
+      <CategoryContext.Provider value={dataForProps}>
         <div>
           <Header lightTheme={theme} />
           <main className="main-content">
@@ -40,7 +40,7 @@ export default () => {
           </main>
           <Footer />
         </div>
-      </MyContext.Provider>
+      </CategoryContext.Provider>
     )
   );
 };
