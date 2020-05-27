@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import ApiUrl from './consts/api';
+import { ApiUrl } from './consts/api';
 // eslint-disable-next-line no-unused-vars
 import { ICategory } from './consts/interfaces-for-request';
 import { CategoryContext } from './components/shared/category-context';

@@ -8,7 +8,7 @@ import { getOrderData, ICategory, IProduct } from '../../../consts/interfaces-fo
 
 import './order-form-mobile.scss';
 import './order-form.scss';
-import ApiUrl from '../../../consts/api';
+import { ApiUrl } from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 

@@ -21,6 +21,14 @@
     grid-area: m;
   }
   
+  .small-picture img {
+    width: 80px;
+  }
+  
+  .medium-picture img {
+    width: 274px;
+  }
+  
   button {
     padding: 0;
   }
@@ -33,8 +41,7 @@
     padding: 10px 61px 41px;
     max-height: 85%;
     img {
-      max-height: 100%;
-      width: auto;
+      max-height: 500px;
     }
   }
 }

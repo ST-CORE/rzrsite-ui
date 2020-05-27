@@ -2,45 +2,28 @@
   height: 155px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: #DFDFDF;
 
   li {
     display: inline-block;
+    min-width: 20%;
+    margin: 0 5px;
   }
   
-  li::before {
-    content: "";
+  li:first-of-type {
+    margin: 0 5px 0 0;
+  }
+  
+  li:last-of-type {
+    margin: 0 0 0 5px;
+  }
+  
+  img.icon {
     float: left;
     height: 51px;
     width: 51px;
     margin-right: 10px;
-  }
-}
-
-.decor-line ul {
-  li:first-of-type::before {
-    background-image: url("../../../../images/icons/levels.png");
-    background-size: contain;
-  }
-  
-  li:nth-of-type(2)::before {
-    background-image: url("../../../../images/icons/two.png");
-    background-size: cover;      
-  }
-  
-  li:nth-of-type(3) {
-    min-width: 180px;
-    
-    &::before {
-      background-image: url("../../../../images/icons/hand.png");
-      background-size: cover;
-    }      
-  }
-  
-  li:nth-of-type(4)::before {
-    background-image: url("../../../../images/icons/autonomy.png");
-    background-size: cover;
   }
 }

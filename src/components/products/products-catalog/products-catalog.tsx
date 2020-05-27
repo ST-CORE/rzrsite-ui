@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import ApiUrl from '../../../consts/api';
+import { ApiUrl } from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
-import { IFeatureTable, IProdLine, IProduct } from '../../../consts/interfaces-for-request';
+import { IProdLine, IProduct } from '../../../consts/interfaces-for-request';
 
 import DecorLine from '../products-catalog/decor-line/decor-line';
 import ChooseModel from './choose-model/choose-model';
@@ -26,14 +26,17 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   const params: IProdlineParams = useParams();
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
-    const currentPath: string = params.line ? params.line : '';
-    return examinedPath.includes(currentPath);
+    const defaultLine = prodlines[0];
+    const currentPath: string = params.line ? params.line : defaultLine.path;
+    console.log(examinedPath, 'examinedPath', currentPath, 'currentPath');
+    return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
   });
+  
+  console.log(matchedLine, "matchedLine");
   
   const [arrayOfProducts, setArrayOfProducts] = React.useState([] as IProduct[]);
   const [renderPermission, allowRender] = React.useState(false);
   const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
-  const [featureTable, setFeatureTable] = React.useState({} as IFeatureTable);
 
   React.useEffect(() => {
     allowRender(false);
@@ -45,26 +48,17 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
         allowRender(true);
       });
   }, [matchedLine]);
-
-  React.useEffect(() => {      
-    axios.get(`${ApiUrl}/Category/${matchedLine?.categoryId}/getFeatureTable/${matchedLine?.id}`)
-      .then((response) => {        
-        const result = response.data as IFeatureTable;        
-        setFeatureTable(result);       
-      });
-  }, [setFeatureTable]);
     
   React.useEffect(() => {
     if (arrayOfProducts[0]) {
       const matchedProduct = arrayOfProducts.find((item) => {
-        const currentPath = params.product ? params.product : '';
+        const defaultProduct = arrayOfProducts[0];
+        const currentPath = params.product ? params.product : defaultProduct.path;
         const examinedPath = item.path;
-        return examinedPath.includes(currentPath);
+        return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
       });
       if (matchedProduct) {
         setCurrentProduct(matchedProduct as IProduct);
-      } else {
-        setCurrentProduct(arrayOfProducts[0]);
       }
     }
   }, [arrayOfProducts]);
@@ -88,7 +82,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div>
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <ProductDescription featureTable={featureTable} isMobile />
+            <ProductDescription isMobile />
           </div>
           )
         }
@@ -96,8 +90,8 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div className="container-small">
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <DecorLine />
-            <ProductDescription featureTable={featureTable} isMobile={false} />
+            <DecorLine prodlines={prodlines} />
+            <ProductDescription isMobile={false} />
           </div>
           )
         }
