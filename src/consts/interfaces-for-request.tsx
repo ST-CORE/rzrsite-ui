@@ -50,3 +50,16 @@ export const getCallMeData = (telNumber: string) => ({
     Phone: telNumber,
   },
 });
+
+export interface IParams {
+  category?: string | undefined;
+  line?: string | undefined;
+  product?: string | undefined;
+}
+
+export interface IAdvantage {
+  id: number;
+  title: string;
+  weight: number;
+  icon: string;
+}

@@ -87,7 +87,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div className="container-small">
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <DecorLine />
+            <DecorLine prodlines={prodlines} />
             <ProductDescription isMobile={false} />
           </div>
           )
