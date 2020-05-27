@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../shared/logo/logo';
 import './nav-header.scss';
+import { CategoryContext } from '../../shared/category-context';
+// eslint-disable-next-line no-unused-vars
+import { ICategory } from '../../../consts/interfaces-for-request';
 
 interface NavHeaderProps {
   lightTheme: boolean
@@ -12,6 +15,7 @@ export default ({ lightTheme }: NavHeaderProps) => {
   if (lightTheme) {
     className += ' light-theme';
   }
+  
   return (
     <div className={className}>
       <div className="container-big">
@@ -25,16 +29,18 @@ export default ({ lightTheme }: NavHeaderProps) => {
                 Продукция
               </NavLink>
               <ul className="submenu">
-                <li>
-                  <NavLink to="/products/boilers" activeClassName="selected-dashed">
-                    Котлы отопления
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/products/crushers" activeClassName="selected-dashed">
-                    Дробилки угля
-                  </NavLink>
-                </li>
+                <CategoryContext.Consumer>
+                  {(value: ICategory[]) => {
+                    const categoryLinks = value.map((item: ICategory) => (
+                      <li key={item.id}>
+                        <NavLink to={`/products${item.path}`} activeClassName="selected-dashed">
+                          {item.name}
+                        </NavLink>
+                      </li>
+                    ));
+                    return categoryLinks;
+                  }}
+                </CategoryContext.Consumer>
               </ul>
             </li>
             <li>

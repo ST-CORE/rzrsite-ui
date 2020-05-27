@@ -6,7 +6,7 @@ import * as buttonTypes from '../../../consts/button-types';
 import PhoneNumber from '../../shared/phone-number/phone-number';
 import Logo from '../../shared/logo/logo';
 import './header-mobile.scss';
-import CallMeFormMobile from '../../shared/call-me-form/call-me-form-mobile';
+import CallMeForm from '../../shared/call-me-form/call-me-form';
 import HeaderMenu from './menu/header-menu';
 
 interface HeaderMobileProps {
@@ -56,7 +56,7 @@ export default ({ lightTheme }: HeaderMobileProps) => {
             (contentKey === 'menu') && <HeaderMenu />
           }
           {
-          (contentKey === 'callmeform') && <CallMeFormMobile />
+          (contentKey === 'callmeform') && <CallMeForm isMobile />
           }
         </div>
       </CSSTransition>

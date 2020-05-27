@@ -2,13 +2,13 @@ import React from 'react';
 import './any-questions-mobile.scss';
 import PhoneNumber from '../phone-number/phone-number';
 import Email from '../email/email';
-import CallMeFormMobile from '../call-me-form/call-me-form-mobile';
+import CallMeForm from '../call-me-form/call-me-form';
 
 export default () => (
   <div className="any-questions mobile">
     <h2>Остались вопросы?</h2>
     <div className="any-question--call-me">
-      <CallMeFormMobile />
+      <CallMeForm isMobile />
     </div>
     <div className="any-question--info">
       <p>

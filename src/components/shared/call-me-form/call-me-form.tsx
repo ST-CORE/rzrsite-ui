@@ -1,33 +1,36 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { getCallMeData } from '../../../consts/interfaces-for-request';
 import './call-me-form.scss';
-import address from '../../../consts/api';
+import './call-me-form-mobile.scss';
+import ApiUrl from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
-export default () => {
+interface CallMeFormProps {
+  isMobile: boolean;
+}
+
+export default ({ isMobile }: CallMeFormProps) => {
+  const attributeMobile = { tabIndex: -1, role: 'dialog', className: 'call-me-form mobile' };
+  const attributeDesktop = { tabIndex: -1, role: 'dialog' };
+  
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (inputData: object) => {
-    console.log(inputData);
-    
-    const data = {
-      Template: 'CallMe',
-      Variables: {
-        Phone: inputData.tel,
-      },
-    };
+  const onSubmit = handleSubmit(({ tel }) => {
+    const data = getCallMeData(tel);
     console.log(data);
 
-    axios.post(`${address}/api/Email`, data)
+    axios.post(`${ApiUrl}/Email`, data)
       .then((response) => console.log(response))
       .catch((error) => console.log(error.message));
-  };
+  });
   
   return (
-    <div className="call-me-form desktop" tabIndex={-1} role="dialog">
-      <form name="callMeForm" onSubmit={handleSubmit(onSubmit)}>
+    <div className={isMobile? 'call-me-form--background': 'call-me-form desktop'} {(!isMobile ? {...attributeDesktop} : {})}>
+      <form name="callMeForm" onSubmit={onSubmit} {(isMobile ? {...attributeMobile} : {})}>
         <h2>
           Вам позвонить?
         </h2>

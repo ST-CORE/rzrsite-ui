@@ -1,11 +1,11 @@
 import React from 'react';
 import './product-pictures.scss';
-import Modal from '../../../shared/modal/modal';
+import Modal from '../../../../shared/modal/modal';
 
-import imageSmallBoiler from '../../../../images/products/boilers/small-boiler.png';
-import imageMediumBoiler from '../../../../images/products/boilers/medium-boiler.png';
-import imageLargeBoiler from '../../../../images/products/boilers/boiler-large.png';
-import imageFit20Large from '../../../../images/products/boilers/Fit20-large.jpg';
+import imageSmallBoiler from '../../../../../images/products/boilers/small-boiler.png';
+import imageMediumBoiler from '../../../../../images/products/boilers/medium-boiler.png';
+import imageLargeBoiler from '../../../../../images/products/boilers/boiler-large.png';
+import imageFit20Large from '../../../../../images/products/boilers/Fit20-large.jpg';
 
 export default () => {
   const imgs = {

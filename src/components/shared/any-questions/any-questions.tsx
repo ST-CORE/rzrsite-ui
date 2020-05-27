@@ -20,7 +20,7 @@ export default () => (
       </p>
     </div>
     <div className="any-question--call-me">
-      <CallMeForm />
+      <CallMeForm isMobile={false} />
     </div>
   </div>
 );

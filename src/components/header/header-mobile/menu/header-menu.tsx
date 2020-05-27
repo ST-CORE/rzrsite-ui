@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './header-menu.scss';
+import { CategoryContext } from '../../../shared/category-context';
+// eslint-disable-next-line no-unused-vars
+import { ICategory } from '../../../../consts/interfaces-for-request';
 
 export default () => (
   <nav className="header-menu">
@@ -10,16 +13,18 @@ export default () => (
           Продукция
         </NavLink>
         <ul className="second-level-menu">
-          <li>
-            <NavLink to="/products/boilers" activeClassName="selected">
-              Котлы
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/products/crushers" activeClassName="selected">
-              Дробилки
-            </NavLink>
-          </li>
+          <CategoryContext.Consumer>
+            {(value: ICategory[]) => {
+              const categoryLinks = value.map((item: ICategory) => (
+                <li key={item.id}>
+                  <NavLink to={`/products${item.path}`} activeClassName="selected">
+                    {item.name}
+                  </NavLink>
+                </li>
+              ));
+              return categoryLinks;
+            }}
+          </CategoryContext.Consumer>
         </ul>
       </li>
       <li className="first-level-item">

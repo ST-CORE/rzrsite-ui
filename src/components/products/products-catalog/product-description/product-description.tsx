@@ -1,10 +1,14 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
 import './product-description.scss';
-import Button from '../../shared/buttons/button';
-import * as buttonClassName from '../../../consts/button-types';
+import Button from '../../../shared/buttons/button';
+import * as buttonTypes from '../../../../consts/button-types';
 
-export default () => {
+interface ProductDescriptionProps {
+  isMobile: boolean;
+}
+
+export default ({ isMobile }: ProductDescriptionProps) => {
   const myList = [
     {
       title: 'description',
@@ -43,7 +47,7 @@ export default () => {
     setItemIndex(index);
   };
   
-  const classButton = buttonClassName.tabSwitchButton;
+  const classButton = isMobile ? buttonTypes.tabSwitchButtonMobile : buttonTypes.tabSwitchButton;
   const classActiveButton = `${classButton} active`;
   const buttons = myList.map((listItem, i) => (
     <Button
@@ -55,7 +59,7 @@ export default () => {
   ));
   
   return (
-    <div className="product-description desktop">
+    <div className={`product-description ${isMobile ? 'mobile' : 'desktop'}`}>
       <header>
         {buttons}
       </header>

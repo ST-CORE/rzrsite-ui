@@ -24,12 +24,12 @@
     color: #30A2DE;
   }
   
-  .stock {
+  .in-stock {
     font-size: 14px;
     line-height: 20px;
     color: #FFFFFF;
     
-    &.in-stock::before {
+    &.is-in-stock::before {
       content: '';
       display: inline-block;
       width: 7px;
