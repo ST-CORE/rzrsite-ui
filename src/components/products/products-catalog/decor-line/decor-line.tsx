@@ -35,7 +35,7 @@ export default ({ prodlines }: DecorLineProps) => {
       });
   }, [matchedId]);
   console.log('arrayOfAdvantages', arrayOfAdvantages);
-  const sortedList = arrayOfAdvantages;
+  const sortedList = arrayOfAdvantages.slice(0, 4);
   sortedList.sort((a, b) => (a.weight - b.weight));
   const listOfAdvantages = sortedList.map((item) => (
     <li key={item.weight}>
