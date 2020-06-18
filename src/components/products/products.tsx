@@ -5,7 +5,7 @@ import {
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import './products.scss';
 import axios from 'axios';
-import ApiUrl from '../../consts/api';
+import { ApiUrl } from '../../consts/api';
 // eslint-disable-next-line no-unused-vars
 import { ICategory, IExtendedCategory, IProduct, IProdLine } from '../../consts/interfaces-for-request';
 
@@ -48,7 +48,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
   }, [matchedCategory]);
   
   const { path, url } = useRouteMatch();
-  const redirectCategoryPath = (params.category === 'boilers') ? 'boilers/Fit_20-50' : 'crushers/DC-2';
+  const redirectCategoryPath = (params.category === 'boilers') ? 'boilers/Fit-20-50' : 'crushers/DC-2';
 
   const liftCurrentProduct = (currentProdAndLine: [IProduct, IProdLine]) => {
     liftCurrentProductAndPath([...currentProdAndLine, url]);

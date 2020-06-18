@@ -25,7 +25,7 @@ export default () => {
     setCurrentUrl(url);
     allowRedirect(true);
   };
-  const pathToRedirect = `${currentUrl}${currentProductLine}/${currentProductPath}`;
+  const pathToRedirect = `${currentUrl}${currentProductLine}${currentProductPath}`;
   console.log(pathToRedirect);
   
   return (

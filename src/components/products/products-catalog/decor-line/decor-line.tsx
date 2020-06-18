@@ -11,45 +11,45 @@ interface DecorLineProps {
 }
 
 export default ({ prodlines }: DecorLineProps) => {
-  const [arrayOfAdvantages, setAdvantages] = React.useState();
+  const [arrayOfAdvantages, setAdvantages] = React.useState([] as IAdvantage[]);
+  const [renderPermission, allowRender] = React.useState(false);
   const params = useParams() as IParams;
   const currentProdline = params.line;
-  const matchedProdlineId = prodlines.findIndex((item) => item.path.includes(currentProdline));
+  const matchedProdlineIndex = prodlines.findIndex((item) => item.path.includes(currentProdline));
+  const matchedId = prodlines[matchedProdlineIndex].id;
   
-  console.log(prodlines);
+  console.log('prodlines', prodlines);
   React.useEffect(() => {
-    // axios.get(`${ApiUrl}/productLine/${matchedProdlineId}/advantage`)
-    //   .then((response) => {
-    //     const result = response.data as IAdvantage[];
-    //     // result.forEach((item) => axios.get(`${ApiStorage}/${item.icon}`)
-    //     //   .then((res) => Object.assign(item, { image: res.data })));
-    //     console.log(result);
-    //   });
-  }, [matchedProdlineId]);
+    allowRender(false);
+    axios.get(`${ApiUrl}/productLine/${matchedId}/advantage`)
+      .then((response) => {
+        const result = response.data as IAdvantage[];
+        result.forEach((item) => {
+          axios.get(`${ApiStorage}/${item.icon}`)
+            .then((res) => Object.assign(item, { image: res.data }));
+          console.log('item', item);
+        });
+        console.log('result', result);
+        setAdvantages(result);
+        allowRender(true);
+      });
+  }, [matchedId]);
+  console.log('arrayOfAdvantages', arrayOfAdvantages);
+  const sortedList = arrayOfAdvantages;
+  sortedList.sort((a, b) => (a.weight - b.weight));
+  const listOfAdvantages = sortedList.map((item) => (
+    <li key={item.weight}>
+      <img className="icon" src={`${ApiStorage}/${item.icon}`} alt={item.icon} />
+      <span dangerouslySetInnerHTML={{ __html: item.title }} />
+    </li>
+  ));
   return (
+    renderPermission && (
     <div className="decor-line">
       <ul>
-        <li>
-          Высокая эффективность
-          <br />
-          (КПД 85-90%)
-        </li>
-        <li>
-          Две камеры сжигания
-          <br />
-          топлива
-        </li>
-        <li>
-          Легкость
-          <br />
-          обслуживания
-        </li>
-        <li>
-          Полная автономность
-          <br />
-          котла
-        </li>
+        {listOfAdvantages}
       </ul>
     </div>
+    )
   );
 };

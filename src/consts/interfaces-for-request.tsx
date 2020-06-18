@@ -62,4 +62,5 @@ export interface IAdvantage {
   title: string;
   weight: number;
   icon: string;
+  image: any;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import ApiUrl from '../../../consts/api';
+import { ApiUrl } from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
 import { IProdLine, IProduct } from '../../../consts/interfaces-for-request';
@@ -23,6 +23,7 @@ interface IProdlineParams {
 }
 
 export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
+  console.log(prodlines);
   const params: IProdlineParams = useParams();
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
