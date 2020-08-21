@@ -64,3 +64,11 @@ export interface IAdvantage {
   icon: string;
   image: any;
 }
+
+export interface IImage {
+  id: number;
+  description: string;
+  weight: number;
+  fullPath: string;
+  thumbPath: string;
+}

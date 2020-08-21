@@ -23,13 +23,15 @@ interface IProdlineParams {
 }
 
 export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
-  console.log(prodlines);
   const params: IProdlineParams = useParams();
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
     const currentPath: string = params.line ? params.line : '';
-    return examinedPath.includes(currentPath);
+    console.log(examinedPath, 'examinedPath', currentPath, 'currentPath');
+    return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
   });
+  
+  console.log(matchedLine, "matchedLine");
   
   const [arrayOfProducts, setArrayOfProducts] = React.useState([] as IProduct[]);
   const [renderPermission, allowRender] = React.useState(false);
@@ -51,7 +53,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
       const matchedProduct = arrayOfProducts.find((item) => {
         const currentPath = params.product ? params.product : '';
         const examinedPath = item.path;
-        return examinedPath.includes(currentPath);
+        return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
       });
       if (matchedProduct) {
         setCurrentProduct(matchedProduct as IProduct);
