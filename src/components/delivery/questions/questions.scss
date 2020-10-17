@@ -1,0 +1,48 @@
+section.questions.desktop { 
+  color: #DFDFDF;
+
+  header {
+    border-bottom: 1px solid white;
+    width: 97%;
+  }
+  
+  div.guide, div.any-questions {
+    height: 205px;
+    box-sizing: border-box;
+  }
+    
+  .guide {
+    padding-top: 15px;
+    
+    ol.counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      li {
+        margin-bottom: 10px;
+      }
+      
+      li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  div.any-questions {
+    padding-top: 15px;
+    width: 700px;
+    
+    .any-question--info {
+      h2 {
+        display: none;
+      }
+      
+      span {
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+}

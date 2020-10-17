@@ -1,0 +1,38 @@
+.footer-menu p {  
+  a.underlined-link {
+    color: #DFDFDF;
+    margin-left: 28px; 
+
+    .underline {
+      display: inline-block;
+      line-height: 0.8;
+      border-bottom: 1px solid #DFDFDF;
+    }
+    
+    &:hover, &:focus {
+      .underline {
+        border: none;
+      }
+    }
+    
+    &:active, &.underlined-selected {
+      color: #30a2de;
+      .underline {
+        border: none;
+      }
+    }
+  }
+  
+  a.bold-link {
+    color: #ffffff;
+    font-weight: bold;
+    
+    &:active, &.bold-selected {
+      color: #30a2de;
+    }
+    
+    &:hover, &:focus {
+      border-bottom: 1px solid #30a2de;
+    }
+  }
+}

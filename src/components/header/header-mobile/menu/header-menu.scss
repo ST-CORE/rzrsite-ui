@@ -1,0 +1,46 @@
+ .header-menu {
+  padding-left: 25px;
+
+  a {
+    display: block;
+    padding: 5px 5px;
+    border-bottom: 1px solid #151515;
+    color: #ffffff;
+    
+    &:focus {
+      border-bottom-color: #ffffff;
+    }
+    
+    &:active {
+      background-color: #575757;
+    } 
+  }
+  
+  a.selected {
+    color: #30a2de;
+    border-right: 2px solid #30a2de;
+  }
+  
+  a.selected-category {
+    color: #30a2de;
+  }
+  
+  .first-level-menu {
+    .first-level-item {
+      border-bottom: 1px solid #343434;
+      width: 65%;
+    }
+    
+    .first-level-item.complex-item {
+      border-bottom: none;
+    }
+  }
+  
+  .second-level-menu {
+    padding-left: 25px;
+
+    li {
+      border-bottom: 1px solid #343434;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.footer-disclaimer {
+  background-color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.58;
+  font-weight: normal;
+  font-size: 14px;
+  
+  &.desktop {
+    padding: 15px;
+  }
+  
+  &.mobile {
+    padding: 15px 10px;
+  }
+}

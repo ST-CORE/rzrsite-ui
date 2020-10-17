@@ -1,0 +1,33 @@
+.nav-footer.desktop {
+  background-color: #151515;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 52px;
+  color: #DFDFDF;
+
+  > .container-small {
+    box-sizing: border-box;
+    padding-top: 30px;
+    height: 157px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .contact-block {
+      .phone-number {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: auto;
+      }
+
+      > button {
+        display: block;
+        margin: auto;
+      }
+    }
+    
+    .modal {
+      line-height: initial;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+section.questions.mobile { 
+  color: #DFDFDF;
+
+  header {
+    border-bottom: 1px solid white;
+    width: 90%;
+  }
+    
+  .guide {
+    padding-top: 15px;
+    
+    ol.counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      li {
+        margin-bottom: 10px;
+      }
+      
+      li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: 400;
+        color: #30a2de;
+      }
+    }
+  }
+  
+  div.any-questions {
+    padding-top: 15px;
+    
+    h2 {
+      display: none;
+    }
+    .any-question--info {
+      .phone-number, .email {
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+}

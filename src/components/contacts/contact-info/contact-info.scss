@@ -1,0 +1,56 @@
+.contact-info.desktop {
+  height: 455px;
+  width: 430px;
+  padding: 5px 10px 45px 31px;
+  box-sizing: border-box;
+  background: #202020;
+  mix-blend-mode: normal;
+  opacity: 0.77;
+  
+  div.some-space {
+    height: 25px;
+  }
+  
+  h1 {
+    margin: 30px 0;
+  }
+  
+  dl {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    
+    dt {
+      font-weight: 500;
+      display: inline-block;
+      vertical-align: top;
+    }
+    
+    dd {
+      font-weight: normal;
+      display: inline-block;
+    }
+    
+    span.phone-number {
+    margin-left: 13px; 
+    }
+    
+    dd.email {
+    margin-left: 35px; 
+    }
+    
+    dd.address {
+    margin-left: 33px;
+    }
+  }
+  
+  div.call-me-form {
+    margin-top: 4px;
+    
+    input {
+      background: #000000;
+      border: 1px solid #777777;
+      color: #cdcdcd;
+    }
+  }
+}

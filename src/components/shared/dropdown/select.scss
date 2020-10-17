@@ -1,0 +1,13 @@
+.dropdown {
+  width: 205px;
+  box-sizing: border-box;
+  background: #222222;
+  border: 1px solid #979797;
+  border-radius: 2px;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  
+  &:hover, &:focus {
+    box-shadow: 0 0 0 1px #FFFFFF;
+  }
+}

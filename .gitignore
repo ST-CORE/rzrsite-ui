@@ -1,0 +1,20 @@
+package-lock.json
+
+# Dependency directories
+node_modules
+
+# TypeScript cache
+*.tsbuildinfo
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+dist
+
+#Visual Studio
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace

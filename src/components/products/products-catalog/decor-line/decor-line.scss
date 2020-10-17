@@ -1,0 +1,29 @@
+.decor-line ul {
+  height: 155px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #DFDFDF;
+
+  li {
+    display: inline-block;
+    min-width: 20%;
+    margin: 0 5px;
+  }
+  
+  li:first-of-type {
+    margin: 0 5px 0 0;
+  }
+  
+  li:last-of-type {
+    margin: 0 0 0 5px;
+  }
+  
+  img.icon {
+    float: left;
+    height: 51px;
+    width: 51px;
+    margin-right: 10px;
+  }
+}

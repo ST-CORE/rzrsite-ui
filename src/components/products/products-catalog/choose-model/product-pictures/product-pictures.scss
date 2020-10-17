@@ -1,0 +1,47 @@
+.product-pictures.desktop {
+  height: 274px;
+  width: 354px;
+  display: grid;
+  grid-gap: 17px;
+  grid-template-areas: "s1 m m m" "s2 m m m" "s3 m m m";
+  
+  .small-picture:first-of-type {
+    grid-area: s1;
+  }
+  
+  .small-picture:nth-of-type(2) {
+    grid-area: s2;
+  }
+  
+  .small-picture:last-of-type {
+    grid-area: s3;
+  }
+  
+  .medium-picture {
+    grid-area: m;
+  }
+  
+  .small-picture img {
+    width: 80px;
+  }
+  
+  .medium-picture img {
+    width: 274px;
+  }
+  
+  button {
+    padding: 0;
+  }
+  
+  .modal {
+    max-height: 90%;
+  }
+  
+  .modal-content {
+    padding: 10px 61px 41px;
+    max-height: 85%;
+    img {
+      max-height: 500px;
+    }
+  }
+}

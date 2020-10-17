@@ -1,0 +1,67 @@
+.order-form.desktop {
+  min-width: 330px;
+  text-align: left;
+  color: #DFDFDF;
+  padding: 15px 0 30px 20px;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  p.model {
+    margin-bottom: 38px;
+    span {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      padding-right: 0.5em;
+    }
+  }
+  
+  p.comment {
+    line-height: 20px;
+  }
+  
+  div {
+    margin-top: 18px;
+    
+    label {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+    }
+    
+    input {
+      display: block;
+      width: 260px;
+      height: 34px;
+      padding: 8px 12px;
+      margin-top: 14px;
+      background: #333333;
+      border: 1px solid #555555;
+      box-sizing: border-box;
+      border-radius: 17px; 
+      color: #dddddd;
+      font-size: 14px;
+      line-height: 16px;
+      
+      &:focus, &:hover {
+        outline: none;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
+    }
+    
+    .long-button {
+      display: block;
+      margin-top: 16px;
+    }
+    
+    p.error {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: bold;
+      color: #EA3C21;
+      margin: 2px 0 -19px 5px;
+    }
+  }
+}

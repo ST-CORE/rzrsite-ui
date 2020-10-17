@@ -1,0 +1,17 @@
+.show-details-block {
+  .hidden {
+    display: none;
+  }
+}
+
+.show-details-block.desktop {
+  
+  button.show-details-button {
+    display: block;
+  }
+  
+  .details-block {
+    padding: 10px 20px;
+  }
+}
+

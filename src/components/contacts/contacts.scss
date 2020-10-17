@@ -1,0 +1,17 @@
+.contacts.desktop {
+  height: 875px;
+  position: relative;
+
+  .contact-info {
+    position: absolute;
+    left: calc((100% - 980px)/2);
+    top: 0%;
+  }
+}
+
+.contacts.mobile {
+  .map-container {
+    height: 410px;
+    padding: 0 10px;
+  }
+}

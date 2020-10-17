@@ -1,0 +1,153 @@
+@import "./reset.css";
+
+$blue: #30A2DE;
+
+body {
+  color: #FFFFFF;
+  background-color: #202020;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
+  #root {
+    .container-big {
+    max-width: 1430px;
+    min-width: 980px;
+    margin: auto;
+    }
+
+    .container-small {
+      width: 980px;
+      margin: 0 auto;
+    }
+    
+    main.main-content {
+      min-height: 400px;
+    } 
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    color: #30A2DE;
+  }
+  
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #DFDFDF;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #DFDFDF;
+  }
+  
+  .desktop {
+    ol.counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      &>li {
+        margin-bottom: 10px;
+      }
+      
+      &>li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: bold;
+      }
+    }
+    
+    ul.blue-bullets-list {
+      padding: 5px 3px;
+      line-height: 24px;
+      
+      &>li {
+        padding: 5px 0 3px;
+      }
+      
+      &>li:before {
+        display: inline-block;
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #30A2DE;
+        vertical-align: middle; 
+        margin-right: 15px;
+      }
+    }
+  }
+  
+  .mobile {
+    ol.counters-list {
+      padding: 5px 3px;
+      counter-reset: num;
+      
+      &>li {
+        margin-bottom: 10px;
+      }
+      
+      &>li:before {
+        content: counter(num) ". ";
+        counter-increment: num;
+        font-weight: 400;
+        color: #30a2de;
+      }
+    }
+    
+    ul.blue-bullets-list {
+      padding: 5px 10px;
+      line-height: 24px;
+      
+      &>li {
+        margin-bottom: 10px;
+      }
+      
+      &>li:before {
+        display: inline-block;
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #30A2DE;
+        vertical-align: middle; 
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+//CSS Transition classNames: popUp
+//ИМЕННО В ТАКОМ ПОРЯДКЕ!
+
+.popUp-enter {
+  opacity: 0;
+}
+
+.popUp-enter-active { 
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.popUp-exit {
+  opacity: 1;
+}
+
+.popUp-exit-active {
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.popUp-enter-done, .popUp-enter, .popUp-exit, .popUp-enter-active, .popUp-exit-active {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+  transform: translateX(-50%);
+}

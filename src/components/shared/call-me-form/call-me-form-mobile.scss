@@ -1,0 +1,55 @@
+.call-me-form.mobile {
+  min-width: 260px;
+  max-width: 95%;
+  text-align: left;
+  color: #DFDFDF;
+  white-space: normal;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  div {    
+    width: 260px;
+    label {
+      display: none;
+    }
+    
+    input {
+      display: block;
+      width: 260px;
+      height: 34px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      background: #333333;
+      border: 1px solid #555555;
+      box-sizing: border-box;
+      border-radius: 17px; 
+      color: #dddddd;
+      font-size: 14px;
+      line-height: 16px;
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px #ffffff;
+      }
+    }
+  }
+  
+  .long-button {
+    margin-top: 12px;
+  }
+}
