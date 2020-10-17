@@ -1,1 +1,1 @@
-export default 'http://rzrsite-backend.cashtusk.ru/api';
+export default 'http://localhost:4242/api';

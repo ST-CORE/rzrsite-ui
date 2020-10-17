@@ -5,7 +5,7 @@ import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import ApiUrl from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
-import { IProdLine, IProduct } from '../../../consts/interfaces-for-request';
+import { IFeatureTable, IProdLine, IProduct } from '../../../consts/interfaces-for-request';
 
 import DecorLine from '../products-catalog/decor-line/decor-line';
 import ChooseModel from './choose-model/choose-model';
@@ -33,6 +33,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   const [arrayOfProducts, setArrayOfProducts] = React.useState([] as IProduct[]);
   const [renderPermission, allowRender] = React.useState(false);
   const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
+  const [featureTable, setFeatureTable] = React.useState({} as IFeatureTable);
 
   React.useEffect(() => {
     allowRender(false);
@@ -44,6 +45,14 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
         allowRender(true);
       });
   }, [matchedLine]);
+
+  React.useEffect(() => {      
+    axios.get(`${ApiUrl}/Category/${matchedLine?.categoryId}/getFeatureTable/${matchedLine?.id}`)
+      .then((response) => {        
+        const result = response.data as IFeatureTable;        
+        setFeatureTable(result);       
+      });
+  }, [setFeatureTable]);
     
   React.useEffect(() => {
     if (arrayOfProducts[0]) {
@@ -79,7 +88,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div>
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <ProductDescription isMobile />
+            <ProductDescription featureTable={featureTable} isMobile />
           </div>
           )
         }
@@ -88,7 +97,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           <div className="container-small">
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             <DecorLine />
-            <ProductDescription isMobile={false} />
+            <ProductDescription featureTable={featureTable} isMobile={false} />
           </div>
           )
         }

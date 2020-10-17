@@ -50,3 +50,24 @@ export const getCallMeData = (telNumber: string) => ({
     Phone: telNumber,
   },
 });
+
+export interface IFeature {
+  id: number;
+  weight: number;
+  value: string;
+}
+
+export interface IFeatureTable {
+  categoryId: number;
+  productLineId: number;
+  products: IProduct[];
+  featuresByType: IFeatureItem[];
+}
+
+export interface IFeatureItem {
+  featureTypeId: number;
+  featureTypeName: string;
+  features: IFeature[];
+}
+
+
