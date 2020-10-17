@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import {
   useParams, useRouteMatch, Route, Switch, Redirect,
@@ -5,7 +6,7 @@ import {
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import './products.scss';
 import axios from 'axios';
-import ApiUrl from '../../consts/api';
+import { ApiUrl } from '../../consts/api';
 // eslint-disable-next-line no-unused-vars
 import { ICategory, IExtendedCategory, IProduct, IProdLine } from '../../consts/interfaces-for-request';
 
@@ -48,10 +49,10 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
   }, [matchedCategory]);
   
   const { path, url } = useRouteMatch();
-  const redirectCategoryPath = (params.category === 'boilers') ? 'boilers/Fit_20-50' : 'crushers/DC-2';
-
+  console.log(path, 'path', url, 'url');
+  
   const liftCurrentProduct = (currentProdAndLine: [IProduct, IProdLine]) => {
-    liftCurrentProductAndPath([...currentProdAndLine, url]);
+    liftCurrentProductAndPath([...currentProdAndLine, extendedCategory]);
   };
   
   return (
@@ -65,14 +66,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
               prodlines={extendedCategory.productLines}
               categories={categories}
             />
-            <Switch>
-              <Route exact path={url}>
-                <Redirect to={`/products/${redirectCategoryPath}`} />
-              </Route>
-              <Route path={[`${path}:line/:product`, `${path}:line`]}>
-                <ProductsCatalog prodlines={extendedCategory.productLines} liftCurrentProduct={liftCurrentProduct} />
-              </Route>
-            </Switch>
+            <ProductsCatalog prodlines={extendedCategory.productLines} liftCurrentProduct={liftCurrentProduct} />
           </div>
           )
         }
@@ -83,14 +77,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
               parentUrl={url}
               extendedCategory={extendedCategory}
             />
-            <Switch>
-              <Route exact path={path}>
-                <Redirect to={`/products/${redirectCategoryPath}`} />
-              </Route>
-              <Route path={[`${path}:line/:product`, `${path}:line`]}>
-                <ProductsCatalog prodlines={extendedCategory.productLines} liftCurrentProduct={liftCurrentProduct} />
-              </Route>
-            </Switch>
+            <ProductsCatalog prodlines={extendedCategory.productLines} liftCurrentProduct={liftCurrentProduct} />
           </div>
           )
         }

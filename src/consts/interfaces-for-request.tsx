@@ -51,23 +51,24 @@ export const getCallMeData = (telNumber: string) => ({
   },
 });
 
-export interface IFeature {
+export interface IParams {
+  category?: string | undefined;
+  line?: string | undefined;
+  product?: string | undefined;
+}
+
+export interface IAdvantage {
   id: number;
+  title: string;
   weight: number;
-  value: string;
+  icon: string;
+  image: any;
 }
 
-export interface IFeatureTable {
-  categoryId: number;
-  productLineId: number;
-  products: IProduct[];
-  featuresByType: IFeatureItem[];
+export interface IImage {
+  id: number;
+  description: string;
+  weight: number;
+  fullPath: string;
+  thumbPath: string;
 }
-
-export interface IFeatureItem {
-  featureTypeId: number;
-  featureTypeName: string;
-  features: IFeature[];
-}
-
-

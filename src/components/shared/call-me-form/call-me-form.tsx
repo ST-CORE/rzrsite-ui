@@ -6,7 +6,7 @@ import axios from 'axios';
 import { getCallMeData } from '../../../consts/interfaces-for-request';
 import './call-me-form.scss';
 import './call-me-form-mobile.scss';
-import ApiUrl from '../../../consts/api';
+import { ApiUrl } from '../../../consts/api';
 import ButtonSubmit from '../buttons/button-submit';
 import * as buttonTypes from '../../../consts/button-types';
 
