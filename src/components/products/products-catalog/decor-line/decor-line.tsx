@@ -18,7 +18,7 @@ export default ({ prodlines }: DecorLineProps) => {
   const currentProdline = params.line ? params.line : defaultLine.path;
   const matchedProdlineIndex = prodlines.findIndex((item) => item.path.includes(currentProdline));
   const matchedId = prodlines[matchedProdlineIndex].id;
-  
+
   console.log('prodlines', prodlines);
   React.useEffect(() => {
     allowRender(false);
@@ -46,11 +46,11 @@ export default ({ prodlines }: DecorLineProps) => {
   ));
   return (
     renderPermission && (
-    <div className="decor-line">
-      <ul>
-        {listOfAdvantages}
-      </ul>
-    </div>
+      <div className="decor-line">
+        <ul>
+          {listOfAdvantages}
+        </ul>
+      </div>
     )
   );
 };
