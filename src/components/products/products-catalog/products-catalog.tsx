@@ -28,13 +28,10 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
     const defaultLine = prodlines[0];
-    const currentPath: string = params.line ? params.line : defaultLine.path;
-    console.log(examinedPath, 'examinedPath', currentPath, 'currentPath');
+    const currentPath: string = params.line ? params.line : defaultLine.path;    
     return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
   });
-  
-  console.log(matchedLine, "matchedLine");
-  
+   
   const [arrayOfProducts, setArrayOfProducts] = React.useState([] as IProduct[]);
   const [renderPermission, allowRender] = React.useState(false);
   const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
@@ -101,7 +98,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div>
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <ProductDescription documents={documents} featureTable={featureTable} isMobile />
+            <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile />
           </div>
           )
         }
@@ -110,7 +107,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           <div className="container-small">
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             <DecorLine prodlines={prodlines} />
-            <ProductDescription documents={documents} featureTable={featureTable} isMobile={false} />
+            <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile={false} />
           </div>
           )
         }
