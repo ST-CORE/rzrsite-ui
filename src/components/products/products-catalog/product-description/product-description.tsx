@@ -11,6 +11,7 @@ interface ProductDescriptionProps {
   isMobile: boolean;
   featureTable: IFeatureTable;
   documents: IProductLineDocument[];
+  description?: string;
 }
 
 enum DescriptionType {
@@ -19,7 +20,7 @@ enum DescriptionType {
   Documents
 }
 
-export default ({ isMobile, featureTable, documents }: ProductDescriptionProps) => {
+export default ({ isMobile, featureTable, documents, description }: ProductDescriptionProps) => {
   const myList = [
     {
       title: 'description',
@@ -85,7 +86,7 @@ export default ({ isMobile, featureTable, documents }: ProductDescriptionProps) 
       </header>
       <section>
         {myList[itemIndex].type == DescriptionType.Text && (
-          myList[itemIndex].text
+          <div className="description-markup" dangerouslySetInnerHTML={{__html: description ?? ''}} />
         )}
         {myList[itemIndex].type == DescriptionType.FeatureTable && (
           <FeatureTable featureTable={ftTable} />
