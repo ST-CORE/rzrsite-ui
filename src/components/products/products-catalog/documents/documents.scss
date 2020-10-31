@@ -1,0 +1,22 @@
+.document-item {
+    display: table;
+    padding: 10px 15px;
+    img {
+      vertical-align: middle;
+      display: table-cell;
+    }
+    span {
+      vertical-align: middle;
+      display: table-cell;
+      &.image{
+        width: 60px;
+      }
+      &.text{
+        color: #fff;
+      }
+    }
+    .document-item__image{
+      width: 50px;
+      height: auto;
+    }
+}

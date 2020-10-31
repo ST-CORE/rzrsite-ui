@@ -3,15 +3,23 @@ import React from 'react';
 import './product-description.scss';
 import Button from '../../../shared/buttons/button';
 import * as buttonTypes from '../../../../consts/button-types';
-import { IFeatureTable } from '../../../../consts/interfaces-for-request';
+import { IFeatureTable, IProductLineDocument } from '../../../../consts/interfaces-for-request';
 import FeatureTable from '../feature-table/feature-table';
+import Documents from '../documents/documents';
 
 interface ProductDescriptionProps {
   isMobile: boolean;
   featureTable: IFeatureTable;
+  documents: IProductLineDocument[];
 }
 
-export default ({ isMobile, featureTable }: ProductDescriptionProps) => {
+enum DescriptionType {
+  Text,
+  FeatureTable,
+  Documents
+}
+
+export default ({ isMobile, featureTable, documents }: ProductDescriptionProps) => {
   const myList = [
     {
       title: 'description',
@@ -20,7 +28,8 @@ export default ({ isMobile, featureTable }: ProductDescriptionProps) => {
       imageAlt: '',
       figureCaption: '',
       selected: true,
-      showFeatureTable: false
+      type: DescriptionType.Text,
+      showDocuments: false
     },
     {
       title: 'allFeatures',
@@ -29,7 +38,8 @@ export default ({ isMobile, featureTable }: ProductDescriptionProps) => {
       imageAlt: '',
       figureCaption: '',
       selected: false,
-      showFeatureTable: true
+      type: DescriptionType.FeatureTable,
+      showDocuments: false
     },
     {
       title: 'documentation',
@@ -38,12 +48,13 @@ export default ({ isMobile, featureTable }: ProductDescriptionProps) => {
       imageAlt: '',
       figureCaption: '',
       selected: false,
-      showFeatureTable: false
+      type: DescriptionType.Documents,
+      showDocuments: true
     },
   ];
 
   const ftTable = featureTable;
-  console.log(ftTable);
+  const lineDocuments = documents;
 
   const [itemIndex, setItemIndex] = React.useState(0);
 
@@ -73,11 +84,15 @@ export default ({ isMobile, featureTable }: ProductDescriptionProps) => {
         {buttons}
       </header>
       <section>
-        {myList[itemIndex].showFeatureTable ? (
+        {myList[itemIndex].type == DescriptionType.Text && (
+          myList[itemIndex].text
+        )}
+        {myList[itemIndex].type == DescriptionType.FeatureTable && (
           <FeatureTable featureTable={ftTable} />
-        ) : (
-            myList[itemIndex].text
-          )}
+        )}
+        {myList[itemIndex].type == DescriptionType.Documents && (
+          <Documents documents={lineDocuments} />
+        )}
         <aside>
           <figure>
             <img src={myList[itemIndex].imageSource} alt={myList[itemIndex].imageAlt} />

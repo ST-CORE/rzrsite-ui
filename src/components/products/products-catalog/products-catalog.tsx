@@ -5,7 +5,7 @@ import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import { ApiUrl } from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
-import { IFeatureTable, IProdLine, IProduct } from '../../../consts/interfaces-for-request';
+import { IFeatureTable, IProdLine, IProduct, IProductLineDocument } from '../../../consts/interfaces-for-request';
 
 import DecorLine from '../products-catalog/decor-line/decor-line';
 import ChooseModel from './choose-model/choose-model';
@@ -39,6 +39,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
   const [renderPermission, allowRender] = React.useState(false);
   const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
   const [featureTable, setFeatureTable] = React.useState({} as IFeatureTable);
+  const [documents, setDocuments] = React.useState({} as IProductLineDocument[]);
 
   React.useEffect(() => {
     allowRender(false);
@@ -58,6 +59,14 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
         setFeatureTable(result);       
       });
   }, [setFeatureTable]);
+
+  React.useEffect(() => {      
+    axios.get(`${ApiUrl}/document/product-line/${matchedLine?.id}`)
+      .then((response) => {         
+        const result = response.data as IProductLineDocument[];        
+        setDocuments(result);       
+      });
+  }, [setDocuments]);
     
   React.useEffect(() => {
     if (arrayOfProducts[0]) {
@@ -92,7 +101,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           renderPermission && (
           <div>
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <ProductDescription featureTable={featureTable} isMobile />
+            <ProductDescription documents={documents} featureTable={featureTable} isMobile />
           </div>
           )
         }
@@ -101,7 +110,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
           <div className="container-small">
             <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             <DecorLine prodlines={prodlines} />
-            <ProductDescription featureTable={featureTable} isMobile />
+            <ProductDescription documents={documents} featureTable={featureTable} isMobile={false} />
           </div>
           )
         }

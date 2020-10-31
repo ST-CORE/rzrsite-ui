@@ -72,3 +72,30 @@ export interface IImage {
   fullPath: string;
   thumbPath: string;
 }
+
+export interface IFeature {
+  id: number;
+  weight: number;
+  value: string;
+}
+
+export interface IFeatureTable {
+  categoryId: number;
+  productLineId: number;
+  products: IProduct[];
+  featuresByType: IFeatureItem[];
+}
+
+export interface IFeatureItem {
+  featureTypeId: number;
+  featureTypeName: string;
+  features: IFeature[];
+}
+
+export interface IProductLineDocument{
+  id: number;
+  description: string;
+  weight: number;
+  fileId: number;
+  filePath: string;
+}
