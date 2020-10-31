@@ -49,7 +49,6 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
   }, [matchedCategory]);
   
   const { path, url } = useRouteMatch();
-  console.log(path, 'path', url, 'url');
   
   const liftCurrentProduct = (currentProdAndLine: [IProduct, IProdLine]) => {
     liftCurrentProductAndPath([...currentProdAndLine, extendedCategory]);

@@ -19,23 +19,18 @@ export default ({ prodlines }: DecorLineProps) => {
   const matchedProdlineIndex = prodlines.findIndex((item) => item.path.includes(currentProdline));
   const matchedId = prodlines[matchedProdlineIndex].id;
 
-  console.log('prodlines', prodlines);
   React.useEffect(() => {
     allowRender(false);
     axios.get(`${ApiUrl}/productLine/${matchedId}/advantage`)
       .then((response) => {
         const result = response.data as IAdvantage[];
         result.forEach((item) => {
-          axios.get(`${ApiStorage}/${item.icon}`)
-            .then((res) => Object.assign(item, { image: res.data }));
-          console.log('item', item);
-        });
-        console.log('result', result);
+          axios.get(`${ApiStorage}/${item.icon}`).then((res) => Object.assign(item, { image: res.data }));          
+        });        
         setAdvantages(result);
         allowRender(true);
       });
-  }, [matchedId]);
-  console.log('arrayOfAdvantages', arrayOfAdvantages);
+  }, [matchedId]);  
   const sortedList = arrayOfAdvantages.slice(0, 4);
   sortedList.sort((a, b) => (a.weight - b.weight));
   const listOfAdvantages = sortedList.map((item) => (
@@ -45,7 +40,7 @@ export default ({ prodlines }: DecorLineProps) => {
     </li>
   ));
   return (
-    renderPermission && (
+    (
       <div className="decor-line">
         <ul>
           {listOfAdvantages}
