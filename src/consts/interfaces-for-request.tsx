@@ -20,6 +20,7 @@ export interface IProdLine {
   name: string;
   path: string;
   weight: number;
+  isShowOnMain: boolean;
 }
 
 export interface IProduct {

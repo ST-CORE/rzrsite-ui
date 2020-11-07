@@ -7,12 +7,18 @@ import imgCrusherBig from '../../../../../images/showcase/crusher-transparent.pn
 import imgCrusherSmall from '../../../../../images/showcase/crusher-transparent-mobile.png';
 import CrusherAdvantages from './crusher-advantages';
 import CrusherAdvantagesMobile from './crusher-advantages-mobile';
+import { IProdLine } from '../../../../../consts/interfaces-for-request';
 
-export default () => {
+
+interface ICrusher {
+  lines: IProdLine[];
+}
+
+export default ( {lines} : ICrusher) => {
   const crusherInfo = {
     imageAlt: 'Дробилка Резер ДС-2',
     bigTitle: 'Дробилки угля автоматические Rezer',
-    productLines: ['Линейка DC-2'],
+    productLines: lines,
   };
   
   return (
@@ -24,7 +30,7 @@ export default () => {
           </TemplateMobile>
         )}
         desktop={(
-          <TemplateDesktop image={imgCrusherBig} {...crusherInfo}>
+          <TemplateDesktop isBoiler={false} image={imgCrusherBig} {...crusherInfo}>
             <CrusherAdvantages />
           </TemplateDesktop>
         )}
