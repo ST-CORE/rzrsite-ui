@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IProdLine } from '../../../../../consts/interfaces-for-request';
 import './template-mobile.scss';
 
 interface DesktopTemplate {
@@ -8,12 +9,10 @@ interface DesktopTemplate {
   imageAlt: string,
   bigTitle: string,
   children: JSX.Element,
-  productLines?: Array<string>
+  productLines: IProdLine[]
 }
 
-export default ({
-  image, imageAlt, bigTitle, children,
-}: DesktopTemplate) => (
+export default ({ image, imageAlt, bigTitle, children }: DesktopTemplate) => (
   <div className="showcase-item mobile">
     <h1 className="big-title">{bigTitle}</h1>
     

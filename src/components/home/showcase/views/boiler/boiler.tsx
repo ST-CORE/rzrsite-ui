@@ -6,12 +6,17 @@ import TemplateMobile from '../templates/template-mobile';
 import imgBoilerBig from '../../../../../images/showcase/boiler-transparent.png';
 import imgBoilerSmall from '../../../../../images/showcase/boiler-transparent-mobile.png';
 import BoilerAdvantages from './boiler-advantages';
+import { IProdLine } from '../../../../../consts/interfaces-for-request';
 
-export default () => {
+interface IBoiler {
+  lines: IProdLine[];
+}
+
+export default ({lines} : IBoiler) => {
   const boilerInfo = {
     imageAlt: 'Котел Резер Фит-40',
     bigTitle: 'Твердотопливные котлы Rezer',
-    productLines: ['Линейка Fit', 'Линейка Maxi'],
+    productLines: lines,
   };
   
   return (
@@ -23,7 +28,7 @@ export default () => {
           </TemplateMobile>
         )}
         desktop={(
-          <TemplateDesktop image={imgBoilerBig} {...boilerInfo}>
+          <TemplateDesktop isBoiler image={imgBoilerBig} {...boilerInfo}>
             <BoilerAdvantages />
           </TemplateDesktop>
         )}
