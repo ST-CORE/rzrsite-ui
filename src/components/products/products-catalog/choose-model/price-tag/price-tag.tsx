@@ -20,8 +20,8 @@ interface PriceTagProps {
 export default ({ arrayOfProducts, currentProduct, catchSelect }: PriceTagProps) => {
   const [form, switchForm] = React.useState(false);
   const inStock: string = (currentProduct.inStock) ? 'в наличии' : 'нет в наличии';
-  const inStockClassName: string = (currentProduct.inStock) ? 'in-stock is-in-stock' : 'in-stock not-in-stock';
-  const arrayOfSelectData = arrayOfProducts.map((item) => ({ name: item.name, id: item.id }));
+  const inStockClassName: string = (currentProduct.inStock) ? 'in-stock is-in-stock' : 'in-stock not-in-stock'; 
+  const arrayOfSelectData = arrayOfProducts != null ? arrayOfProducts.map((item) => ({ name: item.name, id: item.id })): [];
   return (
     <div className="price-tag desktop">
       <Dropdown

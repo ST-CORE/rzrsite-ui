@@ -37,13 +37,31 @@ export default () => {
       <Route exact path="/products">
         <ProductsAbout />
       </Route>
-      <Route path={['/products/:category/', '/products/:category/:line', '/products/:category/:line/:product']}>
+
+      <Route path={['/products/:category/:line/details/:product']}>
         <CategoryContext.Consumer>
           {(value: ICategory[]) => (
             <Products categories={value} liftCurrentProductAndPath={liftCurrentProductAndPath} />
           )}
         </CategoryContext.Consumer>
       </Route>
+   
+      <Route path={['/products/:category/:line']}>
+        <CategoryContext.Consumer>
+          {(value: ICategory[]) => (
+            <Products categories={value} liftCurrentProductAndPath={liftCurrentProductAndPath} />
+          )}
+        </CategoryContext.Consumer>
+      </Route>
+
+      <Route path={['/products/:category']}>
+        <CategoryContext.Consumer>
+          {(value: ICategory[]) => (
+            <Products categories={value} liftCurrentProductAndPath={liftCurrentProductAndPath} />
+          )}
+        </CategoryContext.Consumer>
+      </Route>
+
       {/* <Route path={['/products/:category/', '/products/:category/:line', '/products/:category/:line/:product']}> */}
       {/*   <Redirect to={`${currentUrl}${currentProductPath}`} />
       </Route> */}
