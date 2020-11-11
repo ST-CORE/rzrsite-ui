@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './landing-info.scss';
-import VideoRezer from '../../shared/video/videoRezer';
 
 interface LandingInfoProps {
   mobile: boolean,
@@ -19,11 +18,14 @@ export default ({ mobile }: LandingInfoProps) => {
           <li>Быстрые поставки</li>
         </ul>
       </div>
-      <div className="video-block">
+      <div className="why-us">
         <h2>Наше производство</h2>
-        <div className="video">
-          <VideoRezer />
-        </div>
+        <ul>
+          <li>Более 10 000 проданных котлов за год</li>
+          <li>Сотни положительных отзывов</li>
+          <li>Точки продаж по всё России</li>
+          <li>Гарантия на всю продукцию</li>
+        </ul>
       </div>
     </div>
   );

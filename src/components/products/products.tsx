@@ -25,7 +25,8 @@ interface IProductParams {
   product?: string;
 }
 
-export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
+export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {  
+
   const params: IProductParams = useParams();
   const matchedCategory = categories.find((item) => {
     const examinedPath = item.path;
@@ -47,9 +48,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
         });
     }
   }, [matchedCategory]);
-  
-  const { path, url } = useRouteMatch();
-  
+     
   const liftCurrentProduct = (currentProdAndLine: [IProduct, IProdLine]) => {
     liftCurrentProductAndPath([...currentProdAndLine, extendedCategory]);
   };
@@ -61,7 +60,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
           renderPermission && (
           <div className="products mobile">
             <ProductsNavMobile
-              parentUrl={url}
+              parentUrl={`/products/${params.category}`}
               prodlines={extendedCategory.productLines}
               categories={categories}
             />
@@ -73,7 +72,7 @@ export default ({ categories, liftCurrentProductAndPath }: ProductsProps) => {
           renderPermission && (
           <div className="products desktop">
             <ProductsNav
-              parentUrl={url}
+              parentUrl={`/products/${params.category}`}
               extendedCategory={extendedCategory}
             />
             <ProductsCatalog prodlines={extendedCategory.productLines} liftCurrentProduct={liftCurrentProduct} />

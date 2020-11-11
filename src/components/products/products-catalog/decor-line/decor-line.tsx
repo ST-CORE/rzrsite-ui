@@ -24,10 +24,12 @@ export default ({ prodlines }: DecorLineProps) => {
     axios.get(`${ApiUrl}/productLine/${matchedId}/advantage`)
       .then((response) => {
         const result = response.data as IAdvantage[];
-        result.forEach((item) => {
-          axios.get(`${ApiStorage}/${item.icon}`).then((res) => Object.assign(item, { image: res.data }));          
-        });        
-        setAdvantages(result);
+        if (result){
+          result.forEach((item) => {
+            axios.get(`${ApiStorage}/${item.icon}`).then((res) => Object.assign(item, { image: res.data }));          
+          });        
+          setAdvantages(result);
+        }        
         allowRender(true);
       });
   }, [matchedId]);  

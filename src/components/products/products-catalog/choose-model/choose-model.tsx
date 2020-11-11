@@ -20,18 +20,19 @@ interface ChooseModelProps {
   catchSelect: Function;
 }
 
-export default ({ arrayOfProducts, currentProduct, catchSelect } : ChooseModelProps) => {
+export default ({ arrayOfProducts, currentProduct, catchSelect }: ChooseModelProps) => {
+  console.log(arrayOfProducts, 111111);
   const model: string = currentProduct.name;
-  
+
   const [imageInfoList, setImageInfoList] = React.useState([] as IImage[]);
-  
+
   React.useEffect(() => {
     axios.get(`${ApiUrl}/product/${currentProduct.id}/image`)
       .then((response) => {
-        setImageInfoList(response.data as IImage[]);
+        if (response.data != null && response.data !== "") setImageInfoList(response.data as IImage[]);
       });
   }, [currentProduct.id]);
-    
+
   return (
     <ProvideMediaMatchers>
       <MediaMatcher

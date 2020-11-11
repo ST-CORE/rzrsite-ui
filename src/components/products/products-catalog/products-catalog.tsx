@@ -23,8 +23,10 @@ interface IProdlineParams {
   product?: string;
 }
 
-export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
+export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {  
   const params: IProdlineParams = useParams();
+  console.log(params);
+
   const matchedLine = prodlines.find((item: IProdLine) => {
     const examinedPath = item.path;
     const defaultLine = prodlines[0];
@@ -44,7 +46,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
     axios.get(`${ApiUrl}/category/${matchedLine?.categoryId}/productLine/${matchedLine?.id}/product`)
       .then((response) => {
         const result = response.data as IProduct[];
-        setArrayOfProducts(result);
+        if (result) setArrayOfProducts(result);
         allowRender(true);
       });
   }, [matchedLine]);
@@ -65,8 +67,8 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
       });
   }, [setDocuments]);
     
-  React.useEffect(() => {
-    if (arrayOfProducts[0]) {
+  React.useEffect(() => {    
+    if (arrayOfProducts[0]) {      
       const matchedProduct = arrayOfProducts.find((item) => {
         const defaultProduct = arrayOfProducts[0];
         const currentPath = params.product ? params.product : defaultProduct.path;

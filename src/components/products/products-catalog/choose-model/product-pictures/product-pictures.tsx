@@ -63,7 +63,7 @@ interface ProductPictureProps {
 
 export default ({ imageInfoList }: ProductPictureProps) => {
   const [modal, openModal] = React.useState(false);
-  const shortImageList = imageInfoList.slice(0, 3);
+  const shortImageList = imageInfoList != null? imageInfoList.slice(0, 3): [];
 
   const [viewedImage, changeImage] = React.useState('');
   const [viewedImageAlt, changeAlt] = React.useState('');
@@ -74,13 +74,13 @@ export default ({ imageInfoList }: ProductPictureProps) => {
     openModal(true);
   };
   
-  const thumbImageList = shortImageList.map((item) => (
+  const thumbImageList = shortImageList != null? shortImageList.map((item) => (
     <div className="small-picture">
       <button type="button" onClick={() => openPicture(item)}>
         <img src={`${ApiStorage}/${item.thumbPath}`} alt={item.description} />
       </button>
     </div>
-  ));
+  )): <div></div>;
   
   return (
     <div className="product-pictures desktop">

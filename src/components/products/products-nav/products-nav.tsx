@@ -9,10 +9,11 @@ interface ProductNavProps {
   extendedCategory: IExtendedCategory;
 }
 
-export default ({ parentUrl, extendedCategory }: ProductNavProps) => {
+export default ({ parentUrl, extendedCategory }: ProductNavProps) => {    
   const currentCategory = extendedCategory.name;
   const productLines = extendedCategory.productLines as IProdLine[];
   const currentProductLines = productLines.map((item) => (
+    
     <li key={item.id}>
       <NavLink to={`${parentUrl}${item.path}`} activeClassName="product-link-active ">
         <span>{item.name}</span>
