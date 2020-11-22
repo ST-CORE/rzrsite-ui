@@ -1,33 +1,31 @@
 import React from 'react';
+import { IFeatureTable, IProduct } from '../../../../../consts/interfaces-for-request';
 import './feature-table.scss';
 
-export default () => {
-  const anyValue: string = '564 кВт';
+interface IFeatureTableShort {
+  featureTable: IFeatureTable;
+  currentProduct: IProduct;
+}
+
+export default ({ featureTable, currentProduct }: IFeatureTableShort) => {
+
+  console.log(featureTable, currentProduct);
+
+  const productIndex = featureTable?.products?.find(x => x.id == currentProduct.id)?.id ?? -1;
+
+  const productDesc = featureTable?.featuresByType.slice(0, 5) ?? [];
+ 
   return (
     <div className="feature-table">
-      <ul>
-        <li>
-          Номинальная мощность:
-        </li>
-        <li>{anyValue}</li>
-      </ul>
-      <ul>
-        <li>Масса котла:</li>
-        <li>{anyValue}</li>
-      </ul>
-      <ul>
-        <li>КПД котла:</li>
-        <li>{anyValue}</li>
-      </ul>
-      <ul>
-        <li>Емкость топливного бункера:</li>
-        <li>{anyValue}</li>
-      </ul>
-      <ul>
-        <li>Топливо основное:</li>
-        <li>{anyValue}</li>
-      </ul>
-      <div><a href="|">Полные характеристики</a></div>
+
+      {productDesc.map((row, i) => {
+        return (
+          <ul key={i}>
+            <li key="-1">{row.featureTypeName}</li>
+            <li key={row.features[productIndex].id}>{row.features[productIndex].value}</li>
+          </ul>
+        )
+      })}     
     </div>
   );
 };

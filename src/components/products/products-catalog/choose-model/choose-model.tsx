@@ -4,7 +4,7 @@ import axios from 'axios';
 import './choose-model.scss';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 // eslint-disable-next-line no-unused-vars
-import { IProduct, IImage } from '../../../../consts/interfaces-for-request';
+import { IProduct, IImage, IFeatureTable } from '../../../../consts/interfaces-for-request';
 import { ApiUrl } from '../../../../consts/api';
 
 
@@ -18,10 +18,10 @@ interface ChooseModelProps {
   arrayOfProducts: IProduct[];
   currentProduct: IProduct;
   catchSelect: Function;
+  featureTable: IFeatureTable;
 }
 
-export default ({ arrayOfProducts, currentProduct, catchSelect }: ChooseModelProps) => {
-  console.log(arrayOfProducts, 111111);
+export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: ChooseModelProps) => {  
   const model: string = currentProduct.name;
 
   const [imageInfoList, setImageInfoList] = React.useState([] as IImage[]);
@@ -43,7 +43,7 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: ChooseModelPro
                 {` ${model}`}
               </h2>
               <ProductPicturesMobile imageInfoList={imageInfoList} />
-              <FeatureTable />
+              <FeatureTable currentProduct={currentProduct} featureTable={featureTable} />
               <PriceTagMobile arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             </div>
           )
@@ -55,7 +55,7 @@ export default ({ arrayOfProducts, currentProduct, catchSelect }: ChooseModelPro
               <h2 className="product-title">
                 {` ${model}`}
               </h2>
-              <FeatureTable />
+              <FeatureTable currentProduct={currentProduct} featureTable={featureTable} />
               <PriceTag arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             </div>
           )
