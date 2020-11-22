@@ -99,7 +99,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
         mobile={
           renderPermission && (
           <div>
-            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+            <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile />
           </div>
           )
@@ -107,7 +107,7 @@ export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {
         desktop={
           renderPermission && (
           <div className="container-small">
-            <ChooseModel arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+            <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
             <DecorLine prodlines={prodlines} />
             <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile={false} />
           </div>
