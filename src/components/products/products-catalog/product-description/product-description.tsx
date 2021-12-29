@@ -72,7 +72,7 @@ export default ({ isMobile, featureTable, documents, description }: ProductDescr
   const classActiveButton = `${classButton} active`;
   const buttons = myList.map((listItem, i) => (
     <Button
-      key={i.toString()}
+      key={"product_button_"+i}
       className={itemIndex === i ? classActiveButton : classButton}
       label={listItem.text}
       clickHandler={() => selectItem(i)}

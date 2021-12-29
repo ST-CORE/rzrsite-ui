@@ -1,8 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import { ApiUrl } from '../../../consts/api';
 
 // eslint-disable-next-line no-unused-vars
 import { IFeatureTable, IProdLine, IProduct, IProductLineDocument } from '../../../consts/interfaces-for-request';
@@ -13,105 +11,38 @@ import ProductDescription from './product-description/product-description';
 
 
 interface ProductCatalogProps {
-  prodlines: IProdLine[];
-  liftCurrentProduct: Function;
+  prodLines: IProdLine[];
+  currentProdLine: IProdLine;
+  arrayOfProducts: IProduct[];
+  currentProduct: IProduct;
+  featureTable: IFeatureTable;
+  documents: IProductLineDocument[];
+  productSelectCallback: Function;
 }
 
-interface IProdlineParams {
-  category?: string;
-  line?: string;
-  product?: string;
-}
+export default ({ prodLines, currentProdLine, arrayOfProducts, currentProduct, featureTable, documents, productSelectCallback }: ProductCatalogProps) => {  
+  console.log('Loading products catalog...')
 
-export default ({ prodlines, liftCurrentProduct }: ProductCatalogProps) => {  
-  const params: IProdlineParams = useParams();
-  console.log(params);
-
-  const matchedLine = prodlines.find((item: IProdLine) => {
-    const examinedPath = item.path;
-    const defaultLine = prodlines[0];
-    const currentPath: string = params.line ? params.line : defaultLine.path;    
-    return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
-  });
-   
-  const [arrayOfProducts, setArrayOfProducts] = React.useState([] as IProduct[]);
-  const [renderPermission, allowRender] = React.useState(false);
-  const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
-  const [featureTable, setFeatureTable] = React.useState({} as IFeatureTable);
-  const [documents, setDocuments] = React.useState({} as IProductLineDocument[]);
-
-  React.useEffect(() => {
-    allowRender(false);
-    setArrayOfProducts([] as IProduct[]);
-    axios.get(`${ApiUrl}/category/${matchedLine?.categoryId}/productLine/${matchedLine?.id}/product`)
-      .then((response) => {
-        const result = response.data as IProduct[];
-        if (result) setArrayOfProducts(result);
-        allowRender(true);
-      });
-  }, [matchedLine]);
-
-  React.useEffect(() => {      
-    axios.get(`${ApiUrl}/Category/${matchedLine?.categoryId}/getFeatureTable/${matchedLine?.id}`)
-      .then((response) => {        
-        const result = response.data as IFeatureTable;        
-        setFeatureTable(result);       
-      });
-  }, [setFeatureTable]);
-
-  React.useEffect(() => {      
-    axios.get(`${ApiUrl}/document/product-line/${matchedLine?.id}`)
-      .then((response) => {         
-        const result = response.data as IProductLineDocument[];        
-        setDocuments(result);       
-      });
-  }, [setDocuments]);
-    
-  React.useEffect(() => {    
-    if (arrayOfProducts[0]) {      
-      const matchedProduct = arrayOfProducts.find((item) => {
-        const defaultProduct = arrayOfProducts[0];
-        const currentPath = params.product ? params.product : defaultProduct.path;
-        const examinedPath = item.path;
-        return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
-      });
-      if (matchedProduct) {
-        setCurrentProduct(matchedProduct as IProduct);
-      }
-    }
-  }, [arrayOfProducts]);
-  
-  React.useEffect(() => {
-    if (currentProduct.id && matchedLine) {
-      liftCurrentProduct([currentProduct, matchedLine]);
-    }
-  }, [currentProduct, matchedLine]);
-    
   const catchSelect = (value: string) => {
     const selectedProductIndex = arrayOfProducts.findIndex((item) => value === item.name);
-    setCurrentProduct(arrayOfProducts[selectedProductIndex]);
-    liftCurrentProduct([currentProduct, matchedLine]);
+    productSelectCallback(arrayOfProducts[selectedProductIndex]);
   };
   
   return (
     <ProvideMediaMatchers>
       <MediaMatcher
         mobile={
-          renderPermission && (
-          <div>
-            <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile />
-          </div>
-          )
+            <div key={'products-catalog-mobile-content'}>
+                <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+                <ProductDescription description={currentProdLine?.description} documents={documents} featureTable={featureTable} isMobile />
+            </div>
         }
         desktop={
-          renderPermission && (
-          <div className="container-small">
-            <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-            <DecorLine prodlines={prodlines} />
-            <ProductDescription description={matchedLine?.description} documents={documents} featureTable={featureTable} isMobile={false} />
-          </div>
-          )
+            <div key={'products-catalog-desktop-content'} className="container-small">
+                <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+                <DecorLine prodlines={prodLines} />
+                <ProductDescription description={currentProdLine?.description} documents={documents} featureTable={featureTable} isMobile={false} />
+            </div>
         }
       />
     </ProvideMediaMatchers>

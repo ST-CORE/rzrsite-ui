@@ -6,22 +6,23 @@ import './products-nav-mobile.scss';
 
 interface ProductNavProps {
   parentUrl: string;
-  prodlines: IProdLine[];
+  prodLines: IProdLine[];
+  selectedLine: IProdLine;
   categories: ICategory[];
 }
 
-export default ({ parentUrl, prodlines, categories }: ProductNavProps) => {
+export default ({ parentUrl, prodLines, selectedLine, categories }: ProductNavProps) => {
   const categoriesLinks = categories.map((item) => (
-    <li key={item.id}>
+    <li key={"mobile_categorylink_"+item.id}>
       <NavLink to={`/products${item.path}`} activeClassName="active-category-link">
         {item.name}
       </NavLink>
     </li>
   ));
   
-  const prodLines = prodlines.map((item) => (
-    <li key={item.id}>
-      <NavLink to={`${parentUrl}${item.path}`} activeClassName="active-prodline-link">
+  const prodLinesLinks = prodLines.map((item) => (
+    <li key={"mobile_prodlink_"+item.id}>
+      <NavLink to={`${parentUrl}${item.path}`} isActive = {() => { return (item.id == selectedLine.id)}} activeClassName="active-prodline-link">
         {item.name}
       </NavLink>
     </li>
@@ -33,7 +34,7 @@ export default ({ parentUrl, prodlines, categories }: ProductNavProps) => {
         {categoriesLinks}
       </ul>
       <ul className="product-lines">
-        {prodLines}
+        {prodLinesLinks}
       </ul>
     </div>
   );

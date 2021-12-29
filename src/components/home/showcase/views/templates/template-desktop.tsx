@@ -17,7 +17,7 @@ export default ({image, imageAlt, bigTitle, children, productLines, isBoiler }: 
 
   const catName = isBoiler? 'boilers': 'crushers';
 
-  const links = productLines.length > 0 ? productLines.map((item, index) => <li key={index}><Link to={"/products/" + catName + item.path}>{item.name}</Link></li>) : <li></li>;
+  const links = productLines.length > 0 ? productLines.map((item, index) => <li key={"productlinelink_"+index}><Link to={"/products/" + catName + item.path}>{item.name}</Link></li>) : <li></li>;
 
   const getMainLink = () => {
     let mainLine = productLines.length > 0? productLines.find(x=>x.isShowOnMain) ?? null : null;

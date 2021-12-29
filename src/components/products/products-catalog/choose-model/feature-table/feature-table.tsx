@@ -11,18 +11,21 @@ export default ({ featureTable, currentProduct }: IFeatureTableShort) => {
 
   console.log(featureTable, currentProduct);
 
-  const productIndex = featureTable?.products?.find(x => x.id == currentProduct.id)?.id ?? -1;
 
-  const productDesc = featureTable?.featuresByType.slice(0, 5) ?? [];
- 
+  const productIndex = featureTable?.products?.findIndex(x => x.id == currentProduct.id) ?? -1;
+  if (productIndex == -1) return null;
+
+  const productDesc = featureTable?.featuresByType.slice(0, 7) ?? [];
+  
   return (
     <div className="feature-table">
 
       {productDesc.map((row, i) => {
+
         return (
-          <ul key={i}>
-            <li key="-1">{row.featureTypeName}</li>
-            <li key={row.features[productIndex].id}>{row.features[productIndex].value}</li>
+          <ul key={"feature_" + currentProduct.id + "_" + row.featureTypeId + "_" + i }>
+            <li key={"featurename_"+ currentProduct.id+ "_" +row.featureTypeId + "_" + i}>{row.featureTypeName}</li>
+            <li key={"featurevalue_"+ currentProduct.id+ "_" +row.featureTypeId + "_" + row.features[productIndex].id + "_" + i}>{row.features[productIndex].value} </li>
           </ul>
         )
       })}     

@@ -18,8 +18,8 @@ export default ({ documents }: IDocumentsProps) => {
             <div className="row">
                 {lineDocuments.map((row, i) => {
                     return (
-                        <a target="_blank" href={`${ApiStorage}/${row.filePath}`}>
-                            <div key={i} className="document-item col-md-6">
+                        <a target="_blank" key={'document_link_' + row.id + '_' + i} href={`${ApiStorage}/${row.filePath}`}>
+                            <div key={'document_'+row.fileId} className="document-item col-md-6">
                                 <span className="image"><img className="document-item__image" src={docImage} /></span>
                                 <span className="text">{row.description}</span>
                             </div>

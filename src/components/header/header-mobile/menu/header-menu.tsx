@@ -16,7 +16,7 @@ export default () => (
           <CategoryContext.Consumer>
             {(value: ICategory[]) => {
               const categoryLinks = value.map((item: ICategory) => (
-                <li key={item.id}>
+                <li key={"categorylink_"+item.id}>
                   <NavLink to={`/products${item.path}`} activeClassName="selected">
                     {item.name}
                   </NavLink>

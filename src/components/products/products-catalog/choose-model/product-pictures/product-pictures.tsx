@@ -75,7 +75,7 @@ export default ({ imageInfoList }: ProductPictureProps) => {
   };
   
   const thumbImageList = shortImageList != null? shortImageList.map((item) => (
-    <div className="small-picture">
+    <div key={'short_image_holder_'+ item.id} className="small-picture">
       <button type="button" onClick={() => openPicture(item)}>
         <img src={`${ApiStorage}/${item.thumbPath}`} alt={item.description} />
       </button>

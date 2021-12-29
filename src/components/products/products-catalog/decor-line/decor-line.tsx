@@ -35,12 +35,14 @@ export default ({ prodlines }: DecorLineProps) => {
   }, [matchedId]);  
   const sortedList = arrayOfAdvantages.slice(0, 4);
   sortedList.sort((a, b) => (a.weight - b.weight));
+
   const listOfAdvantages = sortedList.map((item) => (
-    <li key={item.weight}>
+    <li key={"advantage_"+item.id+"_"+item.weight}>
       <img className="icon" src={`${ApiStorage}/${item.icon}`} alt={item.icon} />
       <span dangerouslySetInnerHTML={{ __html: item.title }} />
     </li>
   ));
+  
   return (
     (
       <div className="decor-line">

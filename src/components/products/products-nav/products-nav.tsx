@@ -6,20 +6,22 @@ import { IProdLine, IExtendedCategory } from '../../../consts/interfaces-for-req
 
 interface ProductNavProps {
   parentUrl: string;
+  currentProdLine: IProdLine;
   extendedCategory: IExtendedCategory;
 }
 
-export default ({ parentUrl, extendedCategory }: ProductNavProps) => {    
+export default ({ parentUrl, currentProdLine, extendedCategory }: ProductNavProps) => {    
   const currentCategory = extendedCategory.name;
   const productLines = extendedCategory.productLines as IProdLine[];
   const currentProductLines = productLines.map((item) => (
     
-    <li key={item.id}>
-      <NavLink to={`${parentUrl}${item.path}`} activeClassName="product-link-active ">
+    <li key={"productnavigationlink_"+item.id}>
+      <NavLink to={`${parentUrl}${item.path}`} isActive = {() => {return currentProdLine.id == item.id}} activeClassName="product-link-active ">
         <span>{item.name}</span>
       </NavLink>
     </li>
   ));
+
   return (
     <div className="products-nav desktop">
       <div className="container-big">

@@ -38,7 +38,7 @@ export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: 
       <MediaMatcher
         mobile={
           (
-            <div className="choose-model mobile">
+            <div key={'choose-model-mobile'} className="choose-model mobile">
               <h2 className="product-title mobile">
                 {` ${model}`}
               </h2>
@@ -50,7 +50,7 @@ export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: 
         }
         desktop={
           (
-            <div className="choose-model desktop">
+            <div key={'choose-model-desktop'} className="choose-model desktop">
               <ProductPictures imageInfoList={imageInfoList} />
               <h2 className="product-title">
                 {` ${model}`}

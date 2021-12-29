@@ -14,7 +14,7 @@ export default ({ imageInfoList }: ProductPictureProps) => {
   
   const thumbImageList = shortImageList.map((item) => (
     <button
-      key={item.id}
+      key={"thumbimage_mobile"+item.id}
       type="button"
       onClick={() => {
         const newMainImage = `${ApiStorage}/${item.thumbPath}`;

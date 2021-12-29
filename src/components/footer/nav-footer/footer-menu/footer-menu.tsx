@@ -15,7 +15,7 @@ export default () => (
       <CategoryContext.Consumer>
         {(value: ICategory[]) => {
           const listOfLinks = value.map((item: ICategory) => (
-            <NavLink key={item.id} to={`/products${item.path}`} className="underlined-link" activeClassName="underlined-selected">
+            <NavLink key={"navigation_"+item.id} to={`/products${item.path}`} className="underlined-link" activeClassName="underlined-selected">
               <span className="underline">{item.name}</span>
             </NavLink>
           ));
