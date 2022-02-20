@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import {
-  useParams, useRouteMatch, Route, Switch, Redirect,
+  useParams
 } from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import './products.scss';
@@ -17,6 +17,7 @@ import LoadingFallback from '../shared/loading-fallback/loading-fallback';
 
 interface ProductsProps {
   categories: ICategory[];
+  history: any;
 }
 
 interface IProductParams {
@@ -25,8 +26,8 @@ interface IProductParams {
   product?: string;
 }
 
-export default ({ categories }: ProductsProps) => {  
-  console.log('Loading products element...')
+export default ({ categories, history }: ProductsProps) => {  
+  //console.log('Loading products element...')
   const params: IProductParams = useParams();
   const [extendedCategory, setExtendedCategory] = React.useState({} as IExtendedCategory);
   const [currentProdLine, setCurrentProdLine] = React.useState({} as IProdLine);
@@ -36,11 +37,13 @@ export default ({ categories }: ProductsProps) => {
   const [currentProduct, setCurrentProduct] = React.useState({} as IProduct);
   const [renderPermission, allowRender] = React.useState(false);
 
-  const matchedCategory = categories.find((item) => {
+  const _currentCategory = categories.find((item) => {
     const examinedPath = item.path;
-    const currentPath: string = params.category ? params.category : '';
-    return examinedPath.includes(currentPath);
-  });
+    const defaultCategory = categories[0];
+    const currentPath: string = params.category ? params.category : defaultCategory.path;
+    
+    return examinedPath.toLowerCase().includes(currentPath.toLowerCase());
+  }) as ICategory;
 
   const getCurrentProdLine = (prodLines: IProdLine[]) => { 
     return prodLines.find((item: IProdLine) => {
@@ -63,11 +66,13 @@ export default ({ categories }: ProductsProps) => {
   };
 
   const productSelectCallback = (selectedProduct: IProduct) => {
+    //console.log('callback received');
     setCurrentProduct(selectedProduct);
+    history.push('/products'+_currentCategory.path+currentProdLine.path +selectedProduct.path);
   };
 
   const loadCategory = (matchedCategory: ICategory) => {
-    console.log('loading categories...');
+    //console.log('loading categories...');
     allowRender(false);
     axios.get(`${ApiUrl}/category/${matchedCategory.id}`)
         .then((response) => {
@@ -78,10 +83,10 @@ export default ({ categories }: ProductsProps) => {
   }
 
   const loadData = () => {
-      console.log('loading product data...')
+      //console.log('loading product data...')
       let apiEndpoints = [
         `${ApiUrl}/category/${currentProdLine?.categoryId}/productLine/${currentProdLine?.id}/product`,
-        `${ApiUrl}/Category/${currentProdLine?.categoryId}/getFeatureTable/${currentProdLine?.id}`,
+        `${ApiUrl}/category/${currentProdLine?.categoryId}/getFeatureTable/${currentProdLine?.id}`,
         `${ApiUrl}/document/product-line/${currentProdLine?.id}`
       ] 
       
@@ -94,8 +99,9 @@ export default ({ categories }: ProductsProps) => {
 
           if (productsResponse[0]) {      
             let _currentProduct = getCurrentProduct(productsResponse);
-            if (_currentProduct) {
+            if (_currentProduct?.id != currentProduct?.id || !params?.product?.length) {
               setCurrentProduct(_currentProduct);
+              history.push('/products'+_currentCategory.path+currentProdLine.path+_currentProduct.path);
             }
           }
         })
@@ -106,10 +112,10 @@ export default ({ categories }: ProductsProps) => {
   }
 
   React.useEffect(() => {
-    if (matchedCategory?.id) {
-        loadCategory(matchedCategory as ICategory)
+    if (_currentCategory?.id) {
+        loadCategory(_currentCategory as ICategory)
       }
-    },[matchedCategory]);
+    },[_currentCategory]);
 
   React.useEffect(() => {
     if(currentProdLine?.id)
@@ -139,6 +145,7 @@ export default ({ categories }: ProductsProps) => {
                 categories={categories}
               />
               <ProductsCatalog prodLines={extendedCategory.productLines} 
+                               documentDownloadUrl={currentProdLine.featuresPDFPath}
                                featureTable={featureTable} 
                                arrayOfProducts={arrayOfProducts} 
                                currentProduct={currentProduct} 
@@ -158,6 +165,7 @@ export default ({ categories }: ProductsProps) => {
               />
               <ProductsCatalog  prodLines={extendedCategory.productLines}
                                 featureTable={featureTable} 
+                                documentDownloadUrl={currentProdLine.featuresPDFPath}
                                 arrayOfProducts={arrayOfProducts} 
                                 currentProduct={currentProduct} 
                                 currentProdLine={currentProdLine} 

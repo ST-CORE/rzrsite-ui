@@ -9,7 +9,7 @@ interface IFeatureTableShort {
 
 export default ({ featureTable, currentProduct }: IFeatureTableShort) => {
 
-  console.log(featureTable, currentProduct);
+  //console.log(featureTable, currentProduct);
 
 
   const productIndex = featureTable?.products?.findIndex(x => x.id == currentProduct.id) ?? -1;

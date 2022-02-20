@@ -6,12 +6,14 @@ import * as buttonTypes from '../../../../consts/button-types';
 import { IFeatureTable, IProductLineDocument } from '../../../../consts/interfaces-for-request';
 import FeatureTable from '../feature-table/feature-table';
 import Documents from '../documents/documents';
+import { ApiStorage } from '../../../../consts/api';
 
 interface ProductDescriptionProps {
   isMobile: boolean;
   featureTable: IFeatureTable;
   documents: IProductLineDocument[];
   description?: string;
+  documentDownloadUrl: String;
 }
 
 enum DescriptionType {
@@ -20,7 +22,8 @@ enum DescriptionType {
   Documents
 }
 
-export default ({ isMobile, featureTable, documents, description }: ProductDescriptionProps) => {
+export default ({ ...props}: ProductDescriptionProps) => {
+  console.log(props);
   const myList = [
     {
       title: 'description',
@@ -54,9 +57,8 @@ export default ({ isMobile, featureTable, documents, description }: ProductDescr
     },
   ];
 
-  const ftTable = featureTable;
-  const lineDocuments = documents;
-
+  const ftTable = props.featureTable;
+  const lineDocuments = props.documents;
   const [itemIndex, setItemIndex] = React.useState(0);
 
   const selectItem = (index: number) => {
@@ -68,27 +70,42 @@ export default ({ isMobile, featureTable, documents, description }: ProductDescr
     setItemIndex(index);
   };
 
-  const classButton = isMobile ? buttonTypes.tabSwitchButtonMobile : buttonTypes.tabSwitchButton;
+  const classButton = props.isMobile ? buttonTypes.tabSwitchButtonMobile : buttonTypes.tabSwitchButton;
   const classActiveButton = `${classButton} active`;
-  const buttons = myList.map((listItem, i) => (
-    <Button
-      key={"product_button_"+i}
-      className={itemIndex === i ? classActiveButton : classButton}
-      label={listItem.text}
-      clickHandler={() => selectItem(i)}
-    />
-  ));
+  const buttons =
+    myList.map((listItem, i) => {
+      if (props.isMobile && listItem.type == DescriptionType.FeatureTable) {
+        return (<a href={ApiStorage + '/' + props.documentDownloadUrl} target='_blank' download>
+          <Button
+            key={"product_button_" + i}
+            className={itemIndex === i ? classActiveButton : classButton}
+            label={listItem.text}
+            clickHandler={() => { }}
+          />
+        </a>)
+      }
+      else {
+        return (
+          <Button
+            key={"product_button_" + i}
+            className={itemIndex === i ? classActiveButton : classButton}
+            label={listItem.text}
+            clickHandler={() => selectItem(i)}
+          />);
+      }
+    });
+
 
   return (
-    <div className={`product-description ${isMobile ? 'mobile' : 'desktop'}`}>
+    <div className={`product-description ${props.isMobile ? 'mobile' : 'desktop'}`}>
       <header>
         {buttons}
       </header>
       <section>
         {myList[itemIndex].type == DescriptionType.Text && (
-          <div className="description-markup" dangerouslySetInnerHTML={{__html: description ?? ''}} />
+          <div className="description-markup" dangerouslySetInnerHTML={{ __html: props.description ?? '' }} />
         )}
-        {myList[itemIndex].type == DescriptionType.FeatureTable && (
+        {!props.isMobile && myList[itemIndex].type == DescriptionType.FeatureTable && (
           <FeatureTable featureTable={ftTable} />
         )}
         {myList[itemIndex].type == DescriptionType.Documents && (

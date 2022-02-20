@@ -36,8 +36,8 @@ export default ({ categoryArray, currentProduct, isMobile }: OrderFormMobileProp
   
   const onSubmit = handleSubmit(({ tel }) => {
     const data = getOrderData(tel, initialDataObj.category, initialDataObj.model);
-    console.log(data);
-    console.log(tel);
+    //console.log(data);
+    //console.log(tel);
 
     axios.post(`${ApiUrl}/Email`, data)
       .then((response) => console.log(response))

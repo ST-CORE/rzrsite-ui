@@ -7,17 +7,17 @@ import { IProdLine, IParams, IAdvantage } from '../../../../consts/interfaces-fo
 import { ApiUrl, ApiStorage } from '../../../../consts/api';
 
 interface DecorLineProps {
-  prodlines: IProdLine[];
+  prodLines: IProdLine[];
 }
 
-export default ({ prodlines }: DecorLineProps) => {
+export default ({ prodLines}: DecorLineProps) => {
   const [arrayOfAdvantages, setAdvantages] = React.useState([] as IAdvantage[]);
   const [renderPermission, allowRender] = React.useState(false);
   const params = useParams() as IParams;
-  const defaultLine = prodlines[0];
+  const defaultLine = prodLines[0];
   const currentProdline = params.line ? params.line : defaultLine.path;
-  const matchedProdlineIndex = prodlines.findIndex((item) => item.path.includes(currentProdline));
-  const matchedId = prodlines[matchedProdlineIndex].id;
+  const matchedProdlineIndex = prodLines.findIndex((item) => item.path.includes(currentProdline));
+  const matchedId = prodLines[matchedProdlineIndex].id;
 
   React.useEffect(() => {
     allowRender(false);

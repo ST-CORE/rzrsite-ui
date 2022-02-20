@@ -20,6 +20,10 @@ export default ({ arrayForSelect, initialOptionId, parentValueHandler }: Dropdow
     setCurrentValue(event.target.value);
     parentValueHandler(event.target.value);
   };
+  if(defaultValueOption?.name != currentValue){
+    setCurrentValue(defaultValueOption?.name)
+  }
+
   return (
     <select
       className="dropdown"

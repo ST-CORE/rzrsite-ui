@@ -15,13 +15,13 @@ interface CallMeFormProps {
 }
 
 export default ({ isMobile }: CallMeFormProps) => {
-  const attributeMobile = { tabIndex: -1, role: 'dialog', className: 'call-me-form mobile' };
-  const attributeDesktop = { tabIndex: -1, role: 'dialog' };
+  const formAttribute = isMobile ? { tabIndex: -1, role: 'dialog', className: 'call-me-form mobile' }: {};
+  const attributeParent = isMobile ? {} : { tabIndex: -1, role: 'dialog' };
   
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = handleSubmit(({ tel }) => {
     const data = getCallMeData(tel);
-    console.log(data);
+    //console.log(data);
 
     axios.post(`${ApiUrl}/Email`, data)
       .then((response) => console.log(response))
@@ -29,8 +29,8 @@ export default ({ isMobile }: CallMeFormProps) => {
   });
   
   return (
-    <div className={isMobile? 'call-me-form--background': 'call-me-form desktop'} {(!isMobile ? {...attributeDesktop} : {})}>
-      <form name="callMeForm" onSubmit={onSubmit} {(isMobile ? {...attributeMobile} : {})}>
+    <div className={isMobile ? 'call-me-form--background': 'call-me-form desktop'} {...attributeParent}>
+      <form name="callMeForm" onSubmit={onSubmit} {...formAttribute}>
         <h2>
           Вам позвонить?
         </h2>

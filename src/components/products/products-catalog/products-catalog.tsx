@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 
 // eslint-disable-next-line no-unused-vars
@@ -11,6 +10,7 @@ import ProductDescription from './product-description/product-description';
 
 
 interface ProductCatalogProps {
+  documentDownloadUrl: String;
   prodLines: IProdLine[];
   currentProdLine: IProdLine;
   arrayOfProducts: IProduct[];
@@ -20,8 +20,10 @@ interface ProductCatalogProps {
   productSelectCallback: Function;
 }
 
-export default ({ prodLines, currentProdLine, arrayOfProducts, currentProduct, featureTable, documents, productSelectCallback }: ProductCatalogProps) => {  
-  console.log('Loading products catalog...')
+export default ({ ...props}: ProductCatalogProps) => {  
+  //console.log('Loading products catalog...')
+  const arrayOfProducts = props.arrayOfProducts;
+  const productSelectCallback = props.productSelectCallback;
 
   const catchSelect = (value: string) => {
     const selectedProductIndex = arrayOfProducts.findIndex((item) => value === item.name);
@@ -33,15 +35,15 @@ export default ({ prodLines, currentProdLine, arrayOfProducts, currentProduct, f
       <MediaMatcher
         mobile={
             <div key={'products-catalog-mobile-content'}>
-                <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-                <ProductDescription description={currentProdLine?.description} documents={documents} featureTable={featureTable} isMobile />
+                <ChooseModel {...props} catchSelect={catchSelect} />
+                <ProductDescription {...props}  description={props.currentProdLine?.description}isMobile />
             </div>
         }
         desktop={
             <div key={'products-catalog-desktop-content'} className="container-small">
-                <ChooseModel featureTable={featureTable} arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
-                <DecorLine prodlines={prodLines} />
-                <ProductDescription description={currentProdLine?.description} documents={documents} featureTable={featureTable} isMobile={false} />
+                <ChooseModel {...props} catchSelect={catchSelect} />
+                <DecorLine {...props} />
+                <ProductDescription {...props} description={props.currentProdLine?.description} isMobile={false} />
             </div>
         }
       />

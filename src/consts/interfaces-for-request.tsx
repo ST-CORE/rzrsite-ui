@@ -21,6 +21,7 @@ export interface IProdLine {
   path: string;
   weight: number;
   isShowOnMain: boolean;
+  featuresPDFPath: string;
 }
 
 export interface IProduct {
