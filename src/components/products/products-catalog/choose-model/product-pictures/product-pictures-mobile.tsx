@@ -5,10 +5,11 @@ import { ApiStorage } from '../../../../../consts/api';
 
 interface ProductPictureProps {
   imageInfoList: IImage[];
+  linkToVideo: String
 }
 
-export default ({ imageInfoList }: ProductPictureProps) => {
-  const shortImageList = imageInfoList.slice(0, 3);
+export default ({ ...props}: ProductPictureProps) => {
+  const shortImageList = props.imageInfoList.slice(0, 3);
   const [mainImage, changeMainImage] = React.useState('');
   const [mainAlt, changeMainAlt] = React.useState('');
   
@@ -27,13 +28,13 @@ export default ({ imageInfoList }: ProductPictureProps) => {
   ));
   
   React.useEffect(() => {
-    if (imageInfoList.length) {
-      const item = imageInfoList[0];
+    if (props.imageInfoList.length) {
+      const item = props.imageInfoList[0];
       const primalImage = `${ApiStorage}/${item.thumbPath}`;
       changeMainImage(primalImage);
       changeMainAlt(item.description);
     }
-  }, [imageInfoList]);
+  }, [props.imageInfoList]);
     
   return (
     <div className="product-pictures mobile">

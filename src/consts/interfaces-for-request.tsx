@@ -22,6 +22,7 @@ export interface IProdLine {
   weight: number;
   isShowOnMain: boolean;
   featuresPDFPath: string;
+  linkToVideo: string;
 }
 
 export interface IProduct {

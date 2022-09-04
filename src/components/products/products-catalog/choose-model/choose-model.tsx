@@ -19,19 +19,20 @@ interface ChooseModelProps {
   currentProduct: IProduct;
   catchSelect: Function;
   featureTable: IFeatureTable;
+  linkToVideo: String;
 }
 
-export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: ChooseModelProps) => {  
-  const model: string = currentProduct.name;
+export default ({...props}: ChooseModelProps) => {  
+  const model: string = props?.currentProduct?.name;
 
   const [imageInfoList, setImageInfoList] = React.useState([] as IImage[]);
 
   React.useEffect(() => {
-    axios.get(`${ApiUrl}/product/${currentProduct.id}/image`)
+    axios.get(`${ApiUrl}/product/${props.currentProduct.id}/image`)
       .then((response) => {
         if (response.data != null && response.data !== "") setImageInfoList(response.data as IImage[]);
       });
-  }, [currentProduct.id]);
+  }, [props.currentProduct.id]);
 
   return (
     <ProvideMediaMatchers>
@@ -42,9 +43,9 @@ export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: 
               <h2 className="product-title mobile">
                 {` ${model}`}
               </h2>
-              <ProductPicturesMobile imageInfoList={imageInfoList} />
-              <FeatureTable currentProduct={currentProduct} featureTable={featureTable} />
-              <PriceTagMobile arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+              <ProductPicturesMobile imageInfoList={imageInfoList} linkToVideo={props.linkToVideo} />
+              <FeatureTable currentProduct={props.currentProduct} featureTable={props.featureTable} />
+              <PriceTagMobile arrayOfProducts={props.arrayOfProducts} currentProduct={props.currentProduct} catchSelect={props.catchSelect} />
             </div>
           )
         }
@@ -55,8 +56,8 @@ export default ({ arrayOfProducts, currentProduct, catchSelect, featureTable }: 
               <h2 className="product-title">
                 {` ${model}`}
               </h2>
-              <FeatureTable currentProduct={currentProduct} featureTable={featureTable} />
-              <PriceTag arrayOfProducts={arrayOfProducts} currentProduct={currentProduct} catchSelect={catchSelect} />
+              <FeatureTable currentProduct={props.currentProduct} featureTable={props.featureTable} />
+              <PriceTag arrayOfProducts={props.arrayOfProducts} currentProduct={props.currentProduct} catchSelect={props.catchSelect} />
             </div>
           )
         }
