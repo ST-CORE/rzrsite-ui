@@ -2,31 +2,57 @@
   height: 274px;
   width: 354px;
   display: grid;
-  grid-gap: 17px;
+  grid-gap: 18px;
   grid-template-areas: "s1 m m m" "s2 m m m" "s3 m m m";
   
   .small-picture:first-of-type {
     grid-area: s1;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
   }
   
   .small-picture:nth-of-type(2) {
     grid-area: s2;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
   }
-  
-  .small-picture:last-of-type {
+
+  .small-picture:nth-of-type(3) {
     grid-area: s3;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
   }
   
   .medium-picture {
     grid-area: m;
+    width: 278px;
+    height: 278px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
   }
   
   .small-picture img {
-    width: 80px;
+    max-width: 80px;
+    max-height: 80px;
   }
   
   .medium-picture img {
-    width: 274px;
+    max-width: 278px;
+    max-height: 278px;
   }
   
   button {
