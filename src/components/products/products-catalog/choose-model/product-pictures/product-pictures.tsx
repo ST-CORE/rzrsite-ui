@@ -1,6 +1,6 @@
 import React from 'react';
 import './product-pictures.scss';
-import Modal from '../../../../shared/modal/modal';
+import ModalPicture from '../../../../shared/modal-picture/modal-picture';
 import { IImage } from '../../../../../consts/interfaces-for-request';
 import { ApiUrl, ApiStorage } from '../../../../../consts/api';
 
@@ -93,9 +93,9 @@ export default ({ imageInfoList }: ProductPictureProps) => {
         )}
       </div>
       
-      <Modal modalState={modal} closeModal={() => openModal(false)} overlay>
-        <img className="full-image" src={`${ApiStorage}/${viewedImage}`} alt={viewedImageAlt} />
-      </Modal>
+      <ModalPicture modalState={modal} closeModal={() => openModal(false)} overlay description={viewedImageAlt}>
+        <img src={`${ApiStorage}/${viewedImage}`} alt={viewedImageAlt} />
+      </ModalPicture>
     </div>
   );
 };
