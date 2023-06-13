@@ -5,7 +5,6 @@ import { ApiStorage } from '../../../../../consts/api';
 
 interface ProductPictureProps {
   imageInfoList: IImage[];
-  linkToVideo: String
 }
 
 export default ({ ...props}: ProductPictureProps) => {

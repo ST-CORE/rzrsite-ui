@@ -24,16 +24,6 @@
     align-items: center;
     background-color: #F0F0F0;
   }
-
-  .small-picture:nth-of-type(3) {
-    grid-area: s3;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F0F0F0;
-  }
   
   .medium-picture {
     grid-area: m;
@@ -44,6 +34,17 @@
     align-items: center;
     background-color: #F0F0F0;
   }
+
+  .last-small-area {
+    grid-area: s3;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+    position: relative;
+  }
   
   .small-picture img {
     max-width: 80px;
@@ -53,6 +54,19 @@
   .medium-picture img {
     max-width: 278px;
     max-height: 278px;
+  }
+  
+  .last-small-area img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+
+  .inner {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
   }
   
   button {
