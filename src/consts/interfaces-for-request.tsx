@@ -102,3 +102,10 @@ export interface IProductLineDocument{
   fileId: number;
   filePath: string;
 }
+
+export interface IVideo{
+  id: number;
+  url: string;
+  description: string;
+  weight: number;
+}

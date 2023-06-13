@@ -4,7 +4,7 @@ import axios from 'axios';
 import './choose-model.scss';
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 // eslint-disable-next-line no-unused-vars
-import { IProduct, IImage, IFeatureTable } from '../../../../consts/interfaces-for-request';
+import { IProduct, IImage, IFeatureTable, IVideo} from '../../../../consts/interfaces-for-request';
 import { ApiUrl } from '../../../../consts/api';
 
 
@@ -19,19 +19,28 @@ interface ChooseModelProps {
   currentProduct: IProduct;
   catchSelect: Function;
   featureTable: IFeatureTable;
-  linkToVideo: String;
 }
 
 export default ({...props}: ChooseModelProps) => {  
   const model: string = props?.currentProduct?.name;
 
   const [imageInfoList, setImageInfoList] = React.useState([] as IImage[]);
+  const [videoInfoList, setVideoInfoList] = React.useState([] as IVideo[]);
 
   React.useEffect(() => {
     axios.get(`${ApiUrl}/product/${props.currentProduct.id}/image`)
       .then((response) => {
         if (response.data != null && response.data !== "") setImageInfoList(response.data as IImage[]);
+        else setImageInfoList([]);
       });
+  }, [props.currentProduct.id]);
+  
+  React.useEffect(() => {
+      axios.get(`${ApiUrl}/product/${props.currentProduct.id}/video`)
+          .then((response) => {
+              if (response.data != null && response.data !== "") setVideoInfoList(response.data as IVideo[]);
+              else setVideoInfoList([]);
+          });
   }, [props.currentProduct.id]);
 
   return (
@@ -43,7 +52,7 @@ export default ({...props}: ChooseModelProps) => {
               <h2 className="product-title mobile">
                 {` ${model}`}
               </h2>
-              <ProductPicturesMobile imageInfoList={imageInfoList} linkToVideo={props.linkToVideo} />
+              <ProductPicturesMobile imageInfoList={imageInfoList}/>
               <FeatureTable currentProduct={props.currentProduct} featureTable={props.featureTable} />
               <PriceTagMobile arrayOfProducts={props.arrayOfProducts} currentProduct={props.currentProduct} catchSelect={props.catchSelect} />
             </div>
@@ -52,7 +61,7 @@ export default ({...props}: ChooseModelProps) => {
         desktop={
           (
             <div key={'choose-model-desktop'} className="choose-model desktop">
-              <ProductPictures imageInfoList={imageInfoList} />
+              <ProductPictures imageInfoList={imageInfoList} videoInfoList={videoInfoList}/>
               <h2 className="product-title">
                 {` ${model}`}
               </h2>

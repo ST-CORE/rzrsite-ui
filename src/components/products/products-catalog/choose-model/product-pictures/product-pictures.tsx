@@ -1,69 +1,30 @@
 import React from 'react';
 import './product-pictures.scss';
+import { IImage, IVideo } from '../../../../../consts/interfaces-for-request';
 import ModalPicture from '../../../../shared/modal-picture/modal-picture';
-import { IImage } from '../../../../../consts/interfaces-for-request';
-import { ApiUrl, ApiStorage } from '../../../../../consts/api';
-
-// import imageSmallBoiler from '../../../../../images/products/boilers/small-boiler.png';
-// import imageMediumBoiler from '../../../../../images/products/boilers/medium-boiler.png';
-// import imageLargeBoiler from '../../../../../images/products/boilers/boiler-large.png';
-// import imageFit20Large from '../../../../../images/products/boilers/Fit20-large.jpg';
-
-// export default () => {
-//   const imgs = {
-//     image1: {
-//       imgSmall: imageSmallBoiler,
-//       alt: 'Rezer',
-//       imgBig: imageLargeBoiler,
-//     },
-//     image2: {
-//       imgSmall: imageSmallBoiler,
-//       alt: 'Rezer',
-//       imgBig: imageLargeBoiler,
-//     },
-//     image3: {
-//       imgSmall: imageSmallBoiler,
-//       alt: 'Rezer',
-//       imgBig: imageLargeBoiler,
-//     },
-//     image4: {
-//       imgSmall: imageMediumBoiler,
-//       alt: 'Rezer Fit-20',
-//       imgBig: imageFit20Large,
-//     },
-//   };
-  
-//   const [modal, openModal] = React.useState(false);
-//   const [viewedImage, changeImage] = React.useState('');
-//   const [viewedImageAlt, changeAlt] = React.useState('');
-  
-//   const openPicture = (a: object) => {
-//     changeImage(a.imgBig);
-//     changeAlt(a.alt);
-//     openModal(true);
-//   };
-  
-//   return (
-//     <div className="product-pictures desktop">
-//       <div className="small-picture"><button type="button" onClick={() => openPicture(imgs.image1)}><img src={imgs.image1.imgSmall} alt={imgs.image1.alt} /></button></div>
-//       <div className="small-picture"><button type="button" onClick={() => openPicture(imgs.image2)}><img src={imgs.image2.imgSmall} alt={imgs.image2.alt} /></button></div>
-//       <div className="small-picture"><button type="button" onClick={() => openPicture(imgs.image3)}><img src={imgs.image3.imgSmall} alt={imgs.image3.alt} /></button></div>
-//       <div className="medium-picture"><button type="button" onClick={() => openPicture(imgs.image4)}><img src={imgs.image4.imgSmall} alt={imgs.image4.alt} /></button></div>
-      
-//       <Modal modalState={modal} closeModal={() => openModal(false)} overlay>
-//         <img src={viewedImage} alt={viewedImageAlt} />
-//       </Modal>
-//     </div>
-//   );
-// };
+import { ApiStorage } from '../../../../../consts/api';
 
 interface ProductPictureProps {
-  imageInfoList: IImage[];
+    imageInfoList: IImage[];
+    videoInfoList: IVideo[];
 }
 
-export default ({ imageInfoList }: ProductPictureProps) => {
-  const [modal, openModal] = React.useState(false);
-  const shortImageList = imageInfoList != null? imageInfoList.slice(0, 3): [];
+export default ({ imageInfoList, videoInfoList }: ProductPictureProps) => {
+  
+  const firstPartPreviewLink = "//img.youtube.com/vi/";
+  const lastPartPreviewLink = "/mqdefault.jpg";
+  const youtubeButtonLink = "https://pngicon.ru/file/uploads/youtube-1.png";
+  const firstPartVideoLink = "https://www.youtube.com/embed/";
+  
+  const [modalPicture, openModalPicture] = React.useState(false);
+  const [modalVideo, openModalVideo] = React.useState(false);
+  
+  const video = videoInfoList[0];
+  const shortImageList = imageInfoList != null ? imageInfoList.slice(0, 2): [];
+  const videoId = video != null? video.url.split("=")[1] : "";
+  const videoPreviewLink = video != null? firstPartPreviewLink + videoId + lastPartPreviewLink : "";
+  const videoLink = video != null? firstPartVideoLink + videoId : "";
+  const videoDescription = video != null? video.description : "";
 
   const [viewedImage, changeImage] = React.useState('');
   const [viewedImageAlt, changeAlt] = React.useState('');
@@ -71,7 +32,7 @@ export default ({ imageInfoList }: ProductPictureProps) => {
   const openPicture = (a: IImage) => {
     changeImage(a.fullPath);
     changeAlt(a.description);
-    openModal(true);
+    openModalPicture(true);
   };
   
   const thumbImageList = shortImageList != null? shortImageList.map((item) => (
@@ -85,6 +46,22 @@ export default ({ imageInfoList }: ProductPictureProps) => {
   return (
     <div className="product-pictures desktop">
       {thumbImageList}
+      
+      <div className="last-small-area">
+        {video != null ? (
+          <button type="button" onClick={() => openModalVideo(true)}>
+            <img src={videoPreviewLink} alt={videoDescription} />
+            <img src={youtubeButtonLink} alt="youtube button" className="inner"/>
+          </button>
+        ) : (
+          imageInfoList.length >= 3 && (
+            <button type="button" onClick={() => openPicture(imageInfoList[2])}>
+              <img src={`${ApiStorage}/${imageInfoList[2].thumbPath}`} alt={imageInfoList[2].description} />
+            </button>
+            )
+        )}
+      </div>
+      
       <div className="medium-picture">
         {imageInfoList.length && (
           <button type="button" onClick={() => openPicture(imageInfoList[0])}>
@@ -92,9 +69,17 @@ export default ({ imageInfoList }: ProductPictureProps) => {
           </button>
         )}
       </div>
+        
+      <ModalPicture modalState={modalPicture} closeModal={() => openModalPicture(false)} overlay description={viewedImageAlt}>
+        <img className="full-image" src={`${ApiStorage}/${viewedImage}`} alt={viewedImageAlt} />
+      </ModalPicture>
       
-      <ModalPicture modalState={modal} closeModal={() => openModal(false)} overlay description={viewedImageAlt}>
-        <img src={`${ApiStorage}/${viewedImage}`} alt={viewedImageAlt} />
+      <ModalPicture modalState={modalVideo} closeModal={() => openModalVideo(false)} overlay description={videoDescription}>
+        <iframe src={videoLink}
+          title={videoDescription}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen>
+        </iframe>
       </ModalPicture>
     </div>
   );
